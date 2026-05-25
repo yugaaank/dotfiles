@@ -1,0 +1,114 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-direct",
+    "source": "/home/yugaaank/.config/fastfetch/images/head.png",
+    "width": 30,
+    "height": 13,
+    "padding": {
+      "top": 2,
+      "left": 2
+    }
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "37"
+    }
+  },
+  "modules": [
+    {
+      "key": "{#34}╔═══════════╗",
+      "type": "custom"
+    },
+    {
+      "key": "{#34}║ {#34} {#37}user    {#34}║",
+      "type": "title",
+      "format": "{#37}{user-name}"
+    },
+    {
+      "key": "{#34}║ {#36} {#37}device  {#34}║",
+      "type": "host",
+      "format": "{#37}{2}"
+    },
+    {
+      "key": "{#34}║ {#32}󰣇 {#37}distro  {#34}║",
+      "type": "os",
+      "format": "{#37}{3}"
+    },
+    {
+      "key": "{#34}║ {#33} {#37}kernel  {#34}║",
+      "type": "kernel",
+      "format": "{#37}{2}"
+    },
+    {
+      "key": "{#34}║ {#35}󰅐 {#37}uptime  {#34}║",
+      "type": "uptime",
+      "format": "{#37}{1}h {2}m"
+    },
+    {
+      "key": "{#34}║ {#34} {#37}shell   {#34}║",
+      "type": "shell",
+      "format": "{#37}{1}"
+    },
+    {
+      "key": "{#34}║ {#36} {#37}term    {#34}║",
+      "type": "terminal",
+      "format": "{#37}{1}"
+    },
+    {
+      "key": "{#34}║ {#32} {#37}wm      {#34}║",
+      "type": "wm",
+      "format": "{#37}{2}"
+    },
+    {
+      "key": "{#34}║ {#33} {#37}cpu     {#34}║",
+      "type": "cpu",
+      "format": "{#37}{1}"
+    },
+    {
+      "key": "{#34}║ {#35}󰢮 {#37}gpu     {#34}║",
+      "type": "gpu",
+      "format": "{#37}{2}"
+    },
+    {
+      "key": "{#34}║ {#34}󰍛 {#37}memory  {#34}║",
+      "type": "memory",
+      "format": "{#37}{2} / {1}"
+    },
+    {
+      "key": "{#34}║ {#36}󰉉 {#37}disk    {#34}║",
+      "type": "disk",
+      "folders": "/",
+      "format": "{#37}{2} / {1}"
+    },
+    {
+      "key": "{#34}║ {#32}󰁹 {#37}battery {#34}║",
+      "type": "battery",
+      "format": "{#37}{4}"
+    },
+    {
+      "key": "{#34}║ {#33}󰏖 {#37}apps    {#34}║",
+      "type": "packages",
+      "format": "{#37}{1}"
+    },
+    {
+      "key": "{#34}║ {#35}󰩟 {#37}network {#34}║",
+      "type": "localip",
+      "format": "{#37}{1}"
+    },
+    {
+      "key": "{#34}╠═══════════╣",
+      "type": "custom"
+    },
+    {
+      "key": "{#34}║ {#31} {#37}palette {#34}║",
+      "type": "colors",
+      "symbol": "circle"
+    },
+    {
+      "key": "{#34}╚═══════════╝",
+      "type": "custom"
+    }
+  ]
+}
