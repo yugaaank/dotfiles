@@ -1,0 +1,50 @@
+-- This file sources other files in `hyprland` and `custom` folders
+for k, v in pairs(hl) do
+	print("HL_KEY: " .. k .. " (" .. type(v) .. ")")
+end
+for k, v in pairs(hl.dsp) do
+	print("HL_DSP_KEY: " .. k .. " (" .. type(v) .. ")")
+end
+for k, v in pairs(hl.dsp.window) do
+	print("HL_WINDOW_KEY: " .. k .. " (" .. type(v) .. ")")
+end
+
+-- You wanna add your stuff in files in `custom`
+hl.dispatch(hl.dsp.submap("reset"))
+
+-- Default floating window size for normal app windows.
+
+-- Specific rules in hyprland/rules.conf and custom/rules.conf can override this.
+hl.window_rule({
+	match = {
+		class = "^(.*)$",
+	},
+	persistent_size = true,
+})
+
+-- Environment variables
+require("hyprland.env")
+
+-- Defaults
+require("hyprland.execs")
+require("hyprland.general")
+require("hyprland.rules")
+require("hyprland.colors")
+require("hyprland.keybinds")
+
+-- Custom
+require("custom.execs")
+require("custom.general")
+require("custom.rules")
+require("custom.keybinds")
+
+-- nwg-displays support
+require("custom.workspaces")
+require("custom.monitors")
+require("hyprland-gui")
+
+-- HyprMod managed settings
+
+-- Sets the bar color in red for all windows that have 'myClass' as a class
+
+-- HyprMod managed settings

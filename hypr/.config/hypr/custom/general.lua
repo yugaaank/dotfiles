@@ -1,0 +1,13 @@
+-- Put general config stuff here
+
+-- Here's a list of every variable: https://wiki.hyprland.org/Configuring/Variables/
+
+-- monitor=,addreserved, 0, 0, 0, 0 # Custom reserved area
+
+-- HDMI port: mirror display. To see device name, use `hyprctl monitors`
+
+-- Unset existing 4-finger gestures to avoid overshadowing
+
+-- gesture = 4, up, unset, dispatcher, global, quickshell:overviewWorkspacesToggle
+
+-- gesture = 4, down, unset, dispatcher, global, quickshell:overviewWorkspacesClose
