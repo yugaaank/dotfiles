@@ -65,6 +65,7 @@ alias grep="grep --color=auto"
 alias df="df -h"
 alias du="du -h"
 alias cd="z"
+alias nv="nvim ."
 # -------------------------
 # PATH (append safely)
 # -------------------------
