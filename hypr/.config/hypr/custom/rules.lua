@@ -19,12 +19,6 @@ hl.window_rule({
     match = {
         class = "^(zen-browser)$",
     },
-    persistent_size = false,
-})
-hl.window_rule({
-    match = {
-        class = "^(zen-browser)$",
-    },
     float = true,
 })
 hl.window_rule({
