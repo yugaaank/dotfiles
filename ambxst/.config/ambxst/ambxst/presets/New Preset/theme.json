@@ -1,10 +1,10 @@
 {
     "animDuration": 300,
     "enableCorners": false,
-    "font": "Roboto Condensed",
+    "font": "Inter",
     "fontSize": 14,
     "lightMode": false,
-    "monoFont": "Roboto Mono",
+    "monoFont": "JetBrainsMono Nerd Font",
     "monoFontSize": 14,
     "oledMode": true,
     "roundness": 10,
