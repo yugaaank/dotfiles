@@ -3,10 +3,13 @@
 -- Settings
 hl.config({
     decoration = {
+        active_opacity = 0.9,
         blur = {
             passes = 4,
             size = 6,
         },
+        dim_inactive = true,
+        inactive_opacity = 0.9,
         rounding = 10,
         rounding_power = 2.0,
     },
