@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "theme": "default",
+  "theme": "integrated",
   "position": "bottom",
   "height": 48,
   "iconSize": 24,

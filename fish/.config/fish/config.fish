@@ -66,6 +66,10 @@ alias df="df -h"
 alias du="du -h"
 alias cd="z"
 alias nv="nvim ."
+alias update="yay -Syu"
+alias install="yay -S"
+alias search="yay -Ss"
+alias task="bat tasks.md"
 # -------------------------
 # PATH (append safely)
 # -------------------------

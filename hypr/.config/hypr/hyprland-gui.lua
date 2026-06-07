@@ -2,6 +2,9 @@
 
 -- Settings
 hl.config({
+    cursor = {
+        persistent_warps = true,
+    },
     decoration = {
         active_opacity = 0.9,
         blur = {
@@ -16,6 +19,9 @@ hl.config({
     general = {
         gaps_in = 2,
         gaps_out = 5,
+    },
+    gestures = {
+        workspace_swipe_invert = true,
     },
     input = {
         accel_profile = "adaptive",

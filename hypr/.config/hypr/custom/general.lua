@@ -1,5 +1,14 @@
 -- Put general config stuff here
 
+hl.env("QT_QPA_PLATFORMTHEME", "xdgdesktopportal")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland:GNOME")
+
+hl.config({
+    decoration = {
+        rounding = 12,
+    }
+})
+
 -- Here's a list of every variable: https://wiki.hyprland.org/Configuring/Variables/
 
 -- monitor=,addreserved, 0, 0, 0, 0 # Custom reserved area

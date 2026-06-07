@@ -1,5 +1,5 @@
 {
-  "oledMode": false,
+  "oledMode": true,
   "lightMode": false,
   "roundness": 16,
   "font": "Inter Display",
