@@ -93,33 +93,18 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {
 
 -- !
 
--- #! Workspace
+-- ##! Workspace
 
--- Navigation
-hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1 }))
-hl.bind("SUPER + 2", hl.dsp.focus({ workspace = 2 }))
-hl.bind("SUPER + 3", hl.dsp.focus({ workspace = 3 }))
-hl.bind("SUPER + 4", hl.dsp.focus({ workspace = 4 }))
-hl.bind("SUPER + 5", hl.dsp.focus({ workspace = 5 }))
-hl.bind("SUPER + 6", hl.dsp.focus({ workspace = 6 }))
-hl.bind("SUPER + 7", hl.dsp.focus({ workspace = 7 }))
-hl.bind("SUPER + 8", hl.dsp.focus({ workspace = 8 }))
-hl.bind("SUPER + 9", hl.dsp.focus({ workspace = 9 }))
+-- Navigation and Move to Workspace
+for i = 1, 9 do
+    hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
+    hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+end
 hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
-
--- Move to Workspace
-hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
-hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = 2 }))
-hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ workspace = 3 }))
-hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ workspace = 4 }))
-hl.bind("SUPER + SHIFT + 5", hl.dsp.window.move({ workspace = 5 }))
-hl.bind("SUPER + SHIFT + 6", hl.dsp.window.move({ workspace = 6 }))
-hl.bind("SUPER + SHIFT + 7", hl.dsp.window.move({ workspace = 7 }))
-hl.bind("SUPER + SHIFT + 8", hl.dsp.window.move({ workspace = 8 }))
-hl.bind("SUPER + SHIFT + 9", hl.dsp.window.move({ workspace = 9 }))
 hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
 -- Sequential & Scroll
+
 
 -- bind = SUPER, Z, workspace, -1 # Previous workspace
 hl.bind("SUPER + X", hl.dsp.focus({ workspace = "+1" }))
@@ -184,3 +169,53 @@ hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("axctl monitor set-dpms 0 1"), 
 -- #! Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("GDK_DISABLE=vulkan nautilus --new-window --no-desktop"))
+
+-- !
+
+-- #! User
+-- Dual Shell Bind system: Toggle 'use_noctalia' to switch primary shell
+local use_noctalia = true
+
+local function dual_bind(key, noctalia_call, ambxst_call)
+	local n_cmd = "qs -c noctalia-shell ipc call " .. noctalia_call
+	local a_cmd = "ambxst run " .. ambxst_call
+
+	if use_noctalia then
+		hl.bind("SUPER + " .. key, hl.dsp.exec_cmd(n_cmd))
+		hl.bind("SUPER + ALT + " .. key, hl.dsp.exec_cmd(a_cmd))
+	else
+		hl.bind("SUPER + " .. key, hl.dsp.exec_cmd(a_cmd))
+		hl.bind("SUPER + ALT + " .. key, hl.dsp.exec_cmd(n_cmd))
+	end
+end
+
+-- Syncing binds to match Niri config
+dual_bind("D", "controlCenter toggle", "dashboard")
+dual_bind("V", "launcher clipboard", "clipboard")
+dual_bind("PERIOD", "launcher emoji", "emoji")
+dual_bind("N", "notifications toggleHistory", "notes")
+dual_bind("COMMA", "wallpaper toggle", "wallpapers")
+dual_bind("S", "launcher command", "tools")
+dual_bind("SHIFT + C", "settings toggle", "config")
+dual_bind("ESCAPE", "sessionMenu toggle", "powermenu")
+dual_bind("L", "lockScreen lock", "lock")
+
+-- Launcher handling
+if use_noctalia then
+	hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
+end
+
+hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
+hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
+hl.bind("SUPER + H", hl.dsp.window.fullscreen())
+hl.bind("SUPER + R", hl.dsp.exec_cmd("ambxst reload"))
+
+-- Start the daemon on login
+hl.on("hyprland.start", function()
+	hl.exec_cmd("snappy-switcher --daemon")
+end)
+
+-- Keybindings
+hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next"))
+hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev"))
+hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("zen-browser"))

@@ -1,5 +1,23 @@
 -- ######## Window rules ########
 
+-- Default rules
+hl.window_rule({
+	match = {
+		float = 1,
+	},
+	persistent_size = true,
+})
+
+hl.window_rule({
+	match = {
+		class = "^(.*)$",
+	},
+	float = true,
+	center = true,
+	size = "1200 800",
+	border_size = 0,
+})
+
 -- Disable blur for xwayland context menus
 hl.window_rule({
     match = {
@@ -9,9 +27,45 @@ hl.window_rule({
     no_blur = true,
 })
 
--- Disable blur for every window
-
--- windowrule = match:class .*, no_blur on
+-- Custom rules from user
+hl.window_rule({
+    match = {
+        class = "^(zen-browser)$",
+    },
+    float = true,
+    center = true,
+    size = "(monitor_w*.85) (monitor_h*.85)",
+})
+hl.window_rule({
+    match = {
+        class = "^(kitty)$",
+    },
+    size = "850 500",
+})
+hl.window_rule({
+    match = {
+        title = "^(archmenu)$",
+    },
+    float = true,
+    center = true,
+    size = "500 200",
+})
+hl.window_rule({
+    match = {
+        title = "^(archmenu-about)$",
+    },
+    float = true,
+    center = true,
+    size = "800 500",
+})
+hl.window_rule({
+    match = {
+        title = "^(archmenu-install)$",
+    },
+    float = true,
+    center = true,
+    size = "900 600",
+})
 
 -- Floating
 hl.window_rule({
@@ -19,17 +73,7 @@ hl.window_rule({
         title = "^(Open File)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Open File)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Open File)(.*)$",
-    },
     size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -37,17 +81,7 @@ hl.window_rule({
         title = "^(Select a File)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Select a File)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Select a File)(.*)$",
-    },
     size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -55,17 +89,7 @@ hl.window_rule({
         title = "^(Choose wallpaper)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Choose wallpaper)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Choose wallpaper)(.*)$",
-    },
     size = "(monitor_w*.60) (monitor_h*.65)",
 })
 hl.window_rule({
@@ -73,17 +97,7 @@ hl.window_rule({
         title = "^(Open Folder)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Open Folder)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Open Folder)(.*)$",
-    },
     size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -91,17 +105,7 @@ hl.window_rule({
         title = "^(Save As)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Save As)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Save As)(.*)$",
-    },
     size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -109,17 +113,7 @@ hl.window_rule({
         title = "^(Library)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Library)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(Library)(.*)$",
-    },
     size = "(monitor_w*.6) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -127,17 +121,7 @@ hl.window_rule({
         title = "^(File Upload)(.*)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(File Upload)(.*)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(File Upload)(.*)$",
-    },
     size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
@@ -145,17 +129,7 @@ hl.window_rule({
         title = "^(.*)(wants to save)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(.*)(wants to save)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(.*)(wants to save)$",
-    },
     size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
@@ -163,17 +137,7 @@ hl.window_rule({
         title = "^(.*)(wants to open)$",
     },
     center = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(.*)(wants to open)$",
-    },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^(.*)(wants to open)$",
-    },
     size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
@@ -193,17 +157,7 @@ hl.window_rule({
         class = "^(pavucontrol)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(pavucontrol)$",
-    },
     size = "(monitor_w*.45) (monitor_h*.45)",
-})
-hl.window_rule({
-    match = {
-        class = "^(pavucontrol)$",
-    },
     center = true,
 })
 hl.window_rule({
@@ -211,17 +165,7 @@ hl.window_rule({
         class = "^(org.pulseaudio.pavucontrol)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(org.pulseaudio.pavucontrol)$",
-    },
     size = "(monitor_w*.45) (monitor_h*.45)",
-})
-hl.window_rule({
-    match = {
-        class = "^(org.pulseaudio.pavucontrol)$",
-    },
     center = true,
 })
 hl.window_rule({
@@ -229,17 +173,7 @@ hl.window_rule({
         class = "^(nm-connection-editor)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(nm-connection-editor)$",
-    },
     size = "(monitor_w*.45) (monitor_h*.45)",
-})
-hl.window_rule({
-    match = {
-        class = "^(nm-connection-editor)$",
-    },
     center = true,
 })
 hl.window_rule({
@@ -277,11 +211,6 @@ hl.window_rule({
         class = "org.freedesktop.impl.portal.desktop.kde",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "org.freedesktop.impl.portal.desktop.kde",
-    },
     size = "(monitor_w*.60) (monitor_h*.65)",
 })
 hl.window_rule({
@@ -289,11 +218,6 @@ hl.window_rule({
         class = "^(Zotero)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(Zotero)$",
-    },
     size = "(monitor_w*.45) (monitor_h*.45)",
 })
 hl.window_rule({
@@ -301,11 +225,6 @@ hl.window_rule({
         class = "^(org\\.gnome\\.Nautilus)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(org\\.gnome\\.Nautilus)$",
-    },
     size = "850 500",
 })
 
@@ -317,17 +236,7 @@ hl.window_rule({
         class = "^(plasma-changeicons)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(plasma-changeicons)$",
-    },
     no_initial_focus = true,
-})
-hl.window_rule({
-    match = {
-        class = "^(plasma-changeicons)$",
-    },
     move = "999999 999999",
 })
 
@@ -349,35 +258,9 @@ hl.window_rule({
         title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
     },
     float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
     keep_aspect_ratio = true,
-})
-hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
     move = "(monitor_w*.73) (monitor_h*.72)",
-})
-hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
     size = "(monitor_w*.25) (monitor_h*.25)",
-})
-hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
-    float = true,
-})
-hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
     pin = true,
 })
 
@@ -463,6 +346,8 @@ hl.layer_rule({
         namespace = "indicator.*",
     },
     no_anim = true,
+    blur = true,
+    ignore_alpha = 0.6,
 })
 hl.layer_rule({
     match = {
@@ -487,11 +372,6 @@ hl.layer_rule({
         namespace = "gtk-layer-shell",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "gtk-layer-shell",
-    },
     ignore_alpha = 0,
 })
 hl.layer_rule({
@@ -499,11 +379,6 @@ hl.layer_rule({
         namespace = "launcher",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "launcher",
-    },
     ignore_alpha = 0.5,
 })
 hl.layer_rule({
@@ -511,11 +386,6 @@ hl.layer_rule({
         namespace = "notifications",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "notifications",
-    },
     ignore_alpha = 0.69,
 })
 -- malformed layerrule: match:namespace logout_dialog
@@ -544,11 +414,6 @@ hl.layer_rule({
         namespace = "bar[0-9]*",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "bar[0-9]*",
-    },
     ignore_alpha = 0.6,
 })
 hl.layer_rule({
@@ -556,11 +421,6 @@ hl.layer_rule({
         namespace = "barcorner.*",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "barcorner.*",
-    },
     ignore_alpha = 0.6,
 })
 hl.layer_rule({
@@ -568,23 +428,6 @@ hl.layer_rule({
         namespace = "dock[0-9]*",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "dock[0-9]*",
-    },
-    ignore_alpha = 0.6,
-})
-hl.layer_rule({
-    match = {
-        namespace = "indicator.*",
-    },
-    blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "indicator.*",
-    },
     ignore_alpha = 0.6,
 })
 hl.layer_rule({
@@ -592,10 +435,5 @@ hl.layer_rule({
         namespace = "osk[0-9]*",
     },
     blur = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "osk[0-9]*",
-    },
     ignore_alpha = 0.6,
 })

@@ -1,8 +1,8 @@
 -- Bar, wallpaper
 hl.on("hyprland.start", function()
 	hl.exec_cmd("~/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
-	hl.exec_cmd("ambxst")
-	hl.exec_cmd("~/.config/hypr/custom/scripts/__restore_video_wallpaper.sh")
+	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("~/.config/hypr/hyprland/scripts/__restore_video_wallpaper.sh")
 end)
 
 -- Core components (authentication, lock screen, notification daemon)
@@ -16,6 +16,7 @@ end)
 -- Audio & System Services
 hl.on("hyprland.start", function()
 	hl.exec_cmd("easyeffects --hide-window --service-mode")
+	hl.exec_cmd("elephant")
 end)
 
 -- Clipboard: history

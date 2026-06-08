@@ -1,5 +1,6 @@
 -- ############ Wayland #############
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland:GNOME")
 
 -- ######## Applications #########
 hl.env("XDG_DATA_DIRS", os.getenv("HOME") .. "/.local/share:" .. os.getenv("HOME") .. "/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share")
@@ -15,6 +16,6 @@ hl.env("ILLOGICAL_IMPULSE_VIRTUAL_ENV", "~/.local/state/quickshell/.venv")
 -- ######## Terminal application #########
 hl.env("TERMINAL", "kitty -1")
 
--- ############ Themes #############
+-- ############ Cursors #############
 hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("XCURSOR_SIZE", "20")
