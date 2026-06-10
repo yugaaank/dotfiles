@@ -19,6 +19,7 @@ hl.config({
     general = {
         gaps_in = 2,
         gaps_out = 5,
+        layout = "scrolling",
     },
     gestures = {
         workspace_swipe_invert = true,
@@ -30,6 +31,12 @@ hl.config({
         touchpad = {
             scroll_factor = 0.8,
         },
+    },
+    misc = {
+        disable_hyprland_logo = true,
+    },
+    xwayland = {
+        force_zero_scaling = true,
     },
 })
 

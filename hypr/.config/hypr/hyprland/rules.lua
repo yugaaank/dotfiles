@@ -302,6 +302,37 @@ hl.window_rule({
     no_shadow = true,
 })
 
+hl.window_rule({
+    match = {
+        workspace = "6",
+    },
+    float = false,
+})
+hl.window_rule({
+    match = {
+        workspace = "7",
+    },
+    float = false,
+})
+hl.window_rule({
+    match = {
+        workspace = "8",
+    },
+    float = false,
+})
+hl.window_rule({
+    match = {
+        workspace = "9",
+    },
+    float = false,
+})
+hl.window_rule({
+    match = {
+        workspace = "10",
+    },
+    float = false,
+})
+
 -- ######## Workspace rules ########
 hl.workspace_rule({
     workspace = "special:special",

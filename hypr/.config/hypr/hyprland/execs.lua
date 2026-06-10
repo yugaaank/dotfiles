@@ -16,6 +16,7 @@ end)
 -- Audio & System Services
 hl.on("hyprland.start", function()
 	hl.exec_cmd("easyeffects --hide-window --service-mode")
+	hl.exec_cmd("nautilus --gapplication-service >/dev/null 2>&1 & disown")
 end)
 
 -- Clipboard: history

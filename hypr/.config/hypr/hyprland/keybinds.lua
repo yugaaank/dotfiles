@@ -19,7 +19,7 @@ hl.bind("SUPER + PERIOD", noctalia_call("launcher emoji", "panel-toggle launcher
 hl.bind("SUPER + N", noctalia_call("notifications toggleHistory", "panel-toggle control-center notifications"))
 hl.bind("SUPER + COMMA", noctalia_call("wallpaper toggle", "panel-toggle wallpaper"))
 hl.bind("SUPER + S", noctalia_call("launcher command", "panel-toggle launcher /run"))
-hl.bind("SUPER + SHIFT + C", noctalia_call("settings toggle", "settings-toggle"))
+hl.bind("SUPER + I", noctalia_call("settings toggle", "settings-toggle"))
 hl.bind("SUPER + ESCAPE", noctalia_call("sessionMenu toggle", "panel-toggle session"))
 hl.bind("SUPER + TAB", noctalia_call("launcher windows", "panel-toggle launcher /win"))
 hl.bind("SUPER + R", noctalia_call("config reload", "config-reload"))
@@ -27,8 +27,14 @@ hl.bind("SUPER + R", noctalia_call("config reload", "config-reload"))
 -- Screenshot & Record
 hl.bind("SUPER + SHIFT + S", noctalia_call("plugin:screen-shot-and-record screenshot", "screenshot-region"))
 hl.bind("Print", noctalia_call("plugin:screen-shot-and-record screenshot", "screenshot-region"))
-hl.bind("SUPER + SHIFT + R", noctalia_call("plugin:screen-shot-and-record record", "plugin screen-shot-and-record screenshot:bar-widget record"))
-hl.bind("SUPER + SHIFT + A", noctalia_call("plugin:screen-shot-and-record ocr", "plugin screen-shot-and-record screenshot:bar-widget ocr"))
+hl.bind(
+	"SUPER + SHIFT + R",
+	noctalia_call("plugin:screen-shot-and-record record", "plugin screen-shot-and-record screenshot:bar-widget record")
+)
+hl.bind(
+	"SUPER + SHIFT + A",
+	noctalia_call("plugin:screen-shot-and-record ocr", "plugin screen-shot-and-record screenshot:bar-widget ocr")
+)
 
 -- !
 
@@ -60,36 +66,36 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Resize Window
 hl.bind("SUPER + ALT + Right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + Left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + Up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + Down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 hl.bind("SUPER + ALT + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }), {
-    repeating = true,
+	repeating = true,
 })
 
 -- Mouse Bindings
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {
-    mouse = true,
+	mouse = true,
 })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {
-    mouse = true,
+	mouse = true,
 })
 
 -- !
@@ -98,8 +104,8 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {
 
 -- Navigation and Move to Workspace
 for i = 1, 9 do
-    hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
-    hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+	hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
+	hl.bind("SUPER + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
@@ -119,33 +125,33 @@ hl.bind("SUPER + ALT + V", hl.dsp.window.move({ workspace = "special" }))
 
 -- #! Media & Hardware
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"), {
-    locked = true,
-    repeating = true,
+	locked = true,
+	repeating = true,
 })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"), {
-    locked = true,
-    repeating = true,
+	locked = true,
+	repeating = true,
 })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), {
-    locked = true,
-    repeating = true,
+	locked = true,
+	repeating = true,
 })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), {
-    locked = true,
-    repeating = true,
+	locked = true,
+	repeating = true,
 })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), {
-    locked = true,
-    repeating = true,
+	locked = true,
+	repeating = true,
 })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), {
-    locked = true,
+	locked = true,
 })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), {
-    locked = true,
+	locked = true,
 })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
-    locked = true,
+	locked = true,
 })
 
 -- !
@@ -153,17 +159,18 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
 -- #! Session
 hl.bind("SUPER + L", noctalia_call("lockScreen lock", "session lock"))
 hl.bind("switch:Lid Switch", noctalia_call("lockScreen lock", "session lock"), {
-    locked = true,
+	locked = true,
 })
 
 -- !
 
 -- #! Apps
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus --new-window"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e elio"))
+hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("gtk-launch org.gnome.Nautilus"))
 hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
-hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("zen-browser"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-browser"))
 
 -- !
 
