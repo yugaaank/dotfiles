@@ -17,3 +17,6 @@ require("hyprland.workspaces")
 
 -- External GUI settings (HyprMod)
 require("hyprland-gui")
+
+-- For Noctalia Color templates
+require("noctalia")

@@ -319,12 +319,6 @@ hl.layer_rule({
 -- layerrule = match:namespace .*, no_anim on
 hl.layer_rule({
     match = {
-        namespace = "walker",
-    },
-    no_anim = true,
-})
-hl.layer_rule({
-    match = {
         namespace = "selection",
     },
     no_anim = true,
@@ -332,26 +326,6 @@ hl.layer_rule({
 hl.layer_rule({
     match = {
         namespace = "overview",
-    },
-    no_anim = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "anyrun",
-    },
-    no_anim = true,
-})
-hl.layer_rule({
-    match = {
-        namespace = "indicator.*",
-    },
-    no_anim = true,
-    blur = true,
-    ignore_alpha = 0.6,
-})
-hl.layer_rule({
-    match = {
-        namespace = "osk",
     },
     no_anim = true,
 })
@@ -388,21 +362,8 @@ hl.layer_rule({
     blur = true,
     ignore_alpha = 0.69,
 })
--- malformed layerrule: match:namespace logout_dialog
 
--- ags
-hl.layer_rule({
-    match = {
-        namespace = "sideleft.*",
-    },
-    animation = "slide left",
-})
-hl.layer_rule({
-    match = {
-        namespace = "sideright.*",
-    },
-    animation = "slide right",
-})
+-- noctalia
 hl.layer_rule({
     match = {
         namespace = "session[0-9]*",
@@ -426,13 +387,6 @@ hl.layer_rule({
 hl.layer_rule({
     match = {
         namespace = "dock[0-9]*",
-    },
-    blur = true,
-    ignore_alpha = 0.6,
-})
-hl.layer_rule({
-    match = {
-        namespace = "osk[0-9]*",
     },
     blur = true,
     ignore_alpha = 0.6,

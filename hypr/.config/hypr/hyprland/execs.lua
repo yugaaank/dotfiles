@@ -1,7 +1,7 @@
 -- Bar, wallpaper
 hl.on("hyprland.start", function()
 	hl.exec_cmd("~/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
-	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("noctalia & disown")
 	hl.exec_cmd("~/.config/hypr/hyprland/scripts/__restore_video_wallpaper.sh")
 end)
 
@@ -16,7 +16,6 @@ end)
 -- Audio & System Services
 hl.on("hyprland.start", function()
 	hl.exec_cmd("easyeffects --hide-window --service-mode")
-	hl.exec_cmd("elephant")
 end)
 
 -- Clipboard: history
@@ -28,4 +27,6 @@ end)
 -- Cursor
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprctl setcursor MacTahoe 26")
+	hl.exec_cmd("gsettings set org.gnome.desktop.peripherals.mouse acceleration-profile 'flat'")
+	hl.exec_cmd("gsettings set org.gnome.desktop.peripherals.touchpad acceleration-profile 'flat'")
 end)

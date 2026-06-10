@@ -48,19 +48,19 @@ map ctrl+0 change_font_size all 0
 map ctrl+kp_0 change_font_size all 0
 map ctrl+backspace send_text all \x17
 
-background_opacity 0.7
-
-background_blur 1
-
 # BEGIN_KITTY_THEME
 # Dark Pastel
 include current-theme.conf
+include ~/.cache/ambxst/kitty.conf
 # END_KITTY_THEME
 
-
 # BEGIN_KITTY_FONTS
-font_family      family="DejaVu Sans Mono"
+font_family      family="JetBrainsMono Nerd Font"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
 # END_KITTY_FONTS
+
+background_opacity 0.8
+background_blur 1
+hide_window_decorations yes

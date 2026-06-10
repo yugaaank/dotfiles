@@ -24,7 +24,7 @@ hl.config({
         workspace_swipe_invert = true,
     },
     input = {
-        accel_profile = "adaptive",
+        accel_profile = "flat",
         scroll_factor = 0.8,
         sensitivity = 0.0,
         touchpad = {

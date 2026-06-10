@@ -249,8 +249,8 @@ hl.config({
 		},
 		accel_profile = "flat",
 		force_no_accel = false,
-		sensitivity = 0.3,
-		scroll_factor = 2.0,
+		sensitivity = 0.2,
+		scroll_factor = 0.5,
 	},
 	misc = {
 		disable_hyprland_logo = false,
@@ -269,6 +269,7 @@ hl.device({
 	natural_scroll = false,
 	tap_to_click = true,
 	accel_profile = "flat",
+	sensitivity = 0.2,
 })
 
 -- vfr = 1

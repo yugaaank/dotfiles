@@ -1,4 +1,4 @@
--- Lines ending with `# [hidden]` won't be shown on cheatsheet
+-- Lines ending with # [hidden] won't be shown on cheatsheet
 
 -- Lines starting with #! are section headings
 
@@ -6,28 +6,29 @@
 
 -- #! Shell
 
--- Ambxst Core Modules
-hl.bind("SUPER + Super_L", hl.dsp.exec_cmd("ambxst run launcher"), {
-    release = true,
-})
-hl.bind("SUPER + D", hl.dsp.exec_cmd("ambxst run dashboard"))
-hl.bind("SUPER + A", hl.dsp.exec_cmd("ambxst run assistant"))
-hl.bind("SUPER + V", hl.dsp.exec_cmd("ambxst run clipboard"))
-hl.bind("SUPER + PERIOD", hl.dsp.exec_cmd("ambxst run emoji"))
-hl.bind("SUPER + N", hl.dsp.exec_cmd("ambxst run notes"))
+-- Helper for dual noctalia support
+local function noctalia_call(v4_call, v5_cmd)
+	return hl.dsp.exec_cmd(string.format("qs -c noctalia-shell ipc call %s; noctalia msg %s", v4_call, v5_cmd))
+end
 
--- bind = SUPER, T, exec, ambxst run tmux # Tmux manager
-hl.bind("SUPER + COMMA", hl.dsp.exec_cmd("ambxst run wallpapers"))
+-- Noctalia Shell Bindings
+hl.bind("SUPER + SPACE", noctalia_call("launcher toggle", "panel-toggle launcher"))
+hl.bind("SUPER + D", noctalia_call("controlCenter toggle", "panel-toggle control-center"))
+hl.bind("SUPER + V", noctalia_call("launcher clipboard", "panel-toggle launcher /clipboard"))
+hl.bind("SUPER + PERIOD", noctalia_call("launcher emoji", "panel-toggle launcher /emo"))
+hl.bind("SUPER + N", noctalia_call("notifications toggleHistory", "panel-toggle control-center notifications"))
+hl.bind("SUPER + COMMA", noctalia_call("wallpaper toggle", "panel-toggle wallpaper"))
+hl.bind("SUPER + S", noctalia_call("launcher command", "panel-toggle launcher /run"))
+hl.bind("SUPER + SHIFT + C", noctalia_call("settings toggle", "settings-toggle"))
+hl.bind("SUPER + ESCAPE", noctalia_call("sessionMenu toggle", "panel-toggle session"))
+hl.bind("SUPER + TAB", noctalia_call("launcher windows", "panel-toggle launcher /win"))
+hl.bind("SUPER + R", noctalia_call("config reload", "config-reload"))
 
--- System Utilities
-hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("ambxst run config"))
-hl.bind("SUPER + TAB", hl.dsp.exec_cmd("ambxst run overview"))
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("ambxst run powermenu"))
-hl.bind("SUPER + S", hl.dsp.exec_cmd("ambxst run tools"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("ambxst run screenshot"))
-hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("ambxst run screenrecord"))
-hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("ambxst run lens"))
-hl.bind("SUPER + CTRL + ALT + B", hl.dsp.exec_cmd("ambxst quit"))
+-- Screenshot & Record
+hl.bind("SUPER + SHIFT + S", noctalia_call("plugin:screen-shot-and-record screenshot", "screenshot-region"))
+hl.bind("Print", noctalia_call("plugin:screen-shot-and-record screenshot", "screenshot-region"))
+hl.bind("SUPER + SHIFT + R", noctalia_call("plugin:screen-shot-and-record record", "plugin screen-shot-and-record screenshot:bar-widget record"))
+hl.bind("SUPER + SHIFT + A", noctalia_call("plugin:screen-shot-and-record ocr", "plugin screen-shot-and-record screenshot:bar-widget ocr"))
 
 -- !
 
@@ -104,9 +105,6 @@ hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
 -- Sequential & Scroll
-
-
--- bind = SUPER, Z, workspace, -1 # Previous workspace
 hl.bind("SUPER + X", hl.dsp.focus({ workspace = "+1" }))
 hl.bind("SUPER + SHIFT + Z", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("SUPER + SHIFT + X", hl.dsp.focus({ workspace = "e+1" }))
@@ -132,11 +130,11 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
     locked = true,
     repeating = true,
 })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("ambxst brightness +5"), {
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), {
     locked = true,
     repeating = true,
 })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("ambxst brightness -5"), {
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), {
     locked = true,
     repeating = true,
 })
@@ -153,14 +151,8 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), {
 -- !
 
 -- #! Session
-hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
-hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("loginctl lock-session"), {
-    locked = true,
-})
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("axctl monitor set-dpms 0 0"), {
-    locked = true,
-})
-hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("axctl monitor set-dpms 0 1"), {
+hl.bind("SUPER + L", noctalia_call("lockScreen lock", "session lock"))
+hl.bind("switch:Lid Switch", noctalia_call("lockScreen lock", "session lock"), {
     locked = true,
 })
 
@@ -168,48 +160,14 @@ hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("axctl monitor set-dpms 0 1"), 
 
 -- #! Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind("SUPER + E", hl.dsp.exec_cmd("GDK_DISABLE=vulkan nautilus --new-window --no-desktop"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus --new-window"))
+hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
+hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
+hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("zen-browser"))
 
 -- !
 
 -- #! User
--- Dual Shell Bind system: Toggle 'use_noctalia' to switch primary shell
-local use_noctalia = true
-
-local function dual_bind(key, noctalia_call, ambxst_call)
-	local n_cmd = "qs -c noctalia-shell ipc call " .. noctalia_call
-	local a_cmd = "ambxst run " .. ambxst_call
-
-	if use_noctalia then
-		hl.bind("SUPER + " .. key, hl.dsp.exec_cmd(n_cmd))
-		hl.bind("SUPER + ALT + " .. key, hl.dsp.exec_cmd(a_cmd))
-	else
-		hl.bind("SUPER + " .. key, hl.dsp.exec_cmd(a_cmd))
-		hl.bind("SUPER + ALT + " .. key, hl.dsp.exec_cmd(n_cmd))
-	end
-end
-
--- Syncing binds to match Niri config
-dual_bind("D", "controlCenter toggle", "dashboard")
-dual_bind("V", "launcher clipboard", "clipboard")
-dual_bind("PERIOD", "launcher emoji", "emoji")
-dual_bind("N", "notifications toggleHistory", "notes")
-dual_bind("COMMA", "wallpaper toggle", "wallpapers")
-dual_bind("S", "launcher command", "tools")
-dual_bind("SHIFT + C", "settings toggle", "config")
-dual_bind("ESCAPE", "sessionMenu toggle", "powermenu")
-dual_bind("L", "lockScreen lock", "lock")
-
--- Launcher handling
-if use_noctalia then
-	hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher toggle"))
-end
-
-hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
-hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
-hl.bind("SUPER + H", hl.dsp.window.fullscreen())
-hl.bind("SUPER + R", hl.dsp.exec_cmd("ambxst reload"))
-
 -- Start the daemon on login
 hl.on("hyprland.start", function()
 	hl.exec_cmd("snappy-switcher --daemon")
@@ -218,4 +176,3 @@ end)
 -- Keybindings
 hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev"))
-hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd("zen-browser"))
