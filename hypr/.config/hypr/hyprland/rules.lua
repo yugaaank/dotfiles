@@ -1,5 +1,13 @@
 -- ######## Window rules ########
-
+hl.layer_rule({
+	name = "noctalia",
+	match = {
+		namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$",
+	},
+	ignore_alpha = 0.5,
+	blur = true,
+	blur_popups = true,
+})
 -- Default rules
 hl.window_rule({
 	match = {
@@ -20,232 +28,232 @@ hl.window_rule({
 
 -- Disable blur for xwayland context menus
 hl.window_rule({
-    match = {
-        class = "^()$",
-        title = "^()$",
-    },
-    no_blur = true,
+	match = {
+		class = "^()$",
+		title = "^()$",
+	},
+	no_blur = true,
 })
 
 -- Custom rules from user
 hl.window_rule({
-    match = {
-        class = "^(zen-browser)$",
-    },
-    float = true,
-    center = true,
-    size = "(monitor_w*.85) (monitor_h*.85)",
+	match = {
+		class = "^(zen-browser)$",
+	},
+	float = true,
+	center = true,
+	size = "(monitor_w*.85) (monitor_h*.85)",
 })
 hl.window_rule({
-    match = {
-        class = "^(kitty)$",
-    },
-    size = "850 500",
+	match = {
+		class = "^(kitty)$",
+	},
+	size = "850 500",
 })
 hl.window_rule({
-    match = {
-        title = "^(archmenu)$",
-    },
-    float = true,
-    center = true,
-    size = "500 200",
+	match = {
+		title = "^(archmenu)$",
+	},
+	float = true,
+	center = true,
+	size = "500 200",
 })
 hl.window_rule({
-    match = {
-        title = "^(archmenu-about)$",
-    },
-    float = true,
-    center = true,
-    size = "800 500",
+	match = {
+		title = "^(archmenu-about)$",
+	},
+	float = true,
+	center = true,
+	size = "800 500",
 })
 hl.window_rule({
-    match = {
-        title = "^(archmenu-install)$",
-    },
-    float = true,
-    center = true,
-    size = "900 600",
+	match = {
+		title = "^(archmenu-install)$",
+	},
+	float = true,
+	center = true,
+	size = "900 600",
 })
 
 -- Floating
 hl.window_rule({
-    match = {
-        title = "^(Open File)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.7) (monitor_h*.7)",
+	match = {
+		title = "^(Open File)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(Select a File)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.7) (monitor_h*.7)",
+	match = {
+		title = "^(Select a File)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(Choose wallpaper)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.60) (monitor_h*.65)",
+	match = {
+		title = "^(Choose wallpaper)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.60) (monitor_h*.65)",
 })
 hl.window_rule({
-    match = {
-        title = "^(Open Folder)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.7) (monitor_h*.7)",
+	match = {
+		title = "^(Open Folder)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(Save As)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.7) (monitor_h*.7)",
+	match = {
+		title = "^(Save As)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(Library)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.6) (monitor_h*.7)",
+	match = {
+		title = "^(Library)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.6) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(File Upload)(.*)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.7) (monitor_h*.7)",
+	match = {
+		title = "^(File Upload)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.7) (monitor_h*.7)",
 })
 hl.window_rule({
-    match = {
-        title = "^(.*)(wants to save)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.5) (monitor_h*.5)",
+	match = {
+		title = "^(.*)(wants to save)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
-    match = {
-        title = "^(.*)(wants to open)$",
-    },
-    center = true,
-    float = true,
-    size = "(monitor_w*.5) (monitor_h*.5)",
+	match = {
+		title = "^(.*)(wants to open)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
-    match = {
-        class = "^(blueberry\\.py)$",
-    },
-    float = true,
+	match = {
+		class = "^(blueberry\\.py)$",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        class = "^(guifetch)$",
-    },
-    float = true,
+	match = {
+		class = "^(guifetch)$",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        class = "^(pavucontrol)$",
-    },
-    float = true,
-    size = "(monitor_w*.45) (monitor_h*.45)",
-    center = true,
+	match = {
+		class = "^(pavucontrol)$",
+	},
+	float = true,
+	size = "(monitor_w*.45) (monitor_h*.45)",
+	center = true,
 })
 hl.window_rule({
-    match = {
-        class = "^(org.pulseaudio.pavucontrol)$",
-    },
-    float = true,
-    size = "(monitor_w*.45) (monitor_h*.45)",
-    center = true,
+	match = {
+		class = "^(org.pulseaudio.pavucontrol)$",
+	},
+	float = true,
+	size = "(monitor_w*.45) (monitor_h*.45)",
+	center = true,
 })
 hl.window_rule({
-    match = {
-        class = "^(nm-connection-editor)$",
-    },
-    float = true,
-    size = "(monitor_w*.45) (monitor_h*.45)",
-    center = true,
+	match = {
+		class = "^(nm-connection-editor)$",
+	},
+	float = true,
+	size = "(monitor_w*.45) (monitor_h*.45)",
+	center = true,
 })
 hl.window_rule({
-    match = {
-        class = ".*plasmawindowed.*",
-    },
-    float = true,
+	match = {
+		class = ".*plasmawindowed.*",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        class = "kcm_.*",
-    },
-    float = true,
+	match = {
+		class = "kcm_.*",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        class = ".*bluedevilwizard",
-    },
-    float = true,
+	match = {
+		class = ".*bluedevilwizard",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        title = ".*Welcome",
-    },
-    float = true,
+	match = {
+		title = ".*Welcome",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        title = ".*Shell conflicts.*",
-    },
-    float = true,
+	match = {
+		title = ".*Shell conflicts.*",
+	},
+	float = true,
 })
 hl.window_rule({
-    match = {
-        class = "org.freedesktop.impl.portal.desktop.kde",
-    },
-    float = true,
-    size = "(monitor_w*.60) (monitor_h*.65)",
+	match = {
+		class = "org.freedesktop.impl.portal.desktop.kde",
+	},
+	float = true,
+	size = "(monitor_w*.60) (monitor_h*.65)",
 })
 hl.window_rule({
-    match = {
-        class = "^(Zotero)$",
-    },
-    float = true,
-    size = "(monitor_w*.45) (monitor_h*.45)",
+	match = {
+		class = "^(Zotero)$",
+	},
+	float = true,
+	size = "(monitor_w*.45) (monitor_h*.45)",
 })
 hl.window_rule({
-    match = {
-        class = "^(org\\.gnome\\.Nautilus)$",
-    },
-    float = true,
-    size = "850 500",
+	match = {
+		class = "^(org\\.gnome\\.Nautilus)$",
+	},
+	float = true,
+	size = "850 500",
 })
 
 -- Move
 
 -- kde-material-you-colors spawns a window when changing dark/light theme. This is to make sure it doesn't interfere at all.
 hl.window_rule({
-    match = {
-        class = "^(plasma-changeicons)$",
-    },
-    float = true,
-    no_initial_focus = true,
-    move = "999999 999999",
+	match = {
+		class = "^(plasma-changeicons)$",
+	},
+	float = true,
+	no_initial_focus = true,
+	move = "999999 999999",
 })
 
 -- stupid dolphin copy
 hl.window_rule({
-    match = {
-        title = "^(Copying — Dolphin)$",
-    },
-    move = "40 80",
+	match = {
+		title = "^(Copying — Dolphin)$",
+	},
+	move = "40 80",
 })
 
 -- Tiling
@@ -254,171 +262,171 @@ hl.window_rule({
 
 -- Picture-in-Picture
 hl.window_rule({
-    match = {
-        title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-    },
-    float = true,
-    keep_aspect_ratio = true,
-    move = "(monitor_w*.73) (monitor_h*.72)",
-    size = "(monitor_w*.25) (monitor_h*.25)",
-    pin = true,
+	match = {
+		title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
+	},
+	float = true,
+	keep_aspect_ratio = true,
+	move = "(monitor_w*.73) (monitor_h*.72)",
+	size = "(monitor_w*.25) (monitor_h*.25)",
+	pin = true,
 })
 
 -- --- Tearing ---
 hl.window_rule({
-    match = {
-        title = ".*\\.exe",
-    },
-    immediate = true,
+	match = {
+		title = ".*\\.exe",
+	},
+	immediate = true,
 })
 hl.window_rule({
-    match = {
-        title = ".*minecraft.*",
-    },
-    immediate = true,
+	match = {
+		title = ".*minecraft.*",
+	},
+	immediate = true,
 })
 hl.window_rule({
-    match = {
-        class = "^(steam_app).*",
-    },
-    immediate = true,
+	match = {
+		class = "^(steam_app).*",
+	},
+	immediate = true,
 })
 
 -- Fix Jetbrain IDEs focus/rerendering problem
 hl.window_rule({
-    match = {
-        class = "^jetbrains-.*$",
-        float = 1,
-        title = "^$|^\\s$|^win\\d+$",
-    },
-    no_initial_focus = true,
+	match = {
+		class = "^jetbrains-.*$",
+		float = 1,
+		title = "^$|^\\s$|^win\\d+$",
+	},
+	no_initial_focus = true,
 })
 
 -- No shadow for tiled windows (matches windows that are not floating).
 hl.window_rule({
-    match = {
-        float = 0,
-    },
-    no_shadow = true,
+	match = {
+		float = 0,
+	},
+	no_shadow = true,
 })
 
 hl.window_rule({
-    match = {
-        workspace = "6",
-    },
-    float = false,
+	match = {
+		workspace = "6",
+	},
+	float = false,
 })
 hl.window_rule({
-    match = {
-        workspace = "7",
-    },
-    float = false,
+	match = {
+		workspace = "7",
+	},
+	float = false,
 })
 hl.window_rule({
-    match = {
-        workspace = "8",
-    },
-    float = false,
+	match = {
+		workspace = "8",
+	},
+	float = false,
 })
 hl.window_rule({
-    match = {
-        workspace = "9",
-    },
-    float = false,
+	match = {
+		workspace = "9",
+	},
+	float = false,
 })
 hl.window_rule({
-    match = {
-        workspace = "10",
-    },
-    float = false,
+	match = {
+		workspace = "10",
+	},
+	float = false,
 })
 
 -- ######## Workspace rules ########
 hl.workspace_rule({
-    workspace = "special:special",
-    gaps_out = 30,
+	workspace = "special:special",
+	gaps_out = 30,
 })
 
 -- ######## Layer rules ########
 hl.layer_rule({
-    match = {
-        namespace = ".*",
-    },
-    xray = true,
+	match = {
+		namespace = ".*",
+	},
+	xray = true,
 })
 
 -- layerrule = match:namespace .*, no_anim on
 hl.layer_rule({
-    match = {
-        namespace = "selection",
-    },
-    no_anim = true,
+	match = {
+		namespace = "selection",
+	},
+	no_anim = true,
 })
 hl.layer_rule({
-    match = {
-        namespace = "overview",
-    },
-    no_anim = true,
+	match = {
+		namespace = "overview",
+	},
+	no_anim = true,
 })
 hl.layer_rule({
-    match = {
-        namespace = "hyprpicker",
-    },
-    no_anim = true,
+	match = {
+		namespace = "hyprpicker",
+	},
+	no_anim = true,
 })
 hl.layer_rule({
-    match = {
-        namespace = "noanim",
-    },
-    no_anim = true,
+	match = {
+		namespace = "noanim",
+	},
+	no_anim = true,
 })
 hl.layer_rule({
-    match = {
-        namespace = "gtk-layer-shell",
-    },
-    blur = true,
-    ignore_alpha = 0,
+	match = {
+		namespace = "gtk-layer-shell",
+	},
+	blur = true,
+	ignore_alpha = 0,
 })
 hl.layer_rule({
-    match = {
-        namespace = "launcher",
-    },
-    blur = true,
-    ignore_alpha = 0.5,
+	match = {
+		namespace = "launcher",
+	},
+	blur = true,
+	ignore_alpha = 0.5,
 })
 hl.layer_rule({
-    match = {
-        namespace = "notifications",
-    },
-    blur = true,
-    ignore_alpha = 0.69,
+	match = {
+		namespace = "notifications",
+	},
+	blur = true,
+	ignore_alpha = 0.69,
 })
 
 -- noctalia
 hl.layer_rule({
-    match = {
-        namespace = "session[0-9]*",
-    },
-    blur = true,
+	match = {
+		namespace = "session[0-9]*",
+	},
+	blur = true,
 })
 hl.layer_rule({
-    match = {
-        namespace = "bar[0-9]*",
-    },
-    blur = true,
-    ignore_alpha = 0.6,
+	match = {
+		namespace = "bar[0-9]*",
+	},
+	blur = true,
+	ignore_alpha = 0.6,
 })
 hl.layer_rule({
-    match = {
-        namespace = "barcorner.*",
-    },
-    blur = true,
-    ignore_alpha = 0.6,
+	match = {
+		namespace = "barcorner.*",
+	},
+	blur = true,
+	ignore_alpha = 0.6,
 })
 hl.layer_rule({
-    match = {
-        namespace = "dock[0-9]*",
-    },
-    blur = true,
-    ignore_alpha = 0.6,
+	match = {
+		namespace = "dock[0-9]*",
+	},
+	blur = true,
+	ignore_alpha = 0.6,
 })

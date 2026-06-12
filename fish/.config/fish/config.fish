@@ -108,3 +108,7 @@ set -x ANDROID_SDK_ROOT $HOME/Android/Sdk
 fish_add_path $ANDROID_HOME/emulator
 fish_add_path $ANDROID_HOME/platform-tools
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+
+# Qwen Code PATH block begin
+set -gx PATH '/home/yugaaank/.local/bin' $PATH
+# Qwen Code PATH block end

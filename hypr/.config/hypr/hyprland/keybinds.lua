@@ -165,7 +165,7 @@ hl.bind("switch:Lid Switch", noctalia_call("lockScreen lock", "session lock"), {
 -- !
 
 -- #! Apps
-hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
 hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e elio"))
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("gtk-launch org.gnome.Nautilus"))
@@ -183,3 +183,35 @@ end)
 -- Keybindings
 hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev"))
+-- #! Hypr Canvas
+
+-- Pan canvas
+hl.bind("SUPER + SHIFT + mouse:272", function()
+	hl.exec_cmd("canvas-ctl pan-start")
+end, { mouse = true })
+
+hl.bind("SUPER + SHIFT + mouse:272", function()
+	hl.exec_cmd("canvas-ctl pan-stop")
+end, { mouse = true, release = true })
+
+-- Edge scroll while dragging windows
+hl.bind("SUPER + mouse:272", function()
+	hl.dispatch(hl.dsp.window.drag())
+	hl.exec_cmd("canvas-ctl edge-start")
+end, { mouse = true })
+
+hl.bind("SUPER + mouse:272", function()
+	hl.exec_cmd("canvas-ctl edge-stop")
+end, { mouse = true, release = true })
+
+-- Navigation
+hl.bind("SUPER + SHIFT + Left", hl.dsp.exec_cmd("canvas-ctl nav-left"))
+hl.bind("SUPER + SHIFT + Right", hl.dsp.exec_cmd("canvas-ctl nav-right"))
+hl.bind("SUPER + SHIFT + Up", hl.dsp.exec_cmd("canvas-ctl nav-up"))
+hl.bind("SUPER + SHIFT + Down", hl.dsp.exec_cmd("canvas-ctl nav-down"))
+
+-- Toggle canvas mode
+hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("canvas-ctl canvas-toggle"))
+
+-- Toggle inverted controls
+hl.bind("SUPER + SHIFT + G", hl.dsp.exec_cmd("canvas-ctl toggle"))
