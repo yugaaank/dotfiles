@@ -16,8 +16,9 @@ fish_vi_key_bindings
 # - Starship owns the prompt completely
 
 if status is-interactive
-    starship init fish | source
-
+    if type -q starship
+        starship init fish | source
+    end
 end
 
 # -------------------------
@@ -66,10 +67,7 @@ alias df="df -h"
 alias du="du -h"
 alias cd="z"
 alias nv="nvim ."
-alias update="yay -Syu"
-alias install="yay -S"
-alias search="yay -Ss"
-alias task="bat tasks.md"
+alias gay="agy"
 # -------------------------
 # PATH (append safely)
 # -------------------------
