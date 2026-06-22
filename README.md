@@ -1,83 +1,75 @@
 # 💠 dotfiles
 
-A modular, aesthetic, and high-performance dotfiles configuration for **Arch Linux**, centered around **Hyprland** and a custom **ambxst** UI suite.
+Clean, mean, and mildly opinionated. This is a dotfiles collection for people who like Hyprland, Noctalia v5, and not wasting time on mediocre setups.
 
-![Hyprland](https://img.shields.io/badge/WM-Hyprland-blue?style=for-the-badge&logo=hyprland)
-![Shell](https://img.shields.io/badge/Shell-Fish-orange?style=for-the-badge&logo=fish)
-![Editor](https://img.shields.io/badge/Editor-Neovim-green?style=for-the-badge&logo=neovim)
-![Terminal](https://img.shields.io/badge/Terminal-Kitty-lightgrey?style=for-the-badge&logo=kitty)
+Badges: Hyprland, Noctalia v5, Fish, Neovim, Kitty — pick your poison.
 
 ---
 
-## 🚀 Key Components
+## What this is
 
-- **Window Manager**: [Hyprland](https://hyprland.org/) - A dynamic tiling Wayland compositor with smooth animations and modular config.
-- **UI Suite**: **ambxst** - A custom desktop interaction layer handling the bar, notch, dock, dashboard, and AI assistant.
-- **Shell**: [Fish](https://fishshell.com/) with [Starship](https://starship.rs/) prompt, [Zoxide](https://github.com/ajeetdsouza/zoxide), and [FZF](https://github.com/junegunn/fzf).
-- **Editor**: [Neovim](https://neovim.io/) - Powered by [LazyVim](https://www.lazyvim.org/) with Tokyonight Storm and transparent backgrounds.
-- **Terminal**: [Kitty](https://sw.kovidgoyal.net/kitty/) - Fast, GPU-based terminal with custom search kittens.
+A lean, modular config for Arch with Hyprland as the compositor and Noctalia v5 as the shell/UI. If you show up with anything else, expect friction.
 
-## 🛠️ Installation
+## The stack (short)
 
-These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
+- Hyprland — tiling, smooth, and fast.
+- Noctalia v5 — this is the shell/UI this repo was designed around. Hyprland here expects Noctalia v5.
+- Fish + Starship — because your shell should be readable and not cry on startup.
+- Neovim (LazyVim) — sane defaults, not a religion.
+- Kitty — GPU terminal; yes, it matters.
 
-### 1. Prerequisites
+## Install (Arch)
 
-Ensure you have the following installed:
-- `hyprland`, `hypridle`, `hyprlock`
-- `stow`, `fish`, `kitty`, `neovim`, `starship`, `zoxide`, `fzf`
-- `bun` (Runtime for UI components)
-- `wl-clipboard`, `cliphist` (Clipboard management)
-- `gnome-keyring` (Secret storage)
-
-### 2. Setup
+Yes, this is for Arch. If you're not on Arch, adapt intelligently.
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-
-# Deploy packages
-stow hypr kitty nvim fish starship ambxst fastfetch
+sudo pacman -S --needed hyprland hypridle hyprlock stow fish kitty neovim starship zoxide fzf wl-clipboard gnome-keyring
+# AUR-only pieces (example):
+your-aur-helper -S fastfetch bun
 ```
 
-## 🎨 Customization
+Backup your old ~/.config before running stow unless you enjoy surprises.
 
-### Hyprland
-The configuration is split into `hyprland/` (core logic) and `custom/` (personal tweaks). 
-- **Keybinds**: Edit `~/.config/hypr/custom/keybinds.conf`
-- **Monitors**: Edit `~/.config/hypr/custom/monitors.conf`
-- **Startup**: Edit `~/.config/hypr/custom/execs.conf`
+Deploy (example):
 
-### ambxst UI
-The `ambxst` suite is a powerful utility layer. Use `ambxst run <module>` or the following keybinds:
+```bash
+git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+stow hypr kitty nvim fish starship fastfetch
+# to remove: stow -D hypr
+```
 
-| Shortcut | Action |
-| --- | --- |
-| `SUPER` (Tap) | App Launcher |
-| `SUPER` + `D` | Dashboard |
-| `SUPER` + `A` | AI Assistant |
-| `SUPER` + `V` | Clipboard History |
-| `SUPER` + `TAB` | Window Overview |
-| `SUPER` + `.` | Emoji Picker |
-| `SUPER` + `,` | Wallpaper Selector |
-| `SUPER` + `N` | Notes Module |
-| `SUPER` + `S` | Quick Tools |
-| `SUPER` + `ESC` | Power Menu |
+## Tweak it
 
-## ⌨️ Window Management
+Configs are split: `hyprland/` is core, `custom/` is your playground. Change keybinds, monitors, or startup scripts there.
 
-| Shortcut | Action |
-| --- | --- |
-| `SUPER` + `Q` | Close Active Window |
-| `SUPER` + `Return` | Open Kitty |
-| `SUPER` + `F` | Toggle Fullscreen |
-| `SUPER` + `B` | Toggle Floating |
-| `SUPER` + `H/J/K/L` | Move Focus (Vim-style) |
-| `SUPER` + `SHIFT` + `H/J/K/L` | Move Window |
-| `SUPER` + `1-0` | Switch Workspace |
+Quick pointers:
+- Keybinds: ~/.config/hypr/custom/keybinds.conf
+- Monitors: ~/.config/hypr/custom/monitors.conf
+- Startup: ~/.config/hypr/custom/execs.conf
+
+Important: Hyprland here is wired to work with Noctalia v5 only. Use anything else and you'll be manually fixing things. Fun? Maybe. Efficient? Not really.
+
+## Shortcuts (the essentials)
+
+- SUPER + Return — open Kitty
+- SUPER + Q — kill focused window
+- SUPER + F — toggle fullscreen
+- SUPER + B — toggle floating
+- SUPER + H/J/K/L — move focus
+- SUPER + SHIFT + H/J/K/L — move window
+
+## Security & secrets
+
+Don't commit keys. Use gnome-keyring, pass, or your secret manager of choice. There's a known reference to a Kitty remote password variable in the fish configs — treat it like an actual secret.
+
+## Quick bootstrap
+
+1. Clone the repo and cd into it.
+2. Install the packages above.
+3. Run the stow command for the packages you want.
+4. If something breaks, open an issue or fix it yourself and PR — both accepted.
 
 ---
 
-> [!TIP]
-> Use the `fsh` alias in Fish to quickly jump into your shell configuration, and `so` to apply changes instantly.
+If you want the README polished for public consumption (screenshots, bling, or an onboarding GIF), say the word and I'll add something tasteful. Or tasteless, your call.

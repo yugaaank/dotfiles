@@ -1,0 +1,93 @@
+format = """
+[󰮯 ](bold)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$all\
+$character"""
+
+right_format = """
+$nodejs\
+$package\
+$cmd_duration\
+$time"""
+
+[username]
+style_user = "fg:cyan"
+style_root = "fg:red bold"
+format = "[ $user ]($style)"
+show_always = true
+
+[hostname]
+ssh_symbol = "🌐 "
+style = "fg:blue"
+format = "[@$hostname ]($style)"
+ssh_only = true
+
+[directory]
+style = "fg:blue"
+format = "[  $path]($style) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Desktop" = " "
+
+[git_branch]
+symbol = ""
+style = "fg:purple"
+format = '[$symbol $branch]($style) '
+only_attached = true
+truncation_length = 20
+
+[git_status]
+style = "fg:red"
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = "󰞇 "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "󰡯 "
+stashed = " "
+modified = "󰏫 "
+staged = " "
+renamed = "󰑕 "
+deleted = " "
+
+[nodejs]
+symbol = ""
+style = "fg:green"
+format = '[$symbol $version ]($style)'
+
+[package]
+symbol = ""
+style = "fg:yellow"
+format = '[$symbol $version ]($style)'
+
+[cmd_duration]
+min_time = 2_000
+format = '[ $duration ](fg:yellow)'
+
+[time]
+disabled = false
+time_format = "%a %R"
+style = "bold"
+format = '[$time]($style)'
+
+[character]
+disabled = false
+success_symbol = '[❯ ](fg:blue)'
+error_symbol = '[❯ ](fg:red)'
+vimcmd_symbol = '[❮ ](fg:green)'
+vimcmd_replace_one_symbol = '[❮ ](fg:purple)'
+vimcmd_replace_symbol = '[❮ ](fg:purple)'
+vimcmd_visual_symbol = '[❮ ](fg:yellow)'
+
+[line_break]
+disabled = true

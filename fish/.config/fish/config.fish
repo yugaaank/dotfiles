@@ -90,7 +90,7 @@ zoxide init fish --cmd cd | source
 #source /usr/share/nvm/init-nvm.sh
 set --universal nvm_default_version lts
 
-# Import colors from pywal/ambxst
+# Import colors from pywal (leftover reference to ambxst removed)
 if test -f ~/.cache/wal/colors.sh
     for line in (cat ~/.cache/wal/colors.sh)
         set -l var (echo $line | cut -d'=' -f1)
@@ -106,3 +106,6 @@ set -x ANDROID_SDK_ROOT $HOME/Android/Sdk
 fish_add_path $ANDROID_HOME/emulator
 fish_add_path $ANDROID_HOME/platform-tools
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+
+# opencode
+fish_add_path /home/yugaaank/.opencode/bin
