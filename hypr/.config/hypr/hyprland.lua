@@ -17,3 +17,6 @@ require("hyprland.workspaces")
 
 -- External GUI settings (HyprMod)
 require("hyprland-gui")
+
+-- This loads Noctalia-generated Hyprland colors.
+dofile("/home/yugaaank/.config/hypr/noctalia/noctalia-colors.lua")
