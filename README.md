@@ -1,7 +1,4 @@
-########################################
-#            DOTFILES                  #
-########################################
-
+ 
 Clean, mean, and mildly opinionated. This is a dotfiles collection for people who like Hyprland, Noctalia v5, and not wasting time on mediocre setups.
 
 Badges: Hyprland, Noctalia v5, Fish, Neovim, Kitty — pick your poison.
