@@ -1,10 +1,12 @@
-# 💠 dotfiles
+########################################
+#            DOTFILES                  #
+########################################
 
 Clean, mean, and mildly opinionated. This is a dotfiles collection for people who like Hyprland, Noctalia v5, and not wasting time on mediocre setups.
 
 Badges: Hyprland, Noctalia v5, Fish, Neovim, Kitty — pick your poison.
 
----
+----------------------------------------
 
 ## What this is
 
@@ -25,7 +27,16 @@ Yes, this is for Arch. If you're not on Arch, adapt intelligently.
 ```bash
 sudo pacman -S --needed hyprland hypridle hyprlock stow fish kitty neovim starship zoxide fzf wl-clipboard gnome-keyring
 # AUR-only pieces (example):
-your-aur-helper -S fastfetch bun
+# Install Noctalia v5 (AUR):
+your-aur-helper -S fastfetch bun noctalia-git
+
+If you use yay specifically:
+
+```bash
+yay -S noctalia-git
+```
+
+After installing Noctalia v5, follow its README for enabling the UI components you want (bar, launcher, dashboard). This repo expects Noctalia to provide those UI pieces.
 ```
 
 Backup your old ~/.config before running stow unless you enjoy surprises.
