@@ -6,26 +6,33 @@ hl.config({
         persistent_warps = true,
     },
     decoration = {
-        active_opacity = 0.9,
+        active_opacity = 1.0,
         blur = {
             passes = 4,
             size = 6,
         },
         dim_inactive = true,
-        inactive_opacity = 0.9,
-        rounding = 10,
-        rounding_power = 2.0,
+        fullscreen_opacity = 0.95,
+        inactive_opacity = 0.95,
+        rounding = 13,
+        rounding_power = 3.0,
+        shadow = {
+            color = "0x40000000",
+            offset = "0 0",
+            render_power = 4,
+        },
     },
     general = {
         gaps_in = 2,
         gaps_out = 5,
+        layout = "dwindle",
     },
     gestures = {
         workspace_swipe_invert = true,
     },
     input = {
-        accel_profile = "adaptive",
-        scroll_factor = 0.8,
+        accel_profile = "flat",
+        scroll_factor = 3.0,
         sensitivity = 0.0,
         touchpad = {
             scroll_factor = 0.8,
