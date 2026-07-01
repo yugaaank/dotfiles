@@ -121,16 +121,11 @@ hl.config({
 	},
 })
 
--- Curves
-hl.curve("expressiveFastSpatial", { type = "bezier", points = { { 0.42, 1.67 }, { 0.21, 0.9 } } })
-hl.curve("expressiveSlowSpatial", { type = "bezier", points = { { 0.39, 1.29 }, { 0.35, 0.98 } } })
-hl.curve("expressiveDefaultSpatial", { type = "bezier", points = { { 0.38, 1.21 }, { 0.22, 1.0 } } })
-hl.curve("emphasizedDecel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
-hl.curve("emphasizedAccel", { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } })
-hl.curve("standardDecel", { type = "bezier", points = { { 0, 0 }, { 0, 1 } } })
-hl.curve("menu_decel", { type = "bezier", points = { { 0.1, 1 }, { 0, 1 } } })
-hl.curve("menu_accel", { type = "bezier", points = { { 0.52, 0.03 }, { 0.72, 0.08 } } })
-hl.curve("stall", { type = "bezier", points = { { 1, -0.1 }, { 0.7, 0.85 } } })
+-- Curves — techy/digital set
+hl.curve("techIn", { type = "bezier", points = { { 0.16, 1.0 }, { 0.3, 1.0 } } })
+hl.curve("techOut", { type = "bezier", points = { { 0.4, 0 }, { 1, 1 } } })
+hl.curve("techMove", { type = "bezier", points = { { 0.15, 1.1 }, { 0.4, 1 } } })
+hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.275 } } })
 
 -- Configs
 
@@ -138,96 +133,96 @@ hl.curve("stall", { type = "bezier", points = { { 1, -0.1 }, { 0.7, 0.85 } } })
 hl.animation({
 	leaf = "windowsIn",
 	enabled = true,
-	speed = 3,
-	bezier = "emphasizedDecel",
-	style = "popin 80%",
+	speed = 2,
+	bezier = "techIn",
+	style = "gnomed",
 })
 hl.animation({
 	leaf = "fadeIn",
 	enabled = true,
-	speed = 3,
-	bezier = "emphasizedDecel",
+	speed = 2,
+	bezier = "techIn",
 })
 hl.animation({
 	leaf = "windowsOut",
 	enabled = true,
-	speed = 2,
-	bezier = "emphasizedDecel",
-	style = "popin 90%",
+	speed = 1,
+	bezier = "techOut",
+	style = "gnomed",
 })
 hl.animation({
 	leaf = "fadeOut",
 	enabled = true,
-	speed = 2,
-	bezier = "emphasizedDecel",
+	speed = 1,
+	bezier = "techOut",
 })
 hl.animation({
 	leaf = "windowsMove",
 	enabled = true,
-	speed = 3,
-	bezier = "emphasizedDecel",
+	speed = 2,
+	bezier = "techMove",
 	style = "slide",
 })
 hl.animation({
 	leaf = "border",
 	enabled = true,
-	speed = 10,
-	bezier = "emphasizedDecel",
+	speed = 2,
+	bezier = "techMove",
 })
 
 -- layers
 hl.animation({
 	leaf = "layersIn",
 	enabled = true,
-	speed = 2.7,
-	bezier = "emphasizedDecel",
-	style = "popin 93%",
+	speed = 2,
+	bezier = "techIn",
+	style = "slide top",
 })
 hl.animation({
 	leaf = "layersOut",
 	enabled = true,
-	speed = 2.4,
-	bezier = "menu_accel",
-	style = "popin 94%",
+	speed = 1,
+	bezier = "techOut",
+	style = "slide top",
 })
 
 -- fade
 hl.animation({
 	leaf = "fadeLayersIn",
 	enabled = true,
-	speed = 0.5,
-	bezier = "menu_decel",
+	speed = 2,
+	bezier = "techIn",
 })
 hl.animation({
 	leaf = "fadeLayersOut",
 	enabled = true,
-	speed = 2.7,
-	bezier = "stall",
+	speed = 1,
+	bezier = "techOut",
 })
 
 -- workspaces
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 7,
-	bezier = "menu_decel",
-	style = "slide",
+	speed = 2,
+	bezier = "techMove",
+	style = "slidefade",
 })
 
--- # specialWorkspace
+-- specialWorkspace
 hl.animation({
 	leaf = "specialWorkspaceIn",
 	enabled = true,
-	speed = 2.8,
-	bezier = "emphasizedDecel",
-	style = "slidevert",
+	speed = 2,
+	bezier = "techIn",
+	style = "slidefadevert",
 })
 hl.animation({
 	leaf = "specialWorkspaceOut",
 	enabled = true,
-	speed = 1.2,
-	bezier = "emphasizedAccel",
-	style = "slidevert",
+	speed = 1,
+	bezier = "techOut",
+	style = "slidefadevert",
 })
 
 -- zoom
