@@ -239,18 +239,6 @@ hl.config({
 		repeat_rate = 35,
 		follow_mouse = 1,
 		off_window_axis_events = 2,
-		touchpad = {
-			natural_scroll = false,
-			disable_while_typing = true,
-			clickfinger_behavior = true,
-			scroll_factor = 1.0,
-			tap_to_click = true,
-			middle_button_emulation = true,
-		},
-		accel_profile = "flat",
-		force_no_accel = false,
-		sensitivity = 0.3,
-		scroll_factor = 2.0,
 	},
 	misc = {
 		disable_hyprland_logo = false,
@@ -266,7 +254,7 @@ hl.animation({
 })
 hl.device({
 	name = "asue1306:00-04f3:3284-touchpad",
-	natural_scroll = false,
+	natural_scroll = true,
 	tap_to_click = true,
 	accel_profile = "flat",
 })
@@ -301,5 +289,3 @@ hl.config({
 		no_hardware_cursors = 0,
 	},
 })
-
--- Overview

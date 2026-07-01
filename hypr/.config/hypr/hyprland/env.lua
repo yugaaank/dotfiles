@@ -1,5 +1,7 @@
 -- ############ Wayland #############
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("GDK_BACKEND", "wayland")
+hl.env("CLUTTER_BACKEND", "wayland")
 
 -- ######## Applications #########
 hl.env(
@@ -14,9 +16,6 @@ hl.env(
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("XDG_MENU_PREFIX", "gnome-")
-
--- ######## Virtual envrionment #########
-hl.env("ILLOGICAL_IMPULSE_VIRTUAL_ENV", "~/.local/state/quickshell/.venv")
 
 -- ######## Terminal application #########
 hl.env("TERMINAL", "kitty -1")

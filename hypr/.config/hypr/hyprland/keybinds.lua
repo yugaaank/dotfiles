@@ -7,19 +7,18 @@
 -- #! Shell
 
 -- Noctalia Core Modules
-hl.bind("SUPER + Super_L", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"), {
+hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"), {
 	release = true,
 })
-hl.bind("SUPER + D", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + PERIOD", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /emo"))
-hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
 
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
 
 -- System Utilities
 hl.bind("SUPER + I", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
-hl.bind("SUPER + TAB", hl.dsp.exec_cmd("noctalia msg window-switcher"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind("SUPER + S", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /cmd"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))

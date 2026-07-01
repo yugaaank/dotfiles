@@ -9,11 +9,11 @@ hl.config({
         active_opacity = 1.0,
         blur = {
             passes = 4,
-            size = 6,
+            size = 4,
         },
         dim_inactive = true,
-        fullscreen_opacity = 0.95,
-        inactive_opacity = 0.95,
+        fullscreen_opacity = 1.0,
+        inactive_opacity = 1.0,
         rounding = 13,
         rounding_power = 3.0,
         shadow = {
@@ -23,6 +23,10 @@ hl.config({
         },
     },
     general = {
+        border_size = 13,
+        col = {
+            active_border = "0xffbfc8cc",
+        },
         gaps_in = 2,
         gaps_out = 5,
         layout = "dwindle",
@@ -32,10 +36,17 @@ hl.config({
     },
     input = {
         accel_profile = "flat",
-        scroll_factor = 3.0,
-        sensitivity = 0.0,
+        force_no_accel = false,
+        scroll_factor = 0.5,
+        sensitivity = 0.3,
+        emulate_discrete_scroll = 1,
         touchpad = {
-            scroll_factor = 0.8,
+            natural_scroll = true,
+            disable_while_typing = false,
+            clickfinger_behavior = true,
+            scroll_factor = 0.5,
+            tap_to_click = true,
+            middle_button_emulation = true,
         },
     },
 })
