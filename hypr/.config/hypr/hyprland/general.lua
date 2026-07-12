@@ -241,12 +241,12 @@ hl.config({
 	},
 })
 
-hl.animation({
-	leaf = "zoomFactor",
-	enabled = true,
-	speed = 3,
-	bezier = "emphasizedDecel",
-})
+--hl.animation({
+--	leaf = "zoomFactor",
+--	enabled = true,
+--	speed = 3,
+--	bezier = "emphasizedDecel",
+--})
 hl.device({
 	name = "asue1306:00-04f3:3284-touchpad",
 	natural_scroll = true,

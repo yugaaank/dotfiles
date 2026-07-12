@@ -14,7 +14,7 @@ hl.config({
         dim_inactive = true,
         fullscreen_opacity = 1.0,
         inactive_opacity = 1.0,
-        rounding = 13,
+        rounding = 10,
         rounding_power = 3.0,
         shadow = {
             color = "0x40000000",
@@ -25,10 +25,10 @@ hl.config({
     general = {
         border_size = 13,
         col = {
-            active_border = "0xffbfc8cc",
+            active_border = "0xffbfc7d1",
         },
-        gaps_in = 2,
-        gaps_out = 5,
+        gaps_in = 10,
+        gaps_out = 30,
         layout = "dwindle",
     },
     gestures = {
@@ -36,24 +36,25 @@ hl.config({
     },
     input = {
         accel_profile = "flat",
-        force_no_accel = false,
-        scroll_factor = 0.5,
+        scroll_factor = 1.0,
         sensitivity = 0.3,
-        emulate_discrete_scroll = 1,
         touchpad = {
-            natural_scroll = true,
-            disable_while_typing = false,
             clickfinger_behavior = true,
-            scroll_factor = 0.5,
-            tap_to_click = true,
+            disable_while_typing = false,
             middle_button_emulation = true,
+            natural_scroll = true,
+            scroll_factor = 0.5,
         },
+    },
+    misc = {
+        force_default_wallpaper = 1,
     },
 })
 
 -- Monitors
 hl.monitor({
     output = "eDP-1",
+    disabled = false,
     mode = "1920x1200@60.00Hz",
     position = "0x0",
     scale = 1,
