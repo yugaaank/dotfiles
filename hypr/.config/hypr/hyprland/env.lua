@@ -14,7 +14,7 @@ hl.env(
 
 -- ############ Themes #############
 hl.env("QT_QPA_PLATFORM", "wayland")
-hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 hl.env("XDG_MENU_PREFIX", "gnome-")
 
 -- ######## Terminal application #########
@@ -23,3 +23,4 @@ hl.env("TERMINAL", "kitty -1")
 -- ############ Cursors #############
 hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("XCURSOR_SIZE", "20")
+hl.env("DCONF_PROFILE", "")

@@ -125,7 +125,7 @@ hl.config({
 hl.curve("techIn", { type = "bezier", points = { { 0.16, 1.0 }, { 0.3, 1.0 } } })
 hl.curve("techOut", { type = "bezier", points = { { 0.4, 0 }, { 1, 1 } } })
 hl.curve("techMove", { type = "bezier", points = { { 0.15, 1.1 }, { 0.4, 1 } } })
-hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.275 } } })
+hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.03 } } })
 
 -- Configs
 
@@ -133,40 +133,40 @@ hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.
 hl.animation({
 	leaf = "windowsIn",
 	enabled = true,
-	speed = 2,
-	bezier = "techIn",
+	speed = 3,
+	bezier = "techSwing",
 	style = "gnomed",
 })
 hl.animation({
 	leaf = "fadeIn",
 	enabled = true,
-	speed = 2,
-	bezier = "techIn",
+	speed = 3,
+	bezier = "techSwing",
 })
 hl.animation({
 	leaf = "windowsOut",
 	enabled = true,
-	speed = 1,
+	speed = 1.5,
 	bezier = "techOut",
 	style = "gnomed",
 })
 hl.animation({
 	leaf = "fadeOut",
 	enabled = true,
-	speed = 1,
+	speed = 1.5,
 	bezier = "techOut",
 })
 hl.animation({
 	leaf = "windowsMove",
 	enabled = true,
-	speed = 2,
+	speed = 3,
 	bezier = "techMove",
 	style = "slide",
 })
 hl.animation({
 	leaf = "border",
 	enabled = true,
-	speed = 2,
+	speed = 3,
 	bezier = "techMove",
 })
 
@@ -174,14 +174,14 @@ hl.animation({
 hl.animation({
 	leaf = "layersIn",
 	enabled = true,
-	speed = 2,
-	bezier = "techIn",
+	speed = 3,
+	bezier = "techSwing",
 	style = "slide top",
 })
 hl.animation({
 	leaf = "layersOut",
 	enabled = true,
-	speed = 1,
+	speed = 1.5,
 	bezier = "techOut",
 	style = "slide top",
 })
@@ -190,13 +190,13 @@ hl.animation({
 hl.animation({
 	leaf = "fadeLayersIn",
 	enabled = true,
-	speed = 2,
-	bezier = "techIn",
+	speed = 3,
+	bezier = "techSwing",
 })
 hl.animation({
 	leaf = "fadeLayersOut",
 	enabled = true,
-	speed = 1,
+	speed = 1.5,
 	bezier = "techOut",
 })
 
@@ -204,8 +204,8 @@ hl.animation({
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 2,
-	bezier = "techMove",
+	speed = 3,
+	bezier = "techSwing",
 	style = "slidefade",
 })
 
@@ -213,14 +213,14 @@ hl.animation({
 hl.animation({
 	leaf = "specialWorkspaceIn",
 	enabled = true,
-	speed = 2,
-	bezier = "techIn",
+	speed = 3,
+	bezier = "techSwing",
 	style = "slidefadevert",
 })
 hl.animation({
 	leaf = "specialWorkspaceOut",
 	enabled = true,
-	speed = 1,
+	speed = 1.5,
 	bezier = "techOut",
 	style = "slidefadevert",
 })
@@ -284,3 +284,4 @@ hl.config({
 		no_hardware_cursors = 0,
 	},
 })
+

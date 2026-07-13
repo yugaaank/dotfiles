@@ -23,12 +23,10 @@ hl.config({
         },
     },
     general = {
-        border_size = 13,
         col = {
             active_border = "0xffbfc7d1",
         },
-        gaps_in = 10,
-        gaps_out = 30,
+        gaps_out = 10,
         layout = "dwindle",
     },
     gestures = {
