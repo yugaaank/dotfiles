@@ -23,4 +23,5 @@ hl.env("TERMINAL", "kitty -1")
 -- ############ Cursors #############
 hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("XCURSOR_SIZE", "20")
-hl.env("DCONF_PROFILE", "")
+hl.env("DCONF_PROFILE", "/home/yugaaank/.config/dconf/myprofile")
+

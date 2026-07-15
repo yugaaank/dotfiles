@@ -121,11 +121,10 @@ hl.config({
 	},
 })
 
--- Curves — techy/digital set
-hl.curve("techIn", { type = "bezier", points = { { 0.16, 1.0 }, { 0.3, 1.0 } } })
-hl.curve("techOut", { type = "bezier", points = { { 0.4, 0 }, { 1, 1 } } })
-hl.curve("techMove", { type = "bezier", points = { { 0.15, 1.1 }, { 0.4, 1 } } })
-hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.03 } } })
+-- Curves tuned for a subtler macOS-like feel across the shell.
+hl.curve("macIn", { type = "bezier", points = { { 0.22, 1.0 }, { 0.36, 1.0 } } })
+hl.curve("macOut", { type = "bezier", points = { { 0.4, 0.0 }, { 0.9, 1.0 } } })
+hl.curve("macMove", { type = "bezier", points = { { 0.2, 0.9 }, { 0.3, 1.0 } } })
 
 -- Configs
 
@@ -133,56 +132,56 @@ hl.curve("techSwing", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.
 hl.animation({
 	leaf = "windowsIn",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
-	style = "gnomed",
+	speed = 5,
+	bezier = "macIn",
+	style = "popin 93%",
 })
 hl.animation({
 	leaf = "fadeIn",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
+	speed = 5,
+	bezier = "macIn",
 })
 hl.animation({
 	leaf = "windowsOut",
 	enabled = true,
-	speed = 1.5,
-	bezier = "techOut",
-	style = "gnomed",
+	speed = 2,
+	bezier = "macOut",
+	style = "popin 93%",
 })
 hl.animation({
 	leaf = "fadeOut",
 	enabled = true,
-	speed = 1.5,
-	bezier = "techOut",
+	speed = 2,
+	bezier = "macOut",
 })
 hl.animation({
 	leaf = "windowsMove",
 	enabled = true,
 	speed = 3,
-	bezier = "techMove",
+	bezier = "macMove",
 	style = "slide",
 })
 hl.animation({
 	leaf = "border",
 	enabled = true,
 	speed = 3,
-	bezier = "techMove",
+	bezier = "macMove",
 })
 
 -- layers
 hl.animation({
 	leaf = "layersIn",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
+	speed = 4,
+	bezier = "macIn",
 	style = "slide top",
 })
 hl.animation({
 	leaf = "layersOut",
 	enabled = true,
-	speed = 1.5,
-	bezier = "techOut",
+	speed = 2,
+	bezier = "macOut",
 	style = "slide top",
 })
 
@@ -190,22 +189,22 @@ hl.animation({
 hl.animation({
 	leaf = "fadeLayersIn",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
+	speed = 4,
+	bezier = "macIn",
 })
 hl.animation({
 	leaf = "fadeLayersOut",
 	enabled = true,
-	speed = 1.5,
-	bezier = "techOut",
+	speed = 2,
+	bezier = "macOut",
 })
 
 -- workspaces
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
+	speed = 4,
+	bezier = "macMove",
 	style = "slidefade",
 })
 
@@ -213,15 +212,15 @@ hl.animation({
 hl.animation({
 	leaf = "specialWorkspaceIn",
 	enabled = true,
-	speed = 3,
-	bezier = "techSwing",
+	speed = 4,
+	bezier = "macIn",
 	style = "slidefadevert",
 })
 hl.animation({
 	leaf = "specialWorkspaceOut",
 	enabled = true,
-	speed = 1.5,
-	bezier = "techOut",
+	speed = 2,
+	bezier = "macOut",
 	style = "slidefadevert",
 })
 
@@ -247,13 +246,6 @@ hl.config({
 --	speed = 3,
 --	bezier = "emphasizedDecel",
 --})
-hl.device({
-	name = "asue1306:00-04f3:3284-touchpad",
-	natural_scroll = true,
-	tap_to_click = true,
-	accel_profile = "flat",
-})
-
 -- vfr = 1
 hl.config({
 	misc = {
@@ -285,3 +277,10 @@ hl.config({
 	},
 })
 
+hl.device({
+	name = "asue1306:00-04f3:3284-touchpad",
+	natural_scroll = true,
+	tap_to_click = true,
+	accel_profile = "flat",
+	sensitivity = 0.6,
+})

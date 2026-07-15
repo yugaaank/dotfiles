@@ -181,3 +181,6 @@ hl.bind("SUPER + ALT + T", hl.dsp.exec_cmd("noctalia msg theme-mode-toggle"))
 hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-browser"))
+
+-- Desktop widgets
+hl.bind("SUPER + D", hl.dsp.exec_cmd("noctalia msg desktop-widgets-toggle-edit"))

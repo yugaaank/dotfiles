@@ -19,6 +19,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("easyeffects --hide-window --service-mode")
 	hl.exec_cmd("elephant")
 	hl.exec_cmd("snappy-switcher --daemon")
+	hl.exec_cmd("kdeconnect-indicator")
 end)
 
 -- Clipboard: history

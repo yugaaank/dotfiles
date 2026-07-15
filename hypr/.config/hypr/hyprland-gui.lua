@@ -14,8 +14,8 @@ hl.config({
         dim_inactive = true,
         fullscreen_opacity = 1.0,
         inactive_opacity = 1.0,
-        rounding = 10,
-        rounding_power = 3.0,
+        rounding = 11,
+        rounding_power = 10.0,
         shadow = {
             color = "0x40000000",
             offset = "0 0",
@@ -26,7 +26,8 @@ hl.config({
         col = {
             active_border = "0xffbfc7d1",
         },
-        gaps_out = 10,
+        gaps_in = 3,
+        gaps_out = 8,
         layout = "dwindle",
     },
     gestures = {
