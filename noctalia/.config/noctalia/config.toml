@@ -1,0 +1,399 @@
+[accessibility]
+high_contrast = true
+
+[audio]
+enable_overdrive = true
+enable_sounds = true
+sound_volume = 0.99999997764825821
+
+[bar]
+order = [ "default", "sys", "music" ]
+
+    [bar.default]
+    background_opacity = 0.4999999888241291
+    border = "surface"
+    capsule_padding = 10.0
+    capsule_thickness = 0.97999998182058334
+    end = [
+        "tray",
+        "spacer_1",
+        "notifications",
+        "spacer_1",
+        "volume",
+        "spacer_1",
+        "network",
+        "spacer_1",
+        "battery",
+        "spacer_1",
+        "session"
+    ]
+    font_family = "Geist"
+    font_weight = 400
+    margin_ends = 0
+    panel_overlap = 0
+    radius = 0
+    radius_bottom_left = 60
+    radius_bottom_right = 60
+    radius_top_left = 0
+    radius_top_right = 0
+    scale = 0.95000000670552254
+    start = [ "workspaces" ]
+    thickness = 25
+
+    [bar.music]
+    auto_hide = true
+    center = [ "audio_visualizer", "media", "audio_visualizer" ]
+    concave_edge_corners = true
+    enabled = true
+    end = []
+    margin_edge = 0
+    margin_ends = 500
+    position = "left"
+    radius_bottom_left = 80
+    radius_bottom_right = 30
+    radius_top_left = 80
+    radius_top_right = 30
+    reserve_space = false
+    start = []
+
+    [bar.sys]
+    auto_hide = true
+    center = [ "cpu", "ram", "temp" ]
+    concave_edge_corners = true
+    enabled = true
+    end = []
+    margin_edge = 0
+    margin_ends = 500
+    position = "right"
+    radius_bottom_left = 30
+    radius_bottom_right = 80
+    radius_top_left = 30
+    radius_top_right = 80
+    reserve_space = false
+    start = []
+    thickness = 50
+
+[calendar]
+enabled = true
+
+    [calendar.account.personal_google]
+    name = "Calendar"
+    type = "google"
+
+[control_center]
+sidebar_section = "none"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000005"
+]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 144.0
+    box_width = 256.0
+    cx = 960.0
+    cy = 280.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        background_opacity = 0.69999999999999996
+        background_padding = 3.0
+        background_radius = 23.0
+        center_text = true
+        clock_style = "digital"
+        font_family = "Inter Display"
+        shadow = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 64.0
+    box_width = 144.0
+    cx = 960.0
+    cy = 360.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
+        background_opacity = 0.69999999999999996
+        background_radius = 12.0
+        font_family = "Inter Display Black"
+        shadow = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 112.0
+    box_width = 272.0
+    cx = 1768.0
+    cy = 1083.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = false
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 480.0
+    box_width = 832.0
+    cx = 960.0
+    cy = 0.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+        background = false
+        bands = 32
+        show_when_idle = true
+
+[dock]
+auto_hide = false
+background_opacity = 0.4999999888241291
+cross_axis_padding = 0
+enabled = true
+icon_size = 30
+inactive_opacity = 0.99999997764825821
+inactive_scale = 1.0
+intelligent_hide = true
+item_spacing = 0
+magnification_scale = 2.0
+main_axis_padding = 0
+margin_edge = 8
+pinned = [
+    "org.gnome.Nautilus",
+    "zen",
+    "kitty",
+    "dev.zed.Zed",
+    "spotify",
+    "brave-browser",
+    "btop",
+    "org.gnome.Snapshot",
+    "hyprmod",
+    "nvim",
+    "org.kde.kdeconnect.app",
+    "org.gnome.tweaks",
+    "paper",
+    "org.gnome.Calculator",
+    "org.gnome.GHex",
+    "org.gnome.Papers",
+    "org.gimp.GIMP",
+    "gparted",
+    "org.gnome.Loupe",
+    "libreoffice-startcenter",
+    "localsend",
+    "com.obsproject.Studio",
+    "onlyoffice-desktopeditors",
+    "org.gnome.TextEditor"
+]
+reserve_space = false
+show_dots = true
+smart_auto_hide = true
+
+[hot_corners]
+enabled = true
+
+    [hot_corners.top_right]
+    action = "launcher"
+
+[location]
+address = "Bengaluru"
+
+[lockscreen]
+tint_intensity = 0.029999999329447746
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 696.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.0
+        background_radius = 32.0
+        input_opacity = 1.0
+        input_radius = 22.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 240.0
+    box_width = 432.0
+    cx = 944.0
+    cy = 576.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        color = "on_surface"
+        font_family = "Inter Medium"
+        shadow = false
+
+[nightlight]
+enabled = true
+
+[plugins]
+enabled = [ "noctalia/notes", "noctalia/bongocat", "yugaaank/desktop-icons" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/yugaaank/.config/noctalia/plugins/desktop-icons"
+    name = "local"
+
+[shell]
+clipboard_history_max_entries = 50
+font_family = "Geist"
+password_style = "random"
+polkit_agent = true
+
+    [shell.launcher]
+    app_grid = true
+    categories = false
+    session_search = true
+    sort_by_usage = false
+
+    [shell.panel]
+    launcher_categories = false
+    launcher_session_search = true
+    launcher_sort_by_usage = false
+    open_near_click_control_center = true
+    open_near_click_wallpaper = true
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "soft"
+
+    [shell.screenshot]
+    directory = "/home/yugaaank/Pictures/Screenshots"
+
+    [shell.shadow]
+    alpha = 0.99999997764825821
+    direction = "center"
+
+[theme]
+builtin = "Ayu"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "soft"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "kitty" ]
+    community_ids = [ "zen-browser", "neovim", "zed", "snappy-switcher" ]
+
+[wallpaper]
+directory = "/home/yugaaank/Pictures/Wallpapers"
+transition = [ "disc" ]
+transition_duration = 3200
+transition_on_startup = true
+
+    [wallpaper.automation]
+    order = "alphabetical"
+
+    [wallpaper.default]
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+
+    [wallpaper.last]
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+
+[widget.battery]
+display_mode = "graphic"
+scale = 0.90000000000000002
+show_label = false
+
+[widget.bluetooth]
+show_label = true
+
+[widget.brightness]
+show_label = false
+
+[widget.cat]
+audio_spectrum = true
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+
+[widget.cat_2]
+type = "noctalia/bongocat:cat"
+
+[widget.cat_3]
+audio_spectrum = true
+tappy_mode = true
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+scale = 1.05
+
+[widget.control-center]
+glyph = "navigation-filled"
+
+[widget.media]
+title_scroll = "always"
+
+[widget.network]
+show_label = false
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.spacer_1]
+length = 15
+type = "spacer"
+
+[widget.spacer_2]
+type = "spacer"
+
+[widget.taskbar]
+capsule_opacity = 0.75
+capsule_padding = 10.0
+scale = 1.2
+show_active_indicator = false
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+hide_when_empty = true
+minimal = true
+style = "minimal"
