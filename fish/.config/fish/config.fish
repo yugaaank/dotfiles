@@ -78,11 +78,6 @@ if test -d "$HOME/.local/bin"
     fish_add_path $HOME/.local/bin
 end
 
-# Example: cargo
-if test -d "$HOME/.cargo/bin"
-    fish_add_path $HOME/.cargo/bin
-end
-
 # -------------------------
 # End of file
 # -------------------------

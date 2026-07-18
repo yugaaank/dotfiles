@@ -20,3 +20,6 @@ require("hyprland-gui")
 
 -- This loads Noctalia-generated Hyprland colors.
 dofile("/home/yugaaank/.config/hypr/noctalia/noctalia-colors.lua")
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

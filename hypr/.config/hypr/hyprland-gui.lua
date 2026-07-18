@@ -26,8 +26,6 @@ hl.config({
         col = {
             active_border = "0xffbfc7d1",
         },
-        gaps_in = 3,
-        gaps_out = 8,
         layout = "dwindle",
     },
     gestures = {
@@ -46,7 +44,7 @@ hl.config({
         },
     },
     misc = {
-        force_default_wallpaper = 1,
+        force_default_wallpaper = 0,
     },
 })
 

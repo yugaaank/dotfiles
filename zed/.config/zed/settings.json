@@ -51,9 +51,12 @@
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/mimo-v2.5-free"
+        "model": "opencode/nemotron-3-ultra-free"
       },
       "type": "registry"
     },
@@ -90,6 +93,6 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Warm",
+    "dark": "Perf Warm",
   },
 }

@@ -14,8 +14,10 @@ hl.env(
 
 -- ############ Themes #############
 hl.env("QT_QPA_PLATFORM", "wayland")
-hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QUICK_CONTROLS_STYLE", "Breeze")
 hl.env("XDG_MENU_PREFIX", "gnome-")
+hl.env("GTK_THEME", "adw-gtk3-dark")
 
 -- ######## Terminal application #########
 hl.env("TERMINAL", "kitty -1")
@@ -23,5 +25,4 @@ hl.env("TERMINAL", "kitty -1")
 -- ############ Cursors #############
 hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("XCURSOR_SIZE", "20")
-hl.env("DCONF_PROFILE", "/home/yugaaank/.config/dconf/myprofile")
-
+hl.env("DCONF_PROFILE", "user")

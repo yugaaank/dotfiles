@@ -44,6 +44,13 @@ hl.window_rule({
 })
 hl.window_rule({
 	match = {
+		class = "^(localsend)$",
+	},
+	float = true,
+	size = "400 678",
+})
+hl.window_rule({
+	match = {
 		title = "^(archmenu)$",
 	},
 	float = true,
@@ -301,6 +308,8 @@ hl.window_rule({
 	},
 	no_shadow = true,
 })
+
+
 
 -- ######## Workspace rules ########
 hl.workspace_rule({

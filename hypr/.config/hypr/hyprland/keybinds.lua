@@ -124,11 +124,11 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), {
 	locked = true,
 	repeating = true,
 })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), {
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), {
 	locked = true,
 	repeating = true,
 })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), {
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), {
 	locked = true,
 	repeating = true,
 })
