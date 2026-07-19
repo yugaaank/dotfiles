@@ -23,10 +23,12 @@ hl.config({
         },
     },
     general = {
+        border_size = 1,
         col = {
-            active_border = "0xffbfc7d1",
+            active_border = "0xff77767b",
+            inactive_border = "0xff3d3846",
         },
-        layout = "dwindle",
+        layout = "scrolling",
     },
     gestures = {
         workspace_swipe_invert = true,
@@ -45,6 +47,7 @@ hl.config({
     },
     misc = {
         force_default_wallpaper = 0,
+        vrr = 0,
     },
 })
 

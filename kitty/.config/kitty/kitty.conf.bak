@@ -1,11 +1,12 @@
 # Font
-font_family      family="JetBrainsMono Nerd Font"
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
+# font_family JetBrainsMono Nerd Font Mono
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
 font_size        10
 
 symbol_map U+2500-U+257F Noto Sans Mono
+#symbol_map U+E700-U+E7FF JetBrainsMono Nerd Font Mono
 
 # Cursor
 cursor_shape beam
@@ -50,7 +51,20 @@ map ctrl+kp_0 change_font_size all 0
 
 map ctrl+backspace send_text all \x17
 
-include current-theme.conf
 
 background_opacity 0.8
 background_blur 1
+
+
+# BEGIN_KITTY_THEME
+# Noctalia
+include current-theme.conf
+# END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="JetBrainsMonoNL Nerd Font"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS

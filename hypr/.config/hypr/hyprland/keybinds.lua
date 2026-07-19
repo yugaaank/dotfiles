@@ -16,6 +16,7 @@ hl.bind("SUPER + PERIOD", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /e
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
 
 hl.bind("SUPER + COMMA", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
+hl.bind("SUPER + SHIFT + COMMA", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/mpvpaper:picker"))
 
 -- System Utilities
 hl.bind("SUPER + I", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
@@ -108,6 +109,11 @@ hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 -- Special Workspace
 hl.bind("SUPER + SHIFT + V", hl.dsp.workspace.toggle_special(""))
 hl.bind("SUPER + ALT + V", hl.dsp.window.move({ workspace = "special" }))
+
+    -- Gloview plugin bindings
+    hl.bind("SUPER + TAB", hl.plugin.gloview.toggle)
+    hl.bind("SUPER + SHIFT + TAB", hl.plugin.gloview.desktop)
+    hl.bind("SUPER + ALT + TAB", hl.plugin.gloview.allworkspaces)
 
 -- !
 

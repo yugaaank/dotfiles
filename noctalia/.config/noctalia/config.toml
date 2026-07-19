@@ -27,7 +27,7 @@ order = [ "default", "sys", "music" ]
         "spacer_1",
         "session"
     ]
-    font_family = "Geist"
+    font_family = "JetBrainsMono Nerd Font Propo"
     font_weight = 400
     margin_ends = 0
     panel_overlap = 0
@@ -46,6 +46,7 @@ order = [ "default", "sys", "music" ]
     concave_edge_corners = true
     enabled = true
     end = []
+    font_family = "JetBrainsMono Nerd Font Propo"
     margin_edge = 0
     margin_ends = 500
     position = "left"
@@ -62,6 +63,7 @@ order = [ "default", "sys", "music" ]
     concave_edge_corners = true
     enabled = true
     end = []
+    font_family = "JetBrainsMono Nerd Font Propo"
     margin_edge = 0
     margin_ends = 500
     position = "right"
@@ -202,6 +204,7 @@ pinned = [
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
+font_family = "JetBrainsMono Nerd Font Propo"
 
 [hot_corners]
 enabled = true
@@ -280,7 +283,7 @@ enabled = [ "noctalia/notes", "noctalia/bongocat", "yugaaank/desktop-icons" ]
 
 [shell]
 clipboard_history_max_entries = 50
-font_family = "Geist"
+font_family = "JetBrainsMono Nerd Font Propo"
 password_style = "random"
 polkit_agent = true
 
@@ -339,12 +342,15 @@ transition_on_startup = true
 display_mode = "graphic"
 scale = 0.90000000000000002
 show_label = false
+glyph = "nf-mdi-battery"
 
 [widget.bluetooth]
 show_label = true
+glyph = "nf-mdi-bluetooth"
 
 [widget.brightness]
 show_label = false
+glyph = "nf-mdi-brightness_6"
 
 [widget.cat]
 audio_spectrum = true
@@ -361,18 +367,22 @@ type = "noctalia/bongocat:cat"
 
 [widget.clock]
 scale = 1.05
+glyph = "nf-mdi-clock"
 
 [widget.control-center]
-glyph = "navigation-filled"
+glyph = "nf-mdi-menu"
 
 [widget.media]
 title_scroll = "always"
+glyph = "nf-fa-music"
 
 [widget.network]
 show_label = false
+glyph = "nf-mdi-wifi"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
+glyph = "nf-fa-circle"
 
 [widget.spacer_1]
 length = 15
@@ -386,14 +396,18 @@ capsule_opacity = 0.75
 capsule_padding = 10.0
 scale = 1.2
 show_active_indicator = false
+glyph = "nf-fa-square"
 
 [widget.tray]
 drawer = true
+glyph = "nf-mdi-tray"
 
 [widget.volume]
 show_label = false
+glyph = "nf-fa-volume_up"
 
 [widget.workspaces]
 hide_when_empty = true
 minimal = true
 style = "minimal"
+glyph = "nf-fa-square"

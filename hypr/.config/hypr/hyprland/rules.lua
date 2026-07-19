@@ -1,5 +1,6 @@
 -- ######## Window rules ########
 
+
 -- Default rules
 hl.window_rule({
 	match = {
@@ -15,7 +16,14 @@ hl.window_rule({
 	float = true,
 	center = true,
 	size = "1200 800",
-	border_size = 0,
+	})
+
+hl.window_rule({
+	match = {
+		class = "^(org.gnome.Calculator)$",
+	},
+	float = true,
+	size = "360 616",
 })
 
 -- Disable blur for xwayland context menus
@@ -41,6 +49,9 @@ hl.window_rule({
 		class = "^(kitty)$",
 	},
 	size = "850 500",
+	border_color = {
+		colors = { "rgba(00000000)", "rgba(00000000)" },
+	},
 })
 hl.window_rule({
 	match = {

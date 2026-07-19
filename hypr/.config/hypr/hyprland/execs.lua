@@ -1,8 +1,9 @@
 -- Bar, wallpaper
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprpm reload -n")
+		hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd("~/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
 	hl.exec_cmd("noctalia")
+hl.exec_cmd("~/.config/hypr/hyprland/scripts/welcome.sh")
 	hl.exec_cmd("~/.config/hypr/hyprland/scripts/__restore_video_wallpaper.sh")
 end)
 

@@ -44,8 +44,8 @@ hl.config({
 		gaps_workspaces = 50,
 		border_size = 0,
 		col = {
-			active_border = "rgba(00000000)",
-			inactive_border = "rgba(00000000)",
+			active_border = "rgba(ff0000ff)",
+			inactive_border = "rgba(00ff00ff)",
 		},
 		resize_on_border = true,
 		no_focus_fallback = true,
@@ -72,7 +72,7 @@ hl.config({
 hl.config({
 	decoration = {
 		rounding_power = 2.4,
-		rounding = 12,
+		rounding = 0,
 		blur = {
 			enabled = true,
 			xray = false,
