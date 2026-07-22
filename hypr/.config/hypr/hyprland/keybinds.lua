@@ -110,10 +110,10 @@ hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind("SUPER + SHIFT + V", hl.dsp.workspace.toggle_special(""))
 hl.bind("SUPER + ALT + V", hl.dsp.window.move({ workspace = "special" }))
 
-    -- Gloview plugin bindings
-    hl.bind("SUPER + TAB", hl.plugin.gloview.toggle)
-    hl.bind("SUPER + SHIFT + TAB", hl.plugin.gloview.desktop)
-    hl.bind("SUPER + ALT + TAB", hl.plugin.gloview.allworkspaces)
+    -- Gloview plugin bindings (disabled)
+    -- hl.bind("SUPER + TAB", hl.plugin.gloview.toggle)
+    -- hl.bind("SUPER + SHIFT + TAB", hl.plugin.gloview.desktop)
+    -- hl.bind("SUPER + ALT + TAB", hl.plugin.gloview.allworkspaces)
 
 -- !
 

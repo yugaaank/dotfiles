@@ -1,4 +1,4 @@
--- Gloview plugin configuration
+--[[ Gloview plugin configuration
 hl.config({
     plugin = {
         gloview = {
@@ -77,3 +77,4 @@ hl.gesture({
         hl.exec_cmd("noctalia msg panel-toggle gloview")
     end,
 })
+--]]

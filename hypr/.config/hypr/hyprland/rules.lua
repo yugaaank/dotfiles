@@ -320,6 +320,15 @@ hl.window_rule({
 	no_shadow = true,
 })
 
+-- No rounding or border for tiled windows
+hl.window_rule({
+	match = {
+		float = 0,
+	},
+	rounding = 0,
+	border_size = 0,
+})
+
 
 
 -- ######## Workspace rules ########

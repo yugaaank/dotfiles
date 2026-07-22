@@ -95,7 +95,7 @@ if test -f ~/.cache/wal/colors.sh
         end
     end
 end
-
+set -gx TIKTOKEN_CACHE_DIR ~/.cache/tiktoken
 set -x ANDROID_HOME $HOME/Android/Sdk
 set -x ANDROID_SDK_ROOT $HOME/Android/Sdk
 fish_add_path $ANDROID_HOME/emulator

@@ -17,8 +17,9 @@ hl.config({
         rounding = 11,
         rounding_power = 10.0,
         shadow = {
-            color = "0x40000000",
+            color = "0xee1a1a1a",
             offset = "0 0",
+            range = 8,
             render_power = 4,
         },
     },
@@ -28,6 +29,8 @@ hl.config({
             active_border = "0xff77767b",
             inactive_border = "0xff3d3846",
         },
+        gaps_in = 0,
+        gaps_out = 0,
         layout = "scrolling",
     },
     gestures = {

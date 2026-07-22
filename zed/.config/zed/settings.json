@@ -51,7 +51,7 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "agent_servers": {
     "claude-acp": {
       "type": "registry"

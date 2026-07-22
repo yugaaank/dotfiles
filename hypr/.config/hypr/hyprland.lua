@@ -11,7 +11,6 @@ require("hyprland.rules")
 require("hyprland.colors")
 require("hyprland.gloview")
 require("hyprland.keybinds")
-require("hyprland.gloview")
 
 -- Hardware & Display
 require("hyprland.monitors")
