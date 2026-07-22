@@ -31,7 +31,7 @@ hl.config({
         },
         gaps_in = 0,
         gaps_out = 0,
-        layout = "scrolling",
+        layout = "master",
     },
     gestures = {
         workspace_swipe_invert = true,
