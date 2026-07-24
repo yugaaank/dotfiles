@@ -1,6 +1,5 @@
 -- ######## Window rules ########
 
-
 -- Default rules
 hl.window_rule({
 	match = {
@@ -15,8 +14,8 @@ hl.window_rule({
 	},
 	float = true,
 	center = true,
-	size = "1200 800",
-	})
+	size = "(monitor_w*.85) (monitor_h*.85)",
+})
 
 hl.window_rule({
 	match = {
@@ -48,7 +47,7 @@ hl.window_rule({
 	match = {
 		class = "^(kitty)$",
 	},
-	size = "850 500",
+	size = "900 530",
 	border_color = {
 		colors = { "rgba(00000000)", "rgba(00000000)" },
 	},
@@ -320,15 +319,6 @@ hl.window_rule({
 	no_shadow = true,
 })
 
--- No rounding or border for tiled windows
-hl.window_rule({
-	match = {
-		float = 0,
-	},
-	rounding = 0,
-	border_size = 0,
-})
-
 
 
 -- ######## Workspace rules ########
@@ -386,7 +376,7 @@ hl.layer_rule({
 })
 hl.layer_rule({
 	match = {
-		namespace = "hyprpicker",
+		namespace = "snappy-switcher",
 	},
 	no_anim = true,
 })

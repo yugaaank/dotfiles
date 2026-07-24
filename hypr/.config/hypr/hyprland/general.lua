@@ -157,8 +157,8 @@ hl.animation({
 })
 hl.animation({
 	leaf = "windowsMove",
-	enabled = true,
-	speed = 3,
+	enabled = false,
+	speed = 0,
 	bezier = "macMove",
 	style = "slide",
 })

@@ -21,6 +21,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("elephant")
 	hl.exec_cmd("snappy-switcher --daemon")
 	hl.exec_cmd("kdeconnect-indicator")
+	hl.exec_cmd("~/.cargo/bin/shy")
 end)
 
 -- Clipboard: history

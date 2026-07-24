@@ -18,9 +18,10 @@ hl.config({
         rounding_power = 10.0,
         shadow = {
             color = "0xee1a1a1a",
+            enabled = true,
             offset = "0 0",
-            range = 8,
-            render_power = 4,
+            range = 2,
+            render_power = 1,
         },
     },
     general = {
@@ -29,15 +30,14 @@ hl.config({
             active_border = "0xff77767b",
             inactive_border = "0xff3d3846",
         },
-        gaps_in = 0,
-        gaps_out = 0,
-        layout = "master",
+        layout = "dwindle",
     },
     gestures = {
         workspace_swipe_invert = true,
     },
     input = {
         accel_profile = "flat",
+        follow_mouse = 3,
         scroll_factor = 1.0,
         sensitivity = 0.3,
         touchpad = {
