@@ -21,8 +21,7 @@ hl.bind("SUPER + SHIFT + COMMA", hl.dsp.exec_cmd("noctalia msg panel-toggle noct
 -- System Utilities
 hl.bind("SUPER + I", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
-hl.bind("SUPER + S", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /cmd"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind("SUPER + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 
 -- !
@@ -107,8 +106,8 @@ hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Special Workspace
-hl.bind("SUPER + SHIFT + V", hl.dsp.workspace.toggle_special(""))
-hl.bind("SUPER + ALT + V", hl.dsp.window.move({ workspace = "special" }))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special(""))
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 
 -- Gloview plugin bindings
 hl.bind("SUPER + TAB", hl.plugin.gloview.toggle)

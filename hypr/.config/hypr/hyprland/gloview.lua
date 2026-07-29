@@ -1,7 +1,7 @@
 -- Gloview plugin configuration
 hl.config({
     plugin = {
-        gloview = {
+         gloview = {
             layout = "rows",
             gap = 34,
             padding = 80,
@@ -66,8 +66,6 @@ hl.config({
             shadow_color = 0x70000000,
             hover_border = 0xf0ffffff,
             hover_border_size = 3,
-        },
-    },
+           },
+           },
 })
-
-

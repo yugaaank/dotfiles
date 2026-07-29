@@ -11,12 +11,12 @@ function M.setup()
     base06 = '#e2e2e2',
     base07 = '#e2e2e2',
     base08 = '#ffb4ab',
-    base09 = '#edb8cc',
-    base0A = '#c9c3dc',
-    base0B = '#cabeff',
-    base0C = '#edb8cc',
-    base0D = '#cabeff',
-    base0E = '#c9c3dc',
+    base09 = '#a1d0c4',
+    base0A = '#c5caa8',
+    base0B = '#bbd064',
+    base0C = '#a1d0c4',
+    base0D = '#bbd064',
+    base0E = '#c5caa8',
     base0F = '#93000a',
   })
 
@@ -28,14 +28,14 @@ function M.setup()
   hi('TelescopeBorder',         { fg = '#919191',             bg = '#131313' })
   hi('TelescopePromptNormal',   { fg = '#e2e2e2',          bg = '#131313' })
   hi('TelescopePromptBorder',   { fg = '#919191',             bg = '#131313' })
-  hi('TelescopePromptPrefix',   { fg = '#cabeff',             bg = '#131313' })
+  hi('TelescopePromptPrefix',   { fg = '#bbd064',             bg = '#131313' })
   hi('TelescopePromptCounter',  { fg = '#c6c6c6',  bg = '#131313' })
-  hi('TelescopePromptTitle',    { fg = '#131313',             bg = '#cabeff' })
-  hi('TelescopePreviewTitle',   { fg = '#131313',             bg = '#c9c3dc' })
-  hi('TelescopeResultsTitle',   { fg = '#131313',             bg = '#edb8cc' })
+  hi('TelescopePromptTitle',    { fg = '#131313',             bg = '#bbd064' })
+  hi('TelescopePreviewTitle',   { fg = '#131313',             bg = '#c5caa8' })
+  hi('TelescopeResultsTitle',   { fg = '#131313',             bg = '#a1d0c4' })
   hi('TelescopeSelection',      { fg = '#e2e2e2',          bg = '#2a2a2a' })
-  hi('TelescopeSelectionCaret', { fg = '#cabeff',             bg = '#2a2a2a' })
-  hi('TelescopeMatching',       { fg = '#cabeff',             bold = true })
+  hi('TelescopeSelectionCaret', { fg = '#bbd064',             bg = '#2a2a2a' })
+  hi('TelescopeMatching',       { fg = '#bbd064',             bold = true })
 end
 
  -- Register a signal handler for SIGUSR1 (matugen updates)

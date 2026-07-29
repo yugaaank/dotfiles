@@ -32,5 +32,5 @@ end)
 
 -- Cursor
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprctl setcursor MacTahoe 26")
+	hl.exec_cmd("hyprctl setcursor Adwaita 24")
 end)

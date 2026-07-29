@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_weight": 450.0,
+  "ui_font_weight": 400.0,
   "markdown_preview_font_family": "JetBrainsMono Nerd Font",
   "disable_ai": false,
   "cli_default_open_behavior": "existing_window",
@@ -20,13 +22,13 @@
     "show_user_menu": true,
     "show_sign_in": true,
     "show_onboarding_banner": true,
-    "show_branch_name": false,
+    "show_branch_name": true,
     "show_menus": false,
     "show_project_items": true,
     "show_branch_status_icon": false
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "left"
   },
   "outline_panel": {
     "dock": "right"
@@ -42,7 +44,8 @@
   },
   "vim_mode": true,
   "agent": {
-    "dock": "left",
+    "sidebar_side": "right",
+    "dock": "right",
     "default_model": {
       "provider": "google",
       "model": "gemini-2.5-flash",
@@ -51,14 +54,20 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": "JetBrains Mono NL",
   "agent_servers": {
+    "github-copilot-cli": {
+      "default_config_options": {
+        "allow_all": "on"
+      },
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/hy3-free"
+        "model": "opencode/mimo-v2.5-free"
       },
       "type": "registry"
     },
@@ -72,17 +81,21 @@
     "dark": "Soft Charmed Icons"
   },
   "terminal": {
+    "shell": {
+      "with_arguments": {
+        "program": "fish",
+        "args": [],
+        "title_override": null
+      }
+    },
     "scrollbar": {
       "show": "always"
     },
     "font_size": 13.0,
-    "font_weight": 100.0,
-    "font_family": ".ZedMono"
+    "font_weight": 400.0,
+    "font_family": "SF Mono"
   },
-  "buffer_line_height": {
-    "custom": 1.5
-  },
-  "buffer_font_weight": 500.0,
+  "buffer_line_height": "comfortable",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -91,10 +104,10 @@
     "trust_all_worktrees": true
   },
   "ui_font_size": 15.0,
-  "buffer_font_size": 15.0,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Noctalia Dark",
+    "dark": "Warm Perf",
   },
 }

@@ -91,7 +91,7 @@ hl.window_rule({
 	},
 	center = true,
 	float = true,
-	size = "(monitor_w*.7) (monitor_h*.7)",
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
 	match = {
@@ -99,7 +99,7 @@ hl.window_rule({
 	},
 	center = true,
 	float = true,
-	size = "(monitor_w*.7) (monitor_h*.7)",
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
 	match = {
@@ -115,7 +115,7 @@ hl.window_rule({
 	},
 	center = true,
 	float = true,
-	size = "(monitor_w*.7) (monitor_h*.7)",
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
 	match = {
@@ -123,7 +123,7 @@ hl.window_rule({
 	},
 	center = true,
 	float = true,
-	size = "(monitor_w*.7) (monitor_h*.7)",
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
 	match = {
@@ -139,7 +139,7 @@ hl.window_rule({
 	},
 	center = true,
 	float = true,
-	size = "(monitor_w*.7) (monitor_h*.7)",
+	size = "(monitor_w*.5) (monitor_h*.5)",
 })
 hl.window_rule({
 	match = {

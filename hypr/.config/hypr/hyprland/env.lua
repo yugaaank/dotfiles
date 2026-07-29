@@ -23,6 +23,6 @@ hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("TERMINAL", "kitty -1")
 
 -- ############ Cursors #############
-hl.env("XCURSOR_THEME", "breeze_cursors")
-hl.env("XCURSOR_SIZE", "20")
+hl.env("XCURSOR_THEME", "Adwaita")
+hl.env("XCURSOR_SIZE", "24")
 hl.env("DCONF_PROFILE", "user")

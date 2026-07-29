@@ -32,7 +32,7 @@ hl.gesture({
 })
 hl.gesture({
 	fingers = 4,
-	direction = "horizontal",
+	direction = "vertical",
 	action = "workspace",
 })
 
@@ -157,8 +157,8 @@ hl.animation({
 })
 hl.animation({
 	leaf = "windowsMove",
-	enabled = false,
-	speed = 0,
+	enabled = true,
+	speed = 4,
 	bezier = "macMove",
 	style = "slide",
 })
@@ -203,9 +203,9 @@ hl.animation({
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 4,
+	speed = 1.5,
 	bezier = "macMove",
-	style = "slidefade",
+	style = "slidevert",
 })
 
 -- specialWorkspace
@@ -283,4 +283,5 @@ hl.device({
 	tap_to_click = true,
 	accel_profile = "flat",
 	sensitivity = 0.6,
+	scroll_factor = 1.5,
 })
