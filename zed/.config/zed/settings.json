@@ -54,7 +54,7 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_family": "JetBrainsMono Nerd Font Propo",
   "agent_servers": {
     "github-copilot-cli": {
       "default_config_options": {
@@ -67,7 +67,7 @@
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/mimo-v2.5-free"
+        "model": "opencode/laguna-s-2.1-free"
       },
       "type": "registry"
     },

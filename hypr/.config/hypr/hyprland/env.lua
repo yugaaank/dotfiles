@@ -15,7 +15,7 @@ hl.env(
 -- ############ Themes #############
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("QT_QUICK_CONTROLS_STYLE", "Breeze")
+hl.env("QT_QUICK_CONTROLS_STYLE", "Breeze dark")
 hl.env("XDG_MENU_PREFIX", "gnome-")
 hl.env("GTK_THEME", "adw-gtk3-dark")
 
@@ -23,6 +23,6 @@ hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("TERMINAL", "kitty -1")
 
 -- ############ Cursors #############
-hl.env("XCURSOR_THEME", "Adwaita")
+hl.env("XCURSOR_THEME", "macOS-White")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("DCONF_PROFILE", "user")

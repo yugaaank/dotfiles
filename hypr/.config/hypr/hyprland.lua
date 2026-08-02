@@ -10,6 +10,7 @@ require("hyprland.general")
 require("hyprland.rules")
 require("hyprland.colors")
 require("hyprland.gloview")
+require("hyprland.scrolloverview")
 require("hyprland.keybinds")
 
 -- Hardware & Display
