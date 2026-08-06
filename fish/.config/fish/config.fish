@@ -85,16 +85,7 @@ zoxide init fish --cmd cd | source
 #source /usr/share/nvm/init-nvm.sh
 set --universal nvm_default_version lts
 
-# Import colors from pywal (leftover reference to ambxst removed)
-if test -f ~/.cache/wal/colors.sh
-    for line in (cat ~/.cache/wal/colors.sh)
-        set -l var (echo $line | cut -d'=' -f1)
-        set -l val (echo $line | cut -d'=' -f2 | tr -d '"')
-        if test -n "$var"
-            set -gx $var $val
-        end
-    end
-end
+
 set -gx TIKTOKEN_CACHE_DIR ~/.cache/tiktoken
 set -x ANDROID_HOME $HOME/Android/Sdk
 set -x ANDROID_SDK_ROOT $HOME/Android/Sdk

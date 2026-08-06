@@ -24,6 +24,14 @@ hl.window_rule({
 	float = true,
 	size = "360 616",
 })
+hl.window_rule({
+	match = {
+		class = "^(org\\.gnome\\.Evince)$",
+	},
+	float = true,
+	center = true,
+	size = "685 969",
+})
 
 -- Disable blur for xwayland context menus
 hl.window_rule({
@@ -243,6 +251,13 @@ hl.window_rule({
 	},
 	float = true,
 	size = "850 500",
+})
+hl.window_rule({
+	match = {
+		class = "^(com\\.system76\\.CosmicFiles)$",
+	},
+	float = true,
+	size = "957 558",
 })
 
 -- Move

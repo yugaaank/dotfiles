@@ -102,7 +102,7 @@ hl.config({
 		shadow = {
 			range = 50,
 			offset = "0 4",
-			render_power = 10,
+			render_power = 4,
 			color = "rgba(00000027)",
 		},
 	},
@@ -233,6 +233,7 @@ hl.config({
 		repeat_rate = 35,
 		follow_mouse = 1,
 		off_window_axis_events = 2,
+		accel_profile = "adaptive",
 	},
 	misc = {
 		disable_hyprland_logo = false,
@@ -267,21 +268,21 @@ hl.config({
 		scroll_event_delay = 0,
 		hide_special_on_workspace_change = true,
 	},
-	cursor = {
-		zoom_factor = 1,
-		zoom_rigid = false,
-		zoom_disable_aa = true,
-		hotspot_padding = 1,
-		enable_hyprcursor = true,
-		no_hardware_cursors = 0,
-	},
+		cursor = {
+			zoom_factor = 1,
+			zoom_rigid = false,
+			zoom_disable_aa = true,
+			hotspot_padding = 1,
+			enable_hyprcursor = true,
+			no_hardware_cursors = 0,
+		},
 })
 
 hl.device({
 	name = "asue1306:00-04f3:3284-touchpad",
 	natural_scroll = true,
 	tap_to_click = true,
-	accel_profile = "flat",
-	sensitivity = 0.6,
+	accel_profile = "adaptive",
+	sensitivity = 0.3,
 	scroll_factor = 1.5,
 })

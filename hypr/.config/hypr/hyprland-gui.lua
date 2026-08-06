@@ -7,7 +7,7 @@ hl.env("XCURSOR_SIZE", "24")
 -- Settings
 hl.config({
     cursor = {
-        no_hardware_cursors = 1,
+        no_hardware_cursors = 0,
         persistent_warps = true,
         warp_on_change_workspace = 1,
     },
@@ -42,7 +42,7 @@ hl.config({
         workspace_swipe_invert = true,
     },
     input = {
-        accel_profile = "flat",
+        accel_profile = "adaptive",
         float_switch_override_focus = 2,
         follow_mouse = 1,
         scroll_factor = 1.0,
