@@ -30,6 +30,7 @@ hl.bind("SUPER + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 hl.bind("SUPER + Q", hl.dsp.window.close())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
 hl.bind("SUPER + B", hl.dsp.window.float({ action = "toggle" }))
+
 hl.bind("SUPER + P", hl.dsp.window.pin())
 
 -- Focus

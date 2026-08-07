@@ -8,14 +8,14 @@ hl.window_rule({
 	persistent_size = true,
 })
 
-hl.window_rule({
-	match = {
-		class = "^(.*)$",
-	},
-	float = true,
-	center = true,
-	size = "(monitor_w*.85) (monitor_h*.85)",
-})
+-- hl.window_rule({
+-- 	match = {
+-- 		class = "^(.*)$",
+-- 	},
+-- 	float = true,
+-- 	center = true,
+-- 	size = "(monitor_w*.85) (monitor_h*.85)",
+-- })
 
 hl.window_rule({
 	match = {
@@ -28,9 +28,7 @@ hl.window_rule({
 	match = {
 		class = "^(org\\.gnome\\.Evince)$",
 	},
-	float = true,
-	center = true,
-	size = "685 969",
+	tile = true,
 })
 
 -- Disable blur for xwayland context menus
@@ -55,10 +53,17 @@ hl.window_rule({
 	match = {
 		class = "^(kitty)$",
 	},
-	size = "900 530",
 	border_color = {
 		colors = { "rgba(00000000)", "rgba(00000000)" },
 	},
+})
+hl.window_rule({
+	match = {
+		class = "^(kitty)$",
+		float = 1,
+	},
+	size = "900 530",
+	persistent_size = false,
 })
 hl.window_rule({
 	match = {

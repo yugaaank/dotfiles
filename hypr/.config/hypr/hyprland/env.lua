@@ -26,3 +26,8 @@ hl.env("TERMINAL", "kitty -1")
 hl.env("XCURSOR_THEME", "macOS-White")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("DCONF_PROFILE", "user")
+
+-- ############ NVIDIA #############
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
