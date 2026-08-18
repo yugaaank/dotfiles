@@ -38,7 +38,10 @@ hl.config({
         layout = "dwindle",
     },
     gestures = {
+        workspace_swipe_distance = 500,
+        workspace_swipe_forever = true,
         workspace_swipe_invert = true,
+        workspace_swipe_min_speed_to_force = 1,
     },
     input = {
         accel_profile = "adaptive",

@@ -49,14 +49,7 @@ hl.window_rule({
 	center = true,
 	size = "(monitor_w*.85) (monitor_h*.85)",
 })
-hl.window_rule({
-	match = {
-		class = "^(kitty)$",
-	},
-	border_color = {
-		colors = { "rgba(00000000)", "rgba(00000000)" },
-	},
-})
+
 hl.window_rule({
 	match = {
 		class = "^(kitty)$",
