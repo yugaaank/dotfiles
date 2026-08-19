@@ -1,45 +1,38 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
+// Zed editor keybindings configuration.
 [
   {
     "context": "Workspace",
-    "bindings": {},
+    "bindings": {}
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      "ctrl-s": "workspace::Save",
-      // "j k": "vim::NormalBefore"
-    },
+      "ctrl-s": "workspace::Save"
+    }
   },
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
       "ctrl-s": "workspace::Save",
-      "space space": "file_finder::Toggle",
-    },
+      "space space": "file_finder::Toggle"
+    }
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-b": "workspace::ToggleLeftDock",
-    },
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-shift-t": "workspace::NewTerminal",
-    },
+      "ctrl-shift-t": "workspace::NewTerminal"
+    }
   },
   {
     "context": "Workspace",
     "unbind": {
-      "ctrl-~": "workspace::NewTerminal",
-    },
-  },
+      "ctrl-~": "workspace::NewTerminal"
+    }
+  }
 ]

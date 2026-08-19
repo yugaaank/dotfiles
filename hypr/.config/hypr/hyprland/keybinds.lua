@@ -161,6 +161,7 @@ hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("noctalia msg dpms-on"), {
 
 -- #! Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind('SUPER + SHIFT + Return', hl.dsp.exec_cmd('kitty --class fastfetch -e sh -c "clear && fastfetch; exec $SHELL"'))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("GDK_DISABLE=vulkan nautilus --new-window --no-desktop"))
 
 -- !
@@ -170,7 +171,6 @@ hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 
 hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
 hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
-hl.bind("SUPER + H", hl.dsp.window.fullscreen())
 hl.bind("SUPER + R", hl.dsp.exec_cmd("sh -c 'pkill noctalia; sleep 0.5; noctalia'"))
 
 -- noctalia commands

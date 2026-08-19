@@ -1,36 +1,32 @@
--- Bar, wallpaper
-hl.on("hyprland.start", function()
-		hl.exec_cmd("hyprpm reload -n")
-	hl.exec_cmd("~/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
-	hl.exec_cmd("noctalia")
-hl.exec_cmd("~/.config/hypr/hyprland/scripts/welcome.sh")
-	hl.exec_cmd("~/.config/hypr/hyprland/scripts/__restore_video_wallpaper.sh")
-end)
+-- Startup applications and system services.
 
--- Core components (authentication, lock screen, notification daemon)
 hl.on("hyprland.start", function()
-	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
-	hl.exec_cmd("hypridle")
+	-- System environment & Keyring
 	hl.exec_cmd("dbus-update-activation-environment --all")
 	hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-end)
+	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 
--- Audio & System Services
-hl.on("hyprland.start", function()
+	-- Core services
+	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("noctalia")
+
+	-- System utilities & helper scripts
+	hl.exec_cmd("~/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
+	hl.exec_cmd("~/.config/hypr/hyprland/scripts/welcome.sh")
+	hl.exec_cmd("~/.config/hypr/hyprland/scripts/__restore_video_wallpaper.sh")
+
+	-- Background services
 	hl.exec_cmd("easyeffects --hide-window --service-mode")
 	hl.exec_cmd("elephant")
 	hl.exec_cmd("snappy-switcher --daemon")
 	hl.exec_cmd("kdeconnect-indicator")
 	hl.exec_cmd("~/.cargo/bin/shy")
-end)
 
--- Clipboard: history
-hl.on("hyprland.start", function()
+	-- Clipboard manager (cliphist)
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
-end)
 
--- Cursor
-hl.on("hyprland.start", function()
+	-- Set cursor theme
 	hl.exec_cmd("hyprctl setcursor macOS-White 24")
 end)

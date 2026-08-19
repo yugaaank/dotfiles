@@ -1,3 +1,4 @@
+-- Tokyonight theme configuration with transparency
 return {
   {
     "folke/tokyonight.nvim",

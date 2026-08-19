@@ -20,6 +20,7 @@ hl.config({
         dim_inactive = true,
         fullscreen_opacity = 1.0,
         inactive_opacity = 1.0,
+        rounding = 2,
         rounding_power = 10.0,
         shadow = {
             color = "0xee1a1a1a",

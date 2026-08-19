@@ -1,9 +1,13 @@
+-- Color configuration and styling rules for Hyprland.
+
+-- --- Core Colors ---
 hl.config({
 	misc = {
 		background_color = "rgba(121314FF)",
 	},
 })
 
+-- --- Window Highlight Rules ---
 hl.window_rule({
 	match = {
 		pin = 1,

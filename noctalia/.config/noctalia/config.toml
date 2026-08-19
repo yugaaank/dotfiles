@@ -1,227 +1,185 @@
-[accessibility]
-high_contrast = true
-
 [audio]
 enable_overdrive = true
-enable_sounds = true
-sound_volume = 0.99999997764825821
 
 [bar]
-order = [ "default", "sys", "music" ]
+order = [ "default", "right", "left", "bot" ]
 
-    [bar.default]
-    background_opacity = 0.4999999888241291
-    border = "surface"
-    capsule_padding = 10.0
-    capsule_thickness = 0.97999998182058334
-    end = [
-        "tray",
-        "spacer_1",
-        "notifications",
-        "spacer_1",
-        "volume",
-        "spacer_1",
-        "network",
-        "spacer_1",
-        "battery",
-        "spacer_1",
-        "session"
-    ]
-    font_family = "JetBrainsMono Nerd Font Propo"
-    font_weight = 400
+    [bar.bot]
+    background_opacity = 0.59999998658895493
+    center = [ "taskbar" ]
+    enabled = false
     margin_ends = 0
-    panel_overlap = 0
-    radius = 0
-    radius_bottom_left = 60
-    radius_bottom_right = 60
-    radius_top_left = 0
-    radius_top_right = 0
-    scale = 0.95000000670552254
-    start = [ "workspaces" ]
-    thickness = 25
-
-    [bar.music]
-    auto_hide = true
-    center = [ "audio_visualizer", "media", "audio_visualizer" ]
-    concave_edge_corners = true
-    enabled = true
-    end = []
-    font_family = "JetBrainsMono Nerd Font Propo"
-    margin_edge = 0
-    margin_ends = 500
-    position = "left"
-    radius_bottom_left = 80
-    radius_bottom_right = 30
-    radius_top_left = 80
-    radius_top_right = 30
-    reserve_space = false
-    start = []
-
-    [bar.sys]
-    auto_hide = true
-    center = [ "cpu", "ram", "temp" ]
-    concave_edge_corners = true
-    enabled = true
-    end = []
-    font_family = "JetBrainsMono Nerd Font Propo"
-    margin_edge = 0
-    margin_ends = 500
-    position = "right"
-    radius_bottom_left = 30
-    radius_bottom_right = 80
-    radius_top_left = 30
-    radius_top_right = 80
-    reserve_space = false
-    start = []
+    position = "bottom"
     thickness = 50
 
-[calendar]
-enabled = true
+    [bar.default]
+    center = [ "clock", "recorder" ]
+    end = [
+        "tray",
+        "spacer_2",
+        "bar",
+        "spacer_3",
+        "keyboard_layout",
+        "spacer_3",
+        "network",
+        "spacer_3",
+        "bluetooth",
+        "spacer_3",
+        "volume",
+        "spacer_3",
+        "battery",
+        "spacer_3",
+        "session"
+    ]
+    margin_ends = 0
+    radius = 0
+    scale = 0.95000000670552254
+    start = [ "workspaces", "spacer_3", "active_window" ]
+    thickness = 30
 
-    [calendar.account.personal_google]
-    name = "Calendar"
-    type = "google"
+    [bar.left]
+    center = [ "audio_visualizer", "media", "audio_visualizer" ]
+    enabled = false
+    end = []
+    margin_ends = 520
+    position = "left"
+    reserve_space = false
+    show_on_workspace_switch = false
+    smart_auto_hide = true
+    start = []
+
+    [bar.right]
+    background_opacity = 0.75999998301267624
+    center = [ "cpu", "ram", "temp" ]
+    enabled = false
+    end = []
+    margin_ends = 525
+    position = "right"
+    reserve_space = false
+    show_on_workspace_switch = false
+    smart_auto_hide = true
+    start = []
 
 [control_center]
 sidebar_section = "none"
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [
-    "desktop-widget-0000000000000001",
-    "desktop-widget-0000000000000002",
-    "desktop-widget-0000000000000003",
-    "desktop-widget-0000000000000005"
-]
+widget_order = [ "yugaaank-calendar", "yugaaank-media", "desktop-widget-0000000000000018" ]
 
     [desktop_widgets.grid]
-    cell_size = 16
+    cell_size = 8
     major_interval = 4
     visible = true
 
-    [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 144.0
-    box_width = 256.0
-    cx = 960.0
-    cy = 280.0
+    [desktop_widgets.widget.desktop-widget-0000000000000018]
+    box_height = 128.0
+    box_width = 288.0
+    cx = 160.0
+    cy = 112.0
     output = "eDP-1"
-    rotation = 0.0
+    rotation = -0.0
     type = "clock"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        [desktop_widgets.widget.desktop-widget-0000000000000018.settings]
         background = false
-        background_opacity = 0.69999999999999996
-        background_padding = 3.0
-        background_radius = 23.0
+        background_opacity = 0.70000000000000007
+        background_padding = 10
+        background_radius = 0
         center_text = true
-        clock_style = "digital"
-        font_family = "Inter Display"
-        shadow = true
+        font_family = "SF Pro Display"
+        shadow = false
 
-    [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 64.0
-    box_width = 144.0
-    cx = 960.0
+    [desktop_widgets.widget.yugaaank-calendar]
+    box_height = 280.0
+    box_width = 232.0
+    cx = 152.0
     cy = 360.0
     output = "eDP-1"
     rotation = 0.0
-    type = "weather"
+    type = "yugaaank/better-calendar:calendar"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        background = false
+        [desktop_widgets.widget.yugaaank-calendar.settings]
+        background = true
         background_opacity = 0.69999999999999996
-        background_radius = 12.0
-        font_family = "Inter Display Black"
-        shadow = true
+        background_padding = 20
+        background_radius = 32
 
-    [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 112.0
-    box_width = 272.0
-    cx = 1768.0
-    cy = 1083.0
+    [desktop_widgets.widget.yugaaank-media]
+    box_height = 352.0
+    box_width = 256.0
+    cx = 416.0
+    cy = 288.0
+    enabled = false
     output = "eDP-1"
     rotation = 0.0
-    type = "sysmon"
+    type = "yugaaank/media-player:player"
 
-        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        background = false
-        stat = "cpu_usage"
-        stat2 = "cpu_temp"
-
-    [desktop_widgets.widget.desktop-widget-0000000000000005]
-    box_height = 480.0
-    box_width = 832.0
-    cx = 960.0
-    cy = 0.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "audio_visualizer"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
-        background = false
-        bands = 32
-        show_when_idle = true
+        [desktop_widgets.widget.yugaaank-media.settings]
+        background = true
+        background_opacity = 0.69999999999999996
+        background_radius = 32
+        hide_when_paused = false
 
 [dock]
-auto_hide = false
-background_opacity = 0.4999999888241291
+background_opacity = 0.73999998345971107
+concave_edge_corners = false
 cross_axis_padding = 0
 enabled = true
 icon_size = 30
-inactive_opacity = 0.99999997764825821
-inactive_scale = 1.0
-intelligent_hide = true
-item_spacing = 0
+launcher_icon = "system-run"
 magnification_scale = 2.0
 main_axis_padding = 0
-margin_edge = 8
+margin_edge = 10
 pinned = [
     "org.gnome.Nautilus",
-    "zen",
     "kitty",
-    "dev.zed.Zed",
-    "spotify",
+    "zen",
+    "obsidian",
+    "helium",
     "brave-browser",
     "btop",
-    "org.gnome.Snapshot",
-    "hyprmod",
-    "nvim",
-    "org.kde.kdeconnect.app",
-    "org.gnome.tweaks",
-    "paper",
-    "org.gnome.Calculator",
-    "org.gnome.GHex",
-    "org.gnome.Papers",
-    "org.gimp.GIMP",
-    "gparted",
-    "org.gnome.Loupe",
-    "libreoffice-startcenter",
-    "localsend",
     "com.obsproject.Studio",
+    "dev.zed.Zed",
+    "nvim",
+    "antigravity",
     "onlyoffice-desktopeditors",
-    "org.gnome.TextEditor"
+    "libreoffice-startcenter",
+    "org.gnome.Evince",
+    "vesktop",
+    "localsend",
+    "org.gnome.Calculator",
+    "org.gnome.Snapshot",
+    "org.gnome.Photos",
+    "it.mijorus.gearlever",
+    "org.gnome.tweaks",
+    "io.github.bluemancz.hyprmod"
 ]
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
-font_family = "JetBrainsMono Nerd Font Propo"
 
 [hot_corners]
 enabled = true
+
+    [hot_corners.top_left]
+    action = "launcher"
 
     [hot_corners.top_right]
     action = "launcher"
 
 [location]
-address = "Bengaluru"
-
-[lockscreen]
-tint_intensity = 0.029999999329447746
+auto_locate = true
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -229,10 +187,10 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 201.0
+    box_width = 720.0
     cx = 960.0
-    cy = 696.0
+    cy = 723.5
     output = "eDP-1"
     rotation = 0.0
     type = "login_box"
@@ -241,30 +199,86 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         background_color = "surface_variant"
         background_opacity = 0.0
         background_radius = 32.0
+        center_password_text = true
         input_opacity = 1.0
-        input_radius = 22.0
+        input_radius = 32.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
         show_login_button = true
+        show_session_buttons = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 240.0
-    box_width = 432.0
-    cx = 944.0
-    cy = 576.0
+    box_height = 432.0
+    box_width = 544.0
+    cx = 960.0
+    cy = 456.0
     output = "eDP-1"
     rotation = 0.0
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
         background = false
+        background_opacity = 0.0
+        center_text = true
+        clock_style = "digital"
         color = "on_surface"
-        font_family = "Inter Medium"
+        font_family = "Adwaita Sans"
+        format = "{:%H:%M}"
         shadow = false
 
-[nightlight]
-enabled = true
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 128.0
+    box_width = 208.0
+    cx = 120.0
+    cy = 1136.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "weather"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1751.0
+    cy = 1132.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "media_player"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        background = false
+        hide_when_no_media = true
+
+[osd]
+offset_x = 40
+offset_y = 80
+position = "bottom_center"
+position_vertical = "bottom_center"
+
+[plugin_settings."cleboost/hotspot"]
+password = "nahbronah"
+
+[plugin_settings."joshuaslate/shelly"]
+notify = true
+
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "~/Pictures/Wallpapers"
+
+[plugin_settings."whyoolw/dropwall"]
+copy_to_wallpaper_dir = true
 
 [plugins]
-enabled = [ "noctalia/notes", "noctalia/bongocat", "yugaaank/desktop-icons" ]
+enabled = [
+    "noctalia/mpvpaper",
+    "icefish/phone-connect",
+    "yugaaank/better-clock",
+    "yugaaank/better-calendar",
+    "yugaaank/media-player",
+    "yugaaank/todo-widget"
+]
 
     [[plugins.source]]
     kind = "git"
@@ -277,137 +291,134 @@ enabled = [ "noctalia/notes", "noctalia/bongocat", "yugaaank/desktop-icons" ]
     name = "community"
 
     [[plugins.source]]
+    enabled = false
     kind = "path"
-    location = "/home/yugaaank/.config/noctalia/plugins/desktop-icons"
-    name = "local"
+    location = "/home/yugaaank/community-plugins"
+    name = "dev"
 
 [shell]
-clipboard_history_max_entries = 50
-font_family = "JetBrainsMono Nerd Font Propo"
+app_icon_color = "hover"
+avatar_path = "/home/yugaaank/Pictures/desktop/f084db2a724fed85b209fd0e87f32081-removebg-preview.png"
+button_borders = false
+corner_radius_scale = 0.0
+font_family = "SF Pro Display"
 password_style = "random"
 polkit_agent = true
 
     [shell.launcher]
-    app_grid = true
     categories = false
-    session_search = true
     sort_by_usage = false
 
     [shell.panel]
-    launcher_categories = false
-    launcher_session_search = true
-    launcher_sort_by_usage = false
     open_near_click_control_center = true
-    open_near_click_wallpaper = true
     session_placement = "floating"
     session_position = "center"
-    transparency_mode = "soft"
+    wallpaper_placement = "floating"
 
     [shell.screenshot]
-    directory = "/home/yugaaank/Pictures/Screenshots"
+    directory = "~/Pictures/Screenshots"
 
     [shell.shadow]
     alpha = 0.99999997764825821
     direction = "center"
 
 [theme]
-builtin = "Ayu"
+community_palette = "Shinonome"
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "soft"
+wallpaper_scheme = "m3-monochrome"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "kitty" ]
-    community_ids = [ "zen-browser", "neovim", "zed", "snappy-switcher" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "starship" ]
+    community_ids = [ "opencode", "zen-browser", "neovim", "vscode", "zed", "snappy-switcher" ]
 
 [wallpaper]
-directory = "/home/yugaaank/Pictures/Wallpapers"
-transition = [ "disc" ]
-transition_duration = 3200
 transition_on_startup = true
 
-    [wallpaper.automation]
-    order = "alphabetical"
-
     [wallpaper.default]
-    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-9dqwqk.jpg"
 
     [wallpaper.last]
-    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-9dqwqk.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-qrlwql.png"
+    path = "/home/yugaaank/Pictures/Wallpapers/wallhaven-9dqwqk.jpg"
+
+[widget.active_window]
+capsule_border = "hover"
+capsule_padding = 7
+capsule_radius = 8
+title_scroll = "on_hover"
+
+[widget.bar]
+type = "icefish/phone-connect:bar"
 
 [widget.battery]
 display_mode = "graphic"
-scale = 0.90000000000000002
 show_label = false
-glyph = "nf-mdi-battery"
-
-[widget.bluetooth]
-show_label = true
-glyph = "nf-mdi-bluetooth"
 
 [widget.brightness]
 show_label = false
-glyph = "nf-mdi-brightness_6"
-
-[widget.cat]
-audio_spectrum = true
-tappy_mode = true
-type = "noctalia/bongocat:cat"
-
-[widget.cat_2]
-type = "noctalia/bongocat:cat"
-
-[widget.cat_3]
-audio_spectrum = true
-tappy_mode = true
-type = "noctalia/bongocat:cat"
 
 [widget.clock]
-scale = 1.05
-glyph = "nf-mdi-clock"
+capsule_fill = "primary"
+capsule_foreground = "on_primary"
+capsule_padding = 10
+capsule_radius = "auto"
+font_weight = 500
+format = "{:%H:%M   %d %b %a} "
 
 [widget.control-center]
-glyph = "nf-mdi-menu"
+glyph = "navigation-filled"
+scale = 1.3
+
+[widget.cpu]
+show_label = false
+
+[widget.keyboard_layout]
+show_glyph = false
+
+[widget.launcher]
+scale = 1.3
 
 [widget.media]
-title_scroll = "always"
-glyph = "nf-fa-music"
+hide_when_no_media = true
 
 [widget.network]
 show_label = false
-glyph = "nf-mdi-wifi"
+
+[widget.ram]
+show_label = false
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
-glyph = "nf-fa-circle"
 
-[widget.spacer_1]
-length = 15
-type = "spacer"
+[widget.session]
+capsule = true
+capsule_fill = "primary"
+capsule_foreground = "on_primary"
 
 [widget.spacer_2]
 type = "spacer"
 
-[widget.taskbar]
-capsule_opacity = 0.75
-capsule_padding = 10.0
-scale = 1.2
-show_active_indicator = false
-glyph = "nf-fa-square"
+[widget.spacer_3]
+length = 15
+type = "spacer"
 
-[widget.tray]
-drawer = true
-glyph = "nf-mdi-tray"
+[widget.taskbar]
+pinned = [ "org.gnome.Nautilus", "kitty", "zen", "zed", "camera", "calculator", "btop", "vesktop" ]
+pinned_opacity = 1.0
+scale = 1.9000000000000001
+show_active_indicator = false
+show_workspace_label = false
+
+[widget.temp]
+show_label = false
 
 [widget.volume]
 show_label = false
-glyph = "nf-fa-volume_up"
 
 [widget.workspaces]
-hide_when_empty = true
-minimal = true
-style = "minimal"
-glyph = "nf-fa-square"
+capsule_border = "hover"
+capsule_padding = 9
+label_source = "name"

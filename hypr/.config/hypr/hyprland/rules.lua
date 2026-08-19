@@ -1,37 +1,19 @@
--- ######## Window rules ########
+-- Window, Workspace, and Layer rules for Hyprland layout and behavior.
 
--- Default rules
+-- ==========================================
+-- WINDOW RULES
+-- ==========================================
+
+-- --- Default/Base rules ---
 hl.window_rule({
 	match = {
 		float = 1,
 	},
 	persistent_size = true,
+	rounding = 5,
 })
 
--- hl.window_rule({
--- 	match = {
--- 		class = "^(.*)$",
--- 	},
--- 	float = true,
--- 	center = true,
--- 	size = "(monitor_w*.85) (monitor_h*.85)",
--- })
-
-hl.window_rule({
-	match = {
-		class = "^(org.gnome.Calculator)$",
-	},
-	float = true,
-	size = "360 616",
-})
-hl.window_rule({
-	match = {
-		class = "^(org\\.gnome\\.Evince)$",
-	},
-	tile = true,
-})
-
--- Disable blur for xwayland context menus
+-- Disable blur for Xwayland context menus
 hl.window_rule({
 	match = {
 		class = "^()$",
@@ -40,7 +22,62 @@ hl.window_rule({
 	no_blur = true,
 })
 
--- Custom rules from user
+-- No shadow for tiled windows
+hl.window_rule({
+	match = {
+		float = 0,
+	},
+	no_shadow = true,
+})
+
+-- Fix JetBrains IDEs focus/rerendering issues
+hl.window_rule({
+	match = {
+		class = "^jetbrains-.*$",
+		float = 1,
+		title = "^$|^\\s$|^win\\d+$",
+	},
+	no_initial_focus = true,
+})
+
+-- Picture-in-Picture window settings
+hl.window_rule({
+	match = {
+		title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
+	},
+	float = true,
+	keep_aspect_ratio = true,
+	move = "(monitor_w*.73) (monitor_h*.72)",
+	size = "(monitor_w*.25) (monitor_h*.25)",
+	pin = true,
+})
+
+-- --- Floating & Centered File Dialogs (.5 of monitor size) ---
+hl.window_rule({
+	match = {
+		title = "^(Open File|Select a File|Open Folder|Save As|File Upload)(.*)$|^.*(wants to save|wants to open)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.5) (monitor_h*.5)",
+})
+
+-- --- Specific App Floating Rules ---
+hl.window_rule({
+	match = {
+		class = "^(org.gnome.Calculator)$",
+	},
+	float = true,
+	size = "360 616",
+})
+
+hl.window_rule({
+	match = {
+		class = "^(org\\.gnome\\.Evince)$",
+	},
+	tile = true,
+})
+
 hl.window_rule({
 	match = {
 		class = "^(zen-browser)$",
@@ -58,184 +95,32 @@ hl.window_rule({
 	size = "900 530",
 	persistent_size = false,
 })
+
 hl.window_rule({
 	match = {
-		class = "^(localsend)$",
+		class = "^(org\\.localsend\\.localsend_app)$",
 	},
 	float = true,
-	size = "400 678",
-})
-hl.window_rule({
-	match = {
-		title = "^(archmenu)$",
-	},
-	float = true,
-	center = true,
-	size = "500 200",
-})
-hl.window_rule({
-	match = {
-		title = "^(archmenu-about)$",
-	},
-	float = true,
-	center = true,
-	size = "800 500",
-})
-hl.window_rule({
-	match = {
-		title = "^(archmenu-install)$",
-	},
-	float = true,
-	center = true,
-	size = "900 600",
+	size = "400 700",
 })
 
--- Floating
 hl.window_rule({
 	match = {
-		title = "^(Open File)(.*)$",
+		class = "^(pavucontrol|org.pulseaudio.pavucontrol|nm-connection-editor)$",
 	},
+	float = true,
 	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(Select a File)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(Choose wallpaper)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.60) (monitor_h*.65)",
-})
-hl.window_rule({
-	match = {
-		title = "^(Open Folder)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(Save As)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(Library)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.6) (monitor_h*.7)",
-})
-hl.window_rule({
-	match = {
-		title = "^(File Upload)(.*)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(.*)(wants to save)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		title = "^(.*)(wants to open)$",
-	},
-	center = true,
-	float = true,
-	size = "(monitor_w*.5) (monitor_h*.5)",
-})
-hl.window_rule({
-	match = {
-		class = "^(blueberry\\.py)$",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		class = "^(guifetch)$",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		class = "^(pavucontrol)$",
-	},
-	float = true,
 	size = "(monitor_w*.45) (monitor_h*.45)",
-	center = true,
 })
+
 hl.window_rule({
 	match = {
-		class = "^(org.pulseaudio.pavucontrol)$",
-	},
-	float = true,
-	size = "(monitor_w*.45) (monitor_h*.45)",
-	center = true,
-})
-hl.window_rule({
-	match = {
-		class = "^(nm-connection-editor)$",
-	},
-	float = true,
-	size = "(monitor_w*.45) (monitor_h*.45)",
-	center = true,
-})
-hl.window_rule({
-	match = {
-		class = ".*plasmawindowed.*",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		class = "kcm_.*",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		class = ".*bluedevilwizard",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		title = ".*Welcome",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		title = ".*Shell conflicts.*",
-	},
-	float = true,
-})
-hl.window_rule({
-	match = {
-		class = "org.freedesktop.impl.portal.desktop.kde",
+		class = "^(org.freedesktop.impl.portal.desktop.kde)$",
 	},
 	float = true,
 	size = "(monitor_w*.60) (monitor_h*.65)",
 })
+
 hl.window_rule({
 	match = {
 		class = "^(Zotero)$",
@@ -243,6 +128,7 @@ hl.window_rule({
 	float = true,
 	size = "(monitor_w*.45) (monitor_h*.45)",
 })
+
 hl.window_rule({
 	match = {
 		class = "^(org\\.gnome\\.Nautilus)$",
@@ -250,6 +136,7 @@ hl.window_rule({
 	float = true,
 	size = "850 500",
 })
+
 hl.window_rule({
 	match = {
 		class = "^(com\\.system76\\.CosmicFiles)$",
@@ -258,9 +145,54 @@ hl.window_rule({
 	size = "957 558",
 })
 
--- Move
+hl.window_rule({
+	match = {
+		class = "^(fastfetch)$",
+	},
+	float = true,
+	center = true,
+	size = "800 450",
+})
 
--- kde-material-you-colors spawns a window when changing dark/light theme. This is to make sure it doesn't interfere at all.
+hl.window_rule({
+	match = {
+		title = "^(Choose wallpaper)(.*)$",
+	},
+	center = true,
+	float = true,
+	size = "(monitor_w*.60) (monitor_h*.65)",
+})
+
+-- --- Simple Floating Rules ---
+hl.window_rule({
+	match = {
+		class = "^(blueberry\\.py|guifetch)$",
+	},
+	float = true,
+})
+
+hl.window_rule({
+	match = {
+		class = ".*(plasmawindowed|bluedevilwizard).*",
+	},
+	float = true,
+})
+
+hl.window_rule({
+	match = {
+		class = "kcm_.*",
+	},
+	float = true,
+})
+
+hl.window_rule({
+	match = {
+		title = ".*(Welcome|Shell conflicts.*)",
+	},
+	float = true,
+})
+
+-- --- Utility and System Windows overrides ---
 hl.window_rule({
 	match = {
 		class = "^(plasma-changeicons)$",
@@ -270,7 +202,6 @@ hl.window_rule({
 	move = "999999 999999",
 })
 
--- stupid dolphin copy
 hl.window_rule({
 	match = {
 		title = "^(Copying — Dolphin)$",
@@ -278,35 +209,14 @@ hl.window_rule({
 	move = "40 80",
 })
 
--- Tiling
-
--- windowrule = match:class ^dev\.warp\.Warp$, tile on
-
--- Picture-in-Picture
+-- --- Tearing / Immediate Rules ---
 hl.window_rule({
 	match = {
-		title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$",
-	},
-	float = true,
-	keep_aspect_ratio = true,
-	move = "(monitor_w*.73) (monitor_h*.72)",
-	size = "(monitor_w*.25) (monitor_h*.25)",
-	pin = true,
-})
-
--- --- Tearing ---
-hl.window_rule({
-	match = {
-		title = ".*\\.exe",
+		title = ".*(\\.exe|minecraft.*)",
 	},
 	immediate = true,
 })
-hl.window_rule({
-	match = {
-		title = ".*minecraft.*",
-	},
-	immediate = true,
-})
+
 hl.window_rule({
 	match = {
 		class = "^(steam_app).*",
@@ -314,33 +224,22 @@ hl.window_rule({
 	immediate = true,
 })
 
--- Fix Jetbrain IDEs focus/rerendering problem
-hl.window_rule({
-	match = {
-		class = "^jetbrains-.*$",
-		float = 1,
-		title = "^$|^\\s$|^win\\d+$",
-	},
-	no_initial_focus = true,
-})
 
--- No shadow for tiled windows (matches windows that are not floating).
-hl.window_rule({
-	match = {
-		float = 0,
-	},
-	no_shadow = true,
-})
+-- ==========================================
+-- WORKSPACE RULES
+-- ==========================================
 
-
-
--- ######## Workspace rules ########
 hl.workspace_rule({
 	workspace = "special:special",
 	gaps_out = 30,
 })
 
--- ######## Layer rules ########
+
+-- ==========================================
+-- LAYER RULES
+-- ==========================================
+
+-- Enable xray blur for all layers
 hl.layer_rule({
 	match = {
 		namespace = ".*",
@@ -348,31 +247,23 @@ hl.layer_rule({
 	xray = true,
 })
 
--- layerrule = match:namespace .*, no_anim on
+-- Disable animations for selector, OSK and overlay layers
 hl.layer_rule({
 	match = {
-		namespace = "walker",
+		namespace = "^(walker|selection|overview|anyrun|osk|snappy-switcher|noanim)$",
 	},
 	no_anim = true,
 })
+
+-- Blur settings for panels, dock and OSK
 hl.layer_rule({
 	match = {
-		namespace = "selection",
+		namespace = "^(bar[0-9]*|barcorner.*|dock[0-9]*|osk[0-9]*)$",
 	},
-	no_anim = true,
+	blur = true,
+	ignore_alpha = 0.6,
 })
-hl.layer_rule({
-	match = {
-		namespace = "overview",
-	},
-	no_anim = true,
-})
-hl.layer_rule({
-	match = {
-		namespace = "anyrun",
-	},
-	no_anim = true,
-})
+
 hl.layer_rule({
 	match = {
 		namespace = "indicator.*",
@@ -381,24 +272,7 @@ hl.layer_rule({
 	blur = true,
 	ignore_alpha = 0.6,
 })
-hl.layer_rule({
-	match = {
-		namespace = "osk",
-	},
-	no_anim = true,
-})
-hl.layer_rule({
-	match = {
-		namespace = "snappy-switcher",
-	},
-	no_anim = true,
-})
-hl.layer_rule({
-	match = {
-		namespace = "noanim",
-	},
-	no_anim = true,
-})
+
 hl.layer_rule({
 	match = {
 		namespace = "gtk-layer-shell",
@@ -406,6 +280,7 @@ hl.layer_rule({
 	blur = true,
 	ignore_alpha = 0,
 })
+
 hl.layer_rule({
 	match = {
 		namespace = "launcher",
@@ -413,62 +288,38 @@ hl.layer_rule({
 	blur = true,
 	ignore_alpha = 0.5,
 })
+
 hl.layer_rule({
 	match = {
 		namespace = "notifications",
 	},
+	animation = "slide right",
 	blur = true,
 	ignore_alpha = 0.69,
 })
--- malformed layerrule: match:namespace logout_dialog
 
--- ags
 hl.layer_rule({
 	match = {
 		namespace = "sideleft.*",
 	},
 	animation = "slide left",
 })
+
 hl.layer_rule({
 	match = {
 		namespace = "sideright.*",
 	},
 	animation = "slide right",
 })
+
 hl.layer_rule({
 	match = {
 		namespace = "session[0-9]*",
 	},
 	blur = true,
 })
-hl.layer_rule({
-	match = {
-		namespace = "bar[0-9]*",
-	},
-	blur = true,
-	ignore_alpha = 0.6,
-})
-hl.layer_rule({
-	match = {
-		namespace = "barcorner.*",
-	},
-	blur = true,
-	ignore_alpha = 0.6,
-})
-hl.layer_rule({
-	match = {
-		namespace = "dock[0-9]*",
-	},
-	blur = true,
-	ignore_alpha = 0.6,
-})
-hl.layer_rule({
-	match = {
-		namespace = "osk[0-9]*",
-	},
-	blur = true,
-	ignore_alpha = 0.6,
-})
+
+-- Noctalia UI framework layer rules
 hl.layer_rule({
 	name = "noctalia",
 	match = {

@@ -1,42 +1,6 @@
--- MONITOR CONFIG
-hl.config({
-	gestures = {
-		workspace_swipe_distance = 700,
-		workspace_swipe_cancel_ratio = 0.2,
-		workspace_swipe_min_speed_to_force = 2,
-		workspace_swipe_direction_lock = true,
-		workspace_swipe_direction_lock_threshold = 10,
-		workspace_swipe_create_new = true,
-		workspace_swipe_forever = false,
-		workspace_swipe_touch = true,
-		workspace_swipe_use_r = false,
-	},
-})
+-- Core Hyprland configuration settings, animations, and hardware options.
 
-hl.monitor({
-	output = "eDP-1",
-	mode = "1920x1200@60.00Hz",
-	position = "0x0",
-	scale = 1,
-	cm = "srgb",
-})
-hl.gesture({
-	fingers = 3,
-	direction = "swipe",
-	action = "move",
-})
-hl.gesture({
-	fingers = 3,
-	direction = "pinch",
-	action = "float",
-})
-hl.gesture({
-	fingers = 4,
-	direction = "vertical",
-	action = "workspace",
-})
-
--- Gaps and border
+-- --- Core Configuration ---
 hl.config({
 	general = {
 		gaps_in = 2,
@@ -64,26 +28,35 @@ hl.config({
 		smart_resizing = false,
 		precise_mouse_move = true,
 	},
-})
-
--- 2 = circle, higher = squircle, 4 = very obvious squircle
-
--- Clear squircles look really off; we use only extra .4 here to make the rounding feel more continuous
-hl.config({
+	gestures = {
+		workspace_swipe_distance = 350,
+		workspace_swipe_cancel_ratio = 0.15,
+		workspace_swipe_min_speed_to_force = 4,
+		workspace_swipe_direction_lock = true,
+		workspace_swipe_direction_lock_threshold = 10,
+		workspace_swipe_create_new = true,
+		workspace_swipe_forever = false,
+		workspace_swipe_touch = true,
+		workspace_swipe_use_r = false,
+	},
 	decoration = {
 		rounding_power = 2.4,
 		rounding = 0,
+		dim_inactive = false,
+		dim_strength = 0.05,
+		dim_special = 0.07,
+		inactive_opacity = 1.0,
 		blur = {
 			enabled = true,
 			xray = false,
 			special = true,
 			new_optimizations = true,
-			size = 10,
-			passes = 10,
+			size = 6,
+			passes = 3,
 			brightness = 1,
-			noise = 0.02,
-			contrast = 0.89,
-			vibrancy = 0.5,
+			noise = 0.01,
+			contrast = 0.9,
+			vibrancy = 0.6,
 			vibrancy_darkness = 0.5,
 			popups = true,
 			popups_ignorealpha = 0.6,
@@ -92,140 +65,15 @@ hl.config({
 		},
 		shadow = {
 			enabled = true,
-		},
-	},
-})
-
--- ignore_window = true
-hl.config({
-	decoration = {
-		shadow = {
-			range = 50,
+			range = 20,
 			offset = "0 4",
-			render_power = 4,
-			color = "rgba(00000027)",
+			render_power = 3,
+			color = "rgba(00000033)",
 		},
-	},
-})
-
--- Dim
-hl.config({
-	decoration = {
-		dim_inactive = false,
-		dim_strength = 0.05,
-		dim_special = 0.07,
-		inactive_opacity = 1.0,
 	},
 	animations = {
 		enabled = true,
 	},
-})
-
--- Curves tuned for a subtler macOS-like feel across the shell.
-hl.curve("macIn", { type = "bezier", points = { { 0.22, 1.0 }, { 0.36, 1.0 } } })
-hl.curve("macOut", { type = "bezier", points = { { 0.4, 0.0 }, { 0.9, 1.0 } } })
-hl.curve("macMove", { type = "bezier", points = { { 0.2, 0.9 }, { 0.3, 1.0 } } })
-
--- Configs
-
--- windows
-hl.animation({
-	leaf = "windowsIn",
-	enabled = true,
-	speed = 5,
-	bezier = "macIn",
-	style = "popin 93%",
-})
-hl.animation({
-	leaf = "fadeIn",
-	enabled = true,
-	speed = 5,
-	bezier = "macIn",
-})
-hl.animation({
-	leaf = "windowsOut",
-	enabled = true,
-	speed = 2,
-	bezier = "macOut",
-	style = "popin 93%",
-})
-hl.animation({
-	leaf = "fadeOut",
-	enabled = true,
-	speed = 2,
-	bezier = "macOut",
-})
-hl.animation({
-	leaf = "windowsMove",
-	enabled = true,
-	speed = 4,
-	bezier = "macMove",
-	style = "slide",
-})
-hl.animation({
-	leaf = "border",
-	enabled = true,
-	speed = 3,
-	bezier = "macMove",
-})
-
--- layers
-hl.animation({
-	leaf = "layersIn",
-	enabled = true,
-	speed = 4,
-	bezier = "macIn",
-	style = "slide top",
-})
-hl.animation({
-	leaf = "layersOut",
-	enabled = true,
-	speed = 2,
-	bezier = "macOut",
-	style = "slide top",
-})
-
--- fade
-hl.animation({
-	leaf = "fadeLayersIn",
-	enabled = true,
-	speed = 4,
-	bezier = "macIn",
-})
-hl.animation({
-	leaf = "fadeLayersOut",
-	enabled = true,
-	speed = 2,
-	bezier = "macOut",
-})
-
--- workspaces
-hl.animation({
-	leaf = "workspaces",
-	enabled = true,
-	speed = 1.5,
-	bezier = "macMove",
-	style = "slidevert",
-})
-
--- specialWorkspace
-hl.animation({
-	leaf = "specialWorkspaceIn",
-	enabled = true,
-	speed = 4,
-	bezier = "macIn",
-	style = "slidefadevert",
-})
-hl.animation({
-	leaf = "specialWorkspaceOut",
-	enabled = true,
-	speed = 2,
-	bezier = "macOut",
-	style = "slidefadevert",
-})
-
--- zoom
-hl.config({
 	input = {
 		kb_layout = "us",
 		numlock_by_default = true,
@@ -238,22 +86,10 @@ hl.config({
 	misc = {
 		disable_hyprland_logo = false,
 		disable_splash_rendering = true,
-	},
-})
-
---hl.animation({
---	leaf = "zoomFactor",
---	enabled = true,
---	speed = 3,
---	bezier = "emphasizedDecel",
---})
--- vfr = 1
-hl.config({
-	misc = {
 		vrr = 1,
 		mouse_move_enables_dpms = true,
 		key_press_enables_dpms = true,
-		animate_manual_resizes = false,
+		animate_manual_resizes = true,
 		animate_mouse_windowdragging = true,
 		enable_swallow = false,
 		swallow_regex = "(foot|kitty|allacritty|Alacritty)",
@@ -268,16 +104,56 @@ hl.config({
 		scroll_event_delay = 0,
 		hide_special_on_workspace_change = true,
 	},
-		cursor = {
-			zoom_factor = 1,
-			zoom_rigid = false,
-			zoom_disable_aa = true,
-			hotspot_padding = 1,
-			enable_hyprcursor = true,
-			no_hardware_cursors = 2,
-		},
+	cursor = {
+		zoom_factor = 1,
+		zoom_rigid = false,
+		zoom_disable_aa = true,
+		hotspot_padding = 1,
+		enable_hyprcursor = true,
+		no_hardware_cursors = 2,
+	},
 })
 
+-- --- Monitor Setup ---
+hl.monitor({
+	output = "eDP-1",
+	mode = "1920x1200@60.00Hz",
+	position = "0x0",
+	scale = 1,
+	cm = "srgb",
+})
+
+-- --- Gestures ---
+hl.gesture({ fingers = 3, direction = "swipe", action = "move" })
+hl.gesture({ fingers = 3, direction = "pinch", action = "float" })
+hl.gesture({ fingers = 4, direction = "vertical", action = "workspace" })
+
+-- --- Animation Curves ---
+hl.curve("md3_decel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1.0 } } })
+hl.curve("md3_accel", { type = "bezier", points = { { 0.3, 0.0 }, { 0.8, 0.15 } } })
+hl.curve("menu_decel", { type = "bezier", points = { { 0.1, 1.0 }, { 0.0, 1.0 } } })
+hl.curve("quickOut", { type = "bezier", points = { { 0.1, 1.0 }, { 0.0, 1.0 } } })
+hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+
+-- --- Window & Workspace Animations ---
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.5, bezier = "overshot", style = "popin 80%" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 4, bezier = "md3_decel" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 9, bezier = "quickOut", style = "popin 90%" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 9, bezier = "quickOut" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 8, bezier = "quickOut", style = "slide" })
+hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "menu_decel" })
+
+hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "menu_decel", style = "popin 85%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 9, bezier = "quickOut", style = "popin 90%" })
+
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 4, bezier = "menu_decel" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 9, bezier = "quickOut" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "quickOut", style = "slidevert" })
+
+hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 4.5, bezier = "md3_decel", style = "slidefadevert 20%" })
+hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 9, bezier = "quickOut", style = "slidefadevert 20%" })
+
+-- --- Device Overrides ---
 hl.device({
 	name = "asue1306:00-04f3:3284-touchpad",
 	natural_scroll = true,
