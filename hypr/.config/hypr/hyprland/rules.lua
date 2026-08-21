@@ -151,7 +151,7 @@ hl.window_rule({
 	},
 	float = true,
 	center = true,
-	size = "800 450",
+	size = "900 550",
 })
 
 hl.window_rule({
@@ -224,7 +224,6 @@ hl.window_rule({
 	immediate = true,
 })
 
-
 -- ==========================================
 -- WORKSPACE RULES
 -- ==========================================
@@ -233,7 +232,6 @@ hl.workspace_rule({
 	workspace = "special:special",
 	gaps_out = 30,
 })
-
 
 -- ==========================================
 -- LAYER RULES

@@ -162,3 +162,12 @@ hl.device({
 	sensitivity = 0.3,
 	scroll_factor = 1.5,
 })
+
+-- hyprbars is auto-loaded by HyprMod; disable it (no title bars wanted).
+hl.config({
+    plugin = {
+        hyprbars = {
+            enabled = false,
+        },
+    },
+})

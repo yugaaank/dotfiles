@@ -18,6 +18,7 @@ if status is-interactive
         starship init fish | source
     end
 
+    fastfetch
     # Initialize Zoxide (smarter cd)
     if type -q zoxide
         zoxide init fish | source

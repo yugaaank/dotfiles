@@ -161,7 +161,8 @@ hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("noctalia msg dpms-on"), {
 
 -- #! Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
-hl.bind('SUPER + SHIFT + Return', hl.dsp.exec_cmd('kitty --class fastfetch -e sh -c "clear && fastfetch; exec $SHELL"'))
+--hl.bind('SUPER + SHIFT + Return', hl.dsp.exec_cmd('kitty --class fastfetch -e sh -c "clear && fastfetch; exec fish"'))
+hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd('kitty --class fastfetch -e sh -c "clear && fetch; exec fish"'))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("GDK_DISABLE=vulkan nautilus --new-window --no-desktop"))
 
 -- !

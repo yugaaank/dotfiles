@@ -97,7 +97,7 @@
     "trust_all_worktrees": true
   },
   "ui_font_size": 15.0,
-  "buffer_font_size": 14.0,
+  "buffer_font_size": 13.0,
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
