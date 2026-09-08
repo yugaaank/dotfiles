@@ -138,8 +138,8 @@ hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } 
 -- --- Window & Workspace Animations ---
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.5, bezier = "overshot", style = "popin 80%" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 4, bezier = "md3_decel" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 9, bezier = "quickOut", style = "popin 90%" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 9, bezier = "quickOut" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 12, bezier = "quickOut", style = "slide" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 12, bezier = "quickOut" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 8, bezier = "quickOut", style = "slide" })
 hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "menu_decel" })
 
@@ -150,8 +150,20 @@ hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 4, bezier = "menu_
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 9, bezier = "quickOut" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "quickOut", style = "slidevert" })
 
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 4.5, bezier = "md3_decel", style = "slidefadevert 20%" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 9, bezier = "quickOut", style = "slidefadevert 20%" })
+hl.animation({
+	leaf = "specialWorkspaceIn",
+	enabled = true,
+	speed = 4.5,
+	bezier = "md3_decel",
+	style = "slidefadevert 20%",
+})
+hl.animation({
+	leaf = "specialWorkspaceOut",
+	enabled = true,
+	speed = 9,
+	bezier = "quickOut",
+	style = "slidefadevert 20%",
+})
 
 -- --- Device Overrides ---
 hl.device({
@@ -163,11 +175,19 @@ hl.device({
 	scroll_factor = 1.5,
 })
 
--- hyprbars is auto-loaded by HyprMod; disable it (no title bars wanted).
-hl.config({
-    plugin = {
-        hyprbars = {
-            enabled = false,
-        },
-    },
-})
+-- -- hyprbars buttons
+-- hl.plugin.hyprbars.add_button({
+--     bg_color = "rgb(ff4040)",
+--     fg_color = "rgb(ffffff)",
+--     size = 10,
+--     icon = "X",
+--     action = "hyprctl dispatch closewindow",
+-- })
+--
+-- hl.plugin.hyprbars.add_button({
+--     bg_color = "rgb(eeee11)",
+--     fg_color = "rgb(000000)",
+--     size = 10,
+--     icon = "_",
+--     action = "hyprctl dispatch fullscreen 1",
+-- })

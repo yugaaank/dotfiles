@@ -20,8 +20,7 @@ hl.config({
         dim_inactive = true,
         fullscreen_opacity = 1.0,
         inactive_opacity = 1.0,
-        rounding = 2,
-        rounding_power = 10.0,
+        rounding_power = 5.0,
         shadow = {
             color = "0xee1a1a1a",
             enabled = true,
@@ -33,10 +32,15 @@ hl.config({
     general = {
         border_size = 1,
         col = {
-            active_border = "0xff77767b",
+            active_border = "0xff9a9996",
             inactive_border = "0xff3d3846",
         },
+        gaps_in = 2,
+        gaps_out = 5,
         layout = "dwindle",
+        snap = {
+            border_overlap = true,
+        },
     },
     gestures = {
         workspace_swipe_distance = 500,
@@ -45,7 +49,7 @@ hl.config({
         workspace_swipe_min_speed_to_force = 1,
     },
     input = {
-        accel_profile = "adaptive",
+        accel_profile = "flat",
         float_switch_override_focus = 2,
         follow_mouse = 1,
         scroll_factor = 1.0,

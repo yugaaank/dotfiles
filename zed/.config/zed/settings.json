@@ -21,7 +21,7 @@
     "show_branch_status_icon": false
   },
   "project_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "outline_panel": {
     "dock": "right"
@@ -47,7 +47,7 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font Propo",
+  "buffer_font_family": ".ZedMono",
   "agent_servers": {
     "github-copilot-cli": {
       "default_config_options": {
@@ -86,7 +86,7 @@
     },
     "font_size": 13.0,
     "font_weight": 400.0,
-    "font_family": "SF Mono"
+    "font_family": "JetBrainsMono Nerd Font Propo"
   },
   "buffer_line_height": "comfortable",
   "telemetry": {
@@ -97,7 +97,7 @@
     "trust_all_worktrees": true
   },
   "ui_font_size": 15.0,
-  "buffer_font_size": 13.0,
+  "buffer_font_size": 15.0,
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",

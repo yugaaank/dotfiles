@@ -10,7 +10,7 @@
 hl.bind("SUPER + ALT + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"), {
 	release = true,
 })
-hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + PERIOD", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /emo"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"))
@@ -168,10 +168,9 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd("GDK_DISABLE=vulkan nautilus --new-window -
 -- !
 
 -- #! User
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 
 hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
-hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty -e btop"))
+hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd("kitty --class btop -e btop"))
 hl.bind("SUPER + R", hl.dsp.exec_cmd("sh -c 'pkill noctalia; sleep 0.5; noctalia'"))
 
 -- noctalia commands

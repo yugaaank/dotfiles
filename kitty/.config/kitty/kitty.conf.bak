@@ -1,7 +1,7 @@
 # Kitty Terminal Configuration
 
 # --- Font Settings ---
-font_size 10
+font_size 9
 font_family family="JetBrainsMono Nerd Font"
 bold_font auto
 italic_font auto
@@ -16,7 +16,7 @@ cursor_trail 1
 window_margin_width 0
 window_padding_width 21.75
 window_border_width 1pt
-background_opacity 1
+background_opacity 0.8
 background_blur 1
 hide_window_decorations no
 
@@ -60,3 +60,7 @@ map ctrl+backspace send_text all \x17
 include themes/noctalia.conf
 
 
+# BEGIN_KITTY_THEME
+# Argonaut
+include current-theme.conf
+# END_KITTY_THEME

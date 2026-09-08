@@ -18,14 +18,13 @@ if status is-interactive
         starship init fish | source
     end
 
-    fastfetch
     # Initialize Zoxide (smarter cd)
     if type -q zoxide
         zoxide init fish | source
         alias cd="z"
     end
 
-    # --- Aliases ---
+    alias list="python3 ~/Projects/list/check_models.py"
     alias c="clear"
     alias ex="exit"
     alias nv="nvim ."
@@ -70,3 +69,34 @@ test -d $HOME/.opencode/bin; and fish_add_path $HOME/.opencode/bin
 
 # Always return success
 true
+# raspberry pi-ssh
+function pi-ssh
+    set interface (ip route | awk '$1 == "default" {print $5; exit}')
+
+    if test -z "$interface"
+        echo "No network interface found"
+        return 1
+    end
+
+    set subnet (ip -4 route show dev $interface | awk '$1 ~ /^[0-9]+\.[0-9]+\.[0-9]+\./ {print $1; exit}')
+
+    if test -z "$subnet"
+        echo "Could not determine network"
+        return 1
+    end
+
+    echo "Searching for Raspberry Pi..."
+
+    set ip (sudo nmap -sn "$subnet" 2>/dev/null | awk '
+        /Nmap scan report/ { ip=$NF }
+        /B8:27:EB:D1:2A:9A/ { print ip; exit }
+    ')
+
+    if test -z "$ip"
+        echo "Raspberry Pi not found"
+        return 1
+    end
+
+    echo "Connecting to $ip..."
+    ssh berry@$ip
+end
