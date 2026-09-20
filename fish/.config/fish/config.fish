@@ -13,9 +13,11 @@ if status is-interactive
     # Backspace behaves like bash on ctrl-backspace
     bind ctrl-backspace backward-kill-word
 
-    # Initialize Starship prompt
-    if type -q starship
-        starship init fish | source
+    # Starship disabled — using custom tsugumori prompt in fish_prompt.fish
+
+    # Run fastfetch on terminal open
+    function fish_greeting
+        fastfetch
     end
 
     # Initialize Zoxide (smarter cd)
