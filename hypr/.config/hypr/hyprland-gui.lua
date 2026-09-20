@@ -14,15 +14,17 @@ hl.config({
     decoration = {
         active_opacity = 1.0,
         blur = {
+            noise = 0.0,
             passes = 4,
             size = 4,
         },
         dim_inactive = true,
         fullscreen_opacity = 1.0,
         inactive_opacity = 1.0,
+        rounding = 2,
         rounding_power = 5.0,
         shadow = {
-            color = "0xee1a1a1a",
+            color = "0xff000000",
             enabled = true,
             offset = "0 0",
             range = 2,
@@ -32,8 +34,8 @@ hl.config({
     general = {
         border_size = 1,
         col = {
-            active_border = "0xff9a9996",
-            inactive_border = "0xff3d3846",
+            active_border = "0xffffffff",
+            inactive_border = "0xff131313",
         },
         gaps_in = 2,
         gaps_out = 5,

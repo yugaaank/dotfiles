@@ -166,7 +166,7 @@ hl.window_rule({
 -- --- Simple Floating Rules ---
 hl.window_rule({
 	match = {
-		class = "^(blueberry\\.py|guifetch)$",
+		class = "^(blueberry\\.py|guifetch|btop)$",
 	},
 	float = true,
 })
@@ -291,7 +291,7 @@ hl.layer_rule({
 	match = {
 		namespace = "notifications",
 	},
-	animation = "slide right",
+	animation = "slide right 15%",
 	blur = true,
 	ignore_alpha = 0.69,
 })
@@ -300,14 +300,14 @@ hl.layer_rule({
 	match = {
 		namespace = "sideleft.*",
 	},
-	animation = "slide left",
+	animation = "slide left 15%",
 })
 
 hl.layer_rule({
 	match = {
 		namespace = "sideright.*",
 	},
-	animation = "slide right",
+	animation = "slide right 15%",
 })
 
 hl.layer_rule({
@@ -323,8 +323,15 @@ hl.layer_rule({
 	match = {
 		namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$",
 	},
-	no_anim = true,
 	ignore_alpha = 0.5,
 	blur = true,
 	blur_popups = true,
+})
+
+-- Control center: fade + slight scale
+hl.layer_rule({
+	match = {
+		namespace = "noctalia-panel",
+	},
+	animation = "fade",
 })

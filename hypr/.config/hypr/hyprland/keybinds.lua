@@ -21,7 +21,7 @@ hl.bind("SUPER + SHIFT + COMMA", hl.dsp.exec_cmd("noctalia msg panel-toggle noct
 -- System Utilities
 hl.bind("SUPER + I", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
-hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 hl.bind("SUPER + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 
 -- !
@@ -29,7 +29,7 @@ hl.bind("SUPER + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 -- #! Window
 hl.bind("SUPER + Q", hl.dsp.window.close())
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
-hl.bind("SUPER + B", hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + T", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind("SUPER + P", hl.dsp.window.pin())
 
@@ -107,11 +107,10 @@ hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Special Workspace
-hl.bind("SUPER + S", hl.dsp.workspace.toggle_special(""))
-hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
+hl.bind("SUPER + CTRL + S", hl.dsp.workspace.toggle_special(""))
+hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special" }))
 
 -- !
-
 -- #! Media & Hardware
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"), {
 	locked = true,
@@ -176,6 +175,7 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd("sh -c 'pkill noctalia; sleep 0.5; noctalia
 -- noctalia commands
 hl.bind("SUPER + ALT + N", hl.dsp.exec_cmd("noctalia msg nightlight-toggle"))
 hl.bind("SUPER + ALT + D", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
+hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("noctalia msg ocr-region"))
 hl.bind("SUPER + ALT + T", hl.dsp.exec_cmd("noctalia msg theme-mode-toggle"))
 
 -- Keybindings

@@ -3,8 +3,8 @@
 -- --- Core Configuration ---
 hl.config({
 	general = {
-		gaps_in = 2,
-		gaps_out = 5,
+		gaps_in = 5,
+		gaps_out = 10,
 		gaps_workspaces = 50,
 		border_size = 0,
 		col = {
@@ -40,8 +40,8 @@ hl.config({
 		workspace_swipe_use_r = false,
 	},
 	decoration = {
-		rounding_power = 2.4,
-		rounding = 0,
+		rounding = 20,
+		rounding_power = 2,
 		dim_inactive = false,
 		dim_strength = 0.05,
 		dim_special = 0.07,
@@ -51,12 +51,12 @@ hl.config({
 			xray = false,
 			special = true,
 			new_optimizations = true,
-			size = 6,
-			passes = 3,
+			size = 3,
+			passes = 2,
 			brightness = 1,
 			noise = 0.01,
 			contrast = 0.9,
-			vibrancy = 0.6,
+			vibrancy = 0.1696,
 			vibrancy_darkness = 0.5,
 			popups = true,
 			popups_ignorealpha = 0.6,
@@ -65,10 +65,10 @@ hl.config({
 		},
 		shadow = {
 			enabled = true,
-			range = 20,
+			range = 4,
 			offset = "0 4",
 			render_power = 3,
-			color = "rgba(00000033)",
+			color = 0xee1a1a1a,
 		},
 	},
 	animations = {
@@ -129,40 +129,37 @@ hl.gesture({ fingers = 3, direction = "pinch", action = "float" })
 hl.gesture({ fingers = 4, direction = "vertical", action = "workspace" })
 
 -- --- Animation Curves ---
-hl.curve("md3_decel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1.0 } } })
-hl.curve("md3_accel", { type = "bezier", points = { { 0.3, 0.0 }, { 0.8, 0.15 } } })
-hl.curve("menu_decel", { type = "bezier", points = { { 0.1, 1.0 }, { 0.0, 1.0 } } })
-hl.curve("quickOut", { type = "bezier", points = { { 0.1, 1.0 }, { 0.0, 1.0 } } })
-hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+hl.curve("snappy_in", { type = "bezier", points = { { 0.2, 0.0 }, { 1.0, 1.0 } } })
+hl.curve("snappy_out", { type = "bezier", points = { { 0.0, 0.0 }, { 0.0, 1.0 } } })
 
 -- --- Window & Workspace Animations ---
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.5, bezier = "overshot", style = "popin 80%" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 4, bezier = "md3_decel" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 12, bezier = "quickOut", style = "slide" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 12, bezier = "quickOut" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 8, bezier = "quickOut", style = "slide" })
-hl.animation({ leaf = "border", enabled = true, speed = 8, bezier = "menu_decel" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.5, bezier = "snappy_out", style = "popin 95%" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 2.5, bezier = "snappy_out" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "snappy_in", style = "popin 95%" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 2, bezier = "snappy_in" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "snappy_out", style = "slide 20%" })
+hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "snappy_out" })
 
-hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "menu_decel", style = "popin 85%" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 9, bezier = "quickOut", style = "popin 90%" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 2, bezier = "snappy_out", style = "popin 95%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "snappy_in", style = "popin 95%" })
 
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 4, bezier = "menu_decel" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 9, bezier = "quickOut" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "quickOut", style = "slidevert" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 2, bezier = "snappy_out" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.5, bezier = "snappy_in" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "snappy_out", style = "slidevert" })
 
 hl.animation({
 	leaf = "specialWorkspaceIn",
 	enabled = true,
-	speed = 4.5,
-	bezier = "md3_decel",
-	style = "slidefadevert 20%",
+	speed = 2.5,
+	bezier = "snappy_out",
+	style = "slidefadevert 10%",
 })
 hl.animation({
 	leaf = "specialWorkspaceOut",
 	enabled = true,
-	speed = 9,
-	bezier = "quickOut",
-	style = "slidefadevert 20%",
+	speed = 2,
+	bezier = "snappy_in",
+	style = "slidefadevert 10%",
 })
 
 -- --- Device Overrides ---
@@ -191,3 +188,14 @@ hl.device({
 --     icon = "_",
 --     action = "hyprctl dispatch fullscreen 1",
 -- })
+
+hl.layer_rule({
+	name = "noctalia",
+	match = {
+		namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+	},
+	no_anim = true,
+	ignore_alpha = 0.5,
+	blur = true,
+	blur_popups = true,
+})

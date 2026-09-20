@@ -4,6 +4,7 @@ hl.on("hyprland.start", function()
 	-- System environment & Keyring
 
 	hl.exec_cmd("noctalia")
+	hl.exec_cmd("vicinae server")
 	hl.exec_cmd("dbus-update-activation-environment --all")
 	hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	-- hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
