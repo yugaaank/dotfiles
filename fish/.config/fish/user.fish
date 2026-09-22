@@ -1,1 +1,1 @@
-/home/yugaaank/.config/fish/user.fish
+/home/yugaaank/dotfiles/fish/.config/fish/user.fish
