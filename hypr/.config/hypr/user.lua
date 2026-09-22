@@ -25,11 +25,19 @@ hl.bind("SUPER + Down",  hl.dsp.exec_cmd("hyprctl keyword general:border_size $(
 hl.bind("SUPER + Left",  hl.dsp.exec_cmd("hyprctl keyword general:border_size 0"))
 hl.bind("SUPER + Right", hl.dsp.exec_cmd("hyprctl keyword general:border_size 3"))
 
--- --- 4-finger swipe to change workspace (vertical) -------------------------
-hl.gesture({ fingers = 4, direction = "vertical", action = "workspace" })
+-- --- touchpad gestures -----------------------------------------------------
+-- 4-finger swipe to change workspace (horizontal)
+hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
 
--- workspace transition animation: vertical slide
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slidevert" })
+-- 3-finger swipe to move floating windows
+hl.gesture({ fingers = 3, direction = "swipe", action = "move" })
+
+-- workspace transition animation: horizontal slide
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slide" })
+
+-- --- move/resize floating windows with mouse -------------------------------
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- --- snappy-switcher (window switcher) --------------------------------------
 hl.on("hyprland.start", function()
