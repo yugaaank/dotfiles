@@ -5,7 +5,7 @@
   "markdown_preview_font_family": "JetBrainsMono Nerd Font",
   "disable_ai": false,
   "cli_default_open_behavior": "existing_window",
-  "ui_font_family": "SF Pro Text",
+  "ui_font_family": "Space Grotesk",
   "scrollbar": {
     "show": "never"
   },
@@ -47,7 +47,7 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "buffer_font_family": ".ZedMono",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "agent_servers": {
     "github-copilot-cli": {
       "default_config_options": {

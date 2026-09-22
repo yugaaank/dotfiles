@@ -1,0 +1,1 @@
+/home/yugaaank/.config/hypr/user.lua

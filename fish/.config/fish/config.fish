@@ -1,104 +1,80 @@
-# Fish Shell Configuration
+# ~/.local/bin on PATH for every shell, not only interactive: tools dropped in
+# there (claude, oh-my-posh) work, and the ryoku-fastfetch wrapper below
+# resolves. fish_add_path is idempotent.
+if test -d $HOME/.local/bin
+    fish_add_path $HOME/.local/bin
+end
 
-# --- Interactive Session Settings ---
+# point `go install` and `cargo install` at ~/.local/bin, and keep an existing
+# editor choice.
+set -gx GOBIN $HOME/.local/bin
+set -gx CARGO_INSTALL_ROOT $HOME/.local
+set -q EDITOR; or set -gx EDITOR nvim
+set -q VISUAL; or set -gx VISUAL nvim
+
 if status is-interactive
-    # Disable welcome greeting
     set -g fish_greeting
 
-    # Erase universal key bindings at startup (workaround for older fish versions)
-    set --erase --universal fish_key_bindings
-    # Enable Vim-style key bindings
-    fish_vi_key_bindings
+    # legible fish syntax colours. fish applies a palette-tied default before
+    # config.fish runs (in our case with a malformed flag that made typed input
+    # the same colour as the background). pin a fixed scheme unconditionally so
+    # it always wins, regardless of the palette.
+    set -g fish_color_normal F1F3E4
+    set -g fish_color_command e2342a
+    set -g fish_color_keyword e83b30
+    set -g fish_color_param F1F3E4
+    set -g fish_color_option CCD0CF
+    set -g fish_color_quote A3C293
+    set -g fish_color_redirection 8AA9CC
+    set -g fish_color_end e83b30
+    set -g fish_color_error FF6B6B
+    set -g fish_color_comment 949699
+    set -g fish_color_operator 93D4E0
+    set -g fish_color_escape 93D4E0
+    set -g fish_color_autosuggestion 949699
 
-    # Backspace behaves like bash on ctrl-backspace
-    bind ctrl-backspace backward-kill-word
+    # branded system readout on terminal open.
+    #if command -v ryoku-fastfetch >/dev/null 2>&1
+    #  ryoku-fastfetch
+    #end
 
-    # Starship disabled — using custom tsugumori prompt in fish_prompt.fish
-
-    # Run fastfetch on terminal open
-    function fish_greeting
-        fastfetch
+    # prompt.
+    if command -v starship >/dev/null 2>&1
+        starship init fish | source
     end
 
-    # Initialize Zoxide (smarter cd)
-    if type -q zoxide
-        zoxide init fish | source
-        alias cd="z"
+    # directory jumper: hook `cd` into zoxide so plain `cd` learns and jumps to
+    # frecent dirs (`cdi` for an interactive pick).
+    if command -v zoxide >/dev/null 2>&1
+        zoxide init fish --cmd cd | source
     end
 
-    alias list="python3 ~/Projects/list/check_models.py"
-    alias c="clear"
-    alias ex="exit"
-    alias nv="nvim ."
-    alias grep="grep --color=auto"
-    alias df="df -h"
-    alias du="du -h"
-    alias la="ls -A"
-    alias ll="ls -lah"
-    alias l="ls -CF"
+    # runtime version manager: shims + per-project tool versions.
+    if command -v mise >/dev/null 2>&1
+        mise activate fish | source
+    end
 
-    # Developer & Shell shortcuts
-    alias bi="bun install"
-    alias bd="bun dev"
-    alias bb="bun run build"
-    alias fs="c && fastfetch"
-    alias ff="fzf"
-    alias fsh="nvim ~/.config/fish/config.fish"
-    alias so="source ~/.config/fish/config.fish"
-    alias gay="agy"
-    alias an="prime-run env QT_QPA_PLATFORM=xcb emulator -avd Pixel_10_Pro -gpu angle"
+    # fzf walks the tree via fd when present.
+    if command -v fd >/dev/null 2>&1
+        set -gx FZF_DEFAULT_COMMAND 'fd --hidden --follow --exclude .git'
+        set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+        set -gx FZF_ALT_C_COMMAND 'fd --type d --hidden --follow --exclude .git'
+    end
+
+    # fzf keys: Ctrl-R history, Ctrl-T files, Alt-C cd.
+    if command -v fzf >/dev/null 2>&1
+        fzf --fish | source
+    end
+
+    # eza listings.
+    if command -v eza >/dev/null 2>&1
+        alias ls 'eza -lh --group-directories-first --icons=auto'
+        alias lsa 'ls -a'
+        alias lt 'eza --tree --level=2 --long --icons --git'
+        alias lta 'lt -a'
+    end
 end
 
-# --- Environment Variables ---
-set -gx CLICOLOR 1
-set -gx fish_history main
-set -gx MANPAGER "less -R"
-set -gx OLLAMA_NUM_GPU 1
-set -gx TIKTOKEN_CACHE_DIR $HOME/.cache/tiktoken
-set -gx ANDROID_HOME $HOME/Android/Sdk
-set -gx ANDROID_SDK_ROOT $HOME/Android/Sdk
-set -gx nvm_default_version lts
-
-# --- PATH Configuration ---
-test -d $HOME/.bun/bin; and fish_add_path $HOME/.bun/bin
-test -d $HOME/.local/bin; and fish_add_path $HOME/.local/bin
-if test -n "$ANDROID_HOME"
-    test -d $ANDROID_HOME/emulator; and fish_add_path $ANDROID_HOME/emulator
-    test -d $ANDROID_HOME/platform-tools; and fish_add_path $ANDROID_HOME/platform-tools
-    test -d $ANDROID_HOME/cmdline-tools/latest/bin; and fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
-end
-test -d $HOME/.opencode/bin; and fish_add_path $HOME/.opencode/bin
-
-# Always return success
-true
-# raspberry pi-ssh
-function pi-ssh
-    set interface (ip route | awk '$1 == "default" {print $5; exit}')
-
-    if test -z "$interface"
-        echo "No network interface found"
-        return 1
-    end
-
-    set subnet (ip -4 route show dev $interface | awk '$1 ~ /^[0-9]+\.[0-9]+\.[0-9]+\./ {print $1; exit}')
-
-    if test -z "$subnet"
-        echo "Could not determine network"
-        return 1
-    end
-
-    echo "Searching for Raspberry Pi..."
-
-    set ip (sudo nmap -sn "$subnet" 2>/dev/null | awk '
-        /Nmap scan report/ { ip=$NF }
-        /B8:27:EB:D1:2A:9A/ { print ip; exit }
-    ')
-
-    if test -z "$ip"
-        echo "Raspberry Pi not found"
-        return 1
-    end
-
-    echo "Connecting to $ip..."
-    ssh berry@$ip
-end
+# user overrides: ~/.config/fish/user.fish is never shipped, never touched on
+# update, and loads last so your stuff wins.
+test -f $__fish_config_dir/user.fish && source $__fish_config_dir/user.fish
