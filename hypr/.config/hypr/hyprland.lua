@@ -28,3 +28,6 @@ require("hyprland-gui")
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
+
+-- User overrides, loaded last so they win
+require("user")

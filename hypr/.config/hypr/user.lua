@@ -29,9 +29,6 @@ hl.bind("SUPER + Right", hl.dsp.exec_cmd("hyprctl keyword general:border_size 3"
 -- 4-finger swipe to change workspace (horizontal)
 hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
 
--- 3-finger swipe to move floating windows
-hl.gesture({ fingers = 3, direction = "swipe", action = "move" })
-
 -- workspace transition animation: horizontal slide
 hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slide" })
 
@@ -60,6 +57,9 @@ hl.window_rule({
 
 -- kitty keeps its border even when alone
 hl.window_rule({ match = { class = "kitty", workspace = "w[tv1]" }, border_size = 1 })
+
+-- --- pin floating window (sticky on all workspaces) ------------------------
+hl.bind("SUPER + P", hl.dsp.window.pin())
 
 -- --- focus follows cursor --------------------------------------------------
 hl.config({
