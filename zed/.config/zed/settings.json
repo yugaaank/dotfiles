@@ -1,106 +1,57 @@
-// Zed editor settings configuration.
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "buffer_font_weight": 450.0,
-  "ui_font_weight": 400.0,
-  "markdown_preview_font_family": "JetBrainsMono Nerd Font",
-  "disable_ai": false,
-  "cli_default_open_behavior": "existing_window",
-  "ui_font_family": "Space Grotesk",
-  "scrollbar": {
-    "show": "never"
-  },
-  "title_bar": {
-    "button_layout": "platform_default",
-    "show_user_picture": true,
-    "show_user_menu": true,
-    "show_sign_in": true,
-    "show_onboarding_banner": true,
-    "show_branch_name": true,
-    "show_menus": false,
-    "show_project_items": true,
-    "show_branch_status_icon": false
-  },
-  "project_panel": {
-    "dock": "right"
-  },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "collaboration_panel": {
-    "dock": "right"
-  },
-  "git_panel": {
-    "dock": "right"
-  },
-  "vim": {
-    "toggle_relative_line_numbers": true
-  },
-  "vim_mode": true,
-  "agent": {
-    "sidebar_side": "right",
-    "dock": "right",
-    "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-flash",
-      "enable_thinking": true
-    },
-    "favorite_models": [],
-    "model_parameters": []
-  },
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "agent_servers": {
-    "github-copilot-cli": {
-      "default_config_options": {
-        "allow_all": "on"
-      },
-      "type": "registry"
-    },
-    "claude-acp": {
-      "type": "registry"
-    },
-    "opencode": {
-      "default_config_options": {
-        "model": "opencode/laguna-s-2.1-free"
-      },
-      "type": "registry"
-    },
-    "codex-acp": {
-      "type": "registry"
-    }
-  },
-  "icon_theme": {
-    "mode": "system",
-    "light": "Zed (Default)",
-    "dark": "Soft Charmed Icons"
-  },
   "terminal": {
-    "shell": {
-      "with_arguments": {
-        "program": "fish",
-        "args": [],
-        "title_override": null
-      }
-    },
-    "scrollbar": {
-      "show": "always"
-    },
-    "font_size": 13.0,
-    "font_weight": 400.0,
-    "font_family": "JetBrainsMono Nerd Font Propo"
+    "font_weight": 200.0
   },
   "buffer_line_height": "comfortable",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "session": {
-    "trust_all_worktrees": true
-  },
-  "ui_font_size": 15.0,
+  "buffer_font_weight": 300.0,
+  "ui_font_size": 16,
   "buffer_font_size": 15.0,
   "theme": {
-    "mode": "dark",
-    "light": "Ayu Light",
+    "mode": "system",
+    "light": "One Light",
     "dark": "Warm Perf"
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd", "!nil"]
+    },
+    "QML": {
+      "formatter": {
+        "external": {
+          "command": "sh",
+          "arguments": [
+            "-c",
+            "tmp=$(mktemp --suffix .qml); cat > $tmp; qmlformat $tmp"
+          ]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "nixpkgs": {
+          "expr": "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs {}"
+        },
+        "formatting": {
+          "command": ["alejandra"]
+        }
+      }
+    },
+    "qml": {
+      "binary": {
+        "arguments": ["-E"]
+      }
+    }
   }
 }

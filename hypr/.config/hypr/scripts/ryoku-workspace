@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+# Desktop-relative workspace navigation, and the single source of truth for the
+# "desktop" concept the Ryoku overview shows.
+#
+# A desktop is a block of PER workspace ids: desktop d owns ids
+# [d*PER+1 .. d*PER+PER]. The current desktop is DERIVED from the focused
+# monitor's active workspace, so Super+N always targets the Nth workspace of the
+# desktop you are on (on desktop 2, Super+3 -> ws13, never ws3) and a window sent
+# with Super+Alt+N stays on the current desktop instead of jumping to desktop 1.
+#
+# PER must match the overview's `perDesktop`
+# (ryoku/shell/quickshell/overview/Overview.qml). It is the one design constant;
+# the live desktop is computed, never stored, so it can never drift.
+#
+#   ryoku-workspace desktop          print the current desktop index (0-based)
+#   ryoku-workspace focus <1..PER>   focus the Nth workspace of the current desktop
+#   ryoku-workspace move  <1..PER>   move the active window there (and follow it)
+#   ryoku-workspace hide             stash the focused window in the scratchpad,
+#                                    or pull it back out if it is already there
+#   ryoku-workspace scratch          show the scratchpad, or hide it and hand
+#                                    keyboard focus back to what is on screen
+#
+set -euo pipefail
+
+PER=10
+
+active_ws() { hyprctl activeworkspace -j | jq -r '.id' 2>/dev/null || echo 0; }
+
+# The special workspace open on the focused monitor, or empty when none is.
+special_ws() { hyprctl monitors -j | jq -r '.[]|select(.focused)|.specialWorkspace.name' 2>/dev/null || echo ""; }
+
+# Must match the special workspace binds.lua toggles on Super+Alt+H.
+SCRATCH=scratch
+
+current_desktop() {
+  local a
+  a=$(active_ws)
+  # special (negative) or unresolved -> desktop 0.
+  if [[ -z $a || $a -lt 1 ]]; then
+    echo 0
+  else
+    echo $(( (a - 1) / PER ))
+  fi
+}
+
+# slot (1..PER) -> absolute workspace id on the current desktop.
+target_ws() {
+  local slot=$1 desk
+  desk=$(current_desktop)
+  echo $(( desk * PER + slot ))
+}
+
+cmd=${1:-}
+case "$cmd" in
+  desktop)
+    current_desktop
+    ;;
+  focus)
+    ws=$(target_ws "${2:?slot 1..$PER required}")
+    # focusing a workspace already moves focus to the monitor that owns it, so
+    # a workspace on a secondary monitor stays put. This is a lua-config
+    # Hyprland, so dispatch the hl.dsp.* lua form (a plain "dispatch workspace
+    # N" is parsed as invalid Lua and rejected).
+    hyprctl dispatch "hl.dsp.focus({ workspace = $ws })" >/dev/null
+    ;;
+  move)
+    ws=$(target_ws "${2:?slot 1..$PER required}")
+    hyprctl dispatch "hl.dsp.window.move({ workspace = $ws })" >/dev/null
+    ;;
+  movesilent)
+    ws=$(target_ws "${2:?slot 1..$PER required}")
+    addr=$(hyprctl activewindow -j | jq -r '.address')
+    hyprctl dispatch "hl.dsp.window.move({
+        workspace = \"$ws\",
+        window = \"address:$addr\",
+        follow = false
+    })" >/dev/null
+    ;;
+  hide)
+    ws=$(hyprctl activewindow -j 2>/dev/null | jq -r '.workspace.name // empty' || true)
+    [[ -z $ws ]] && exit 0
+    back=$(active_ws)
+    [[ $back -lt 1 ]] && exit 0
+    if [[ $ws == special:* ]]; then
+      # activeworkspace reports the normal workspace under an open overlay, which
+      # is where the window came from. Not silent: following it restores focus.
+      hyprctl dispatch "hl.dsp.window.move({ workspace = $back })" >/dev/null
+    else
+      # No float/resize/centre: rewriting geometry would return a tiled window as
+      # a centred float instead of to its slot.
+      hyprctl dispatch "hl.dsp.window.move({ workspace = \"special:$SCRATCH\", silent = true })" >/dev/null
+      # A silent move still drags focus into the scratchpad, which shows it. Undo
+      # both, or the window stays on screen and typing goes somewhere invisible.
+      [[ $(special_ws) == "special:$SCRATCH" ]] &&
+        hyprctl dispatch "hl.dsp.workspace.toggle_special(\"$SCRATCH\")" >/dev/null
+      hyprctl dispatch "hl.dsp.focus({ workspace = $back })" >/dev/null
+    fi
+    ;;
+  scratch)
+    # activeworkspace reports the normal workspace under an open overlay, so this
+    # is what is on screen either way.
+    back=$(active_ws)
+    hyprctl dispatch "hl.dsp.workspace.toggle_special(\"$SCRATCH\")" >/dev/null
+    # Hyprland leaves keyboard focus on the window it just hid. The next surface
+    # that takes and releases a keyboard grab (any bar panel or menu) then hands
+    # focus back to it, and focusing a window on a special workspace shows that
+    # workspace: closing a panel would pop the scratchpad straight back open.
+    #
+    # So hiding hands focus to a window that is actually on screen. It has to be a
+    # window, not the workspace: focusing an empty workspace leaves Hyprland with
+    # nothing to focus, so it keeps the hidden window and re-reveals the
+    # scratchpad on the spot. Nothing to hand focus to means leave it alone.
+    if [[ -z $(special_ws) && $back -ge 1 ]]; then
+      addr=$(hyprctl clients -j 2>/dev/null | jq -r --argjson ws "$back" \
+        'map(select(.workspace.id == $ws)) | sort_by(.focusHistoryID) | .[0].address // empty' \
+        || true)
+      [[ -n $addr ]] &&
+        hyprctl dispatch "hl.dsp.focus({ window = \"address:$addr\" })" >/dev/null
+    fi
+    ;;
+  *)
+    echo "usage: ryoku-workspace {desktop|focus <1..$PER>|move <1..$PER>|hide|scratch}" >&2
+    exit 2
+    ;;
+esac

@@ -1,1 +1,0 @@
-/home/yugaaank/dotfiles/fish/.config/fish/user.fish

@@ -1,0 +1,69 @@
+#!/bin/bash
+# ryoku-app: launch the user's chosen app for a role, or the Ryoku default.
+#
+#	ryoku-app terminal              open the terminal
+#	ryoku-app terminal -- btop      run btop inside it
+#
+# The choice lives in the Hub's store (~/.config/ryoku/hypr.json, "apps"); the
+# Default Apps page (Ryoku Settings) writes it. Reading it here means a swap takes
+# effect on the next launch with no reload. The fallbacks match the shipped binds,
+# so an unconfigured system behaves exactly as before.
+set -euo pipefail
+
+# Everything the desktop opens through here inherits this environment, and a
+# Quickshell instance that has crashed once leaves __QUICKSHELL_CRASH_INFO_FD in
+# it: the memfd of the config it came back from. Quickshell reads that variable
+# before it parses arguments, so `qs -c ryovm` run in the terminal we exec
+# would draw a second desktop instead of the app. Drop the handle once, here.
+unset __QUICKSHELL_CRASH_INFO_FD __QUICKSHELL_CRASH_DUMP_PID \
+	__QUICKSHELL_CRASH_DUMP_FD __QUICKSHELL_CRASH_LOG_FD __QUICKSHELL_CRASH_SIGNAL
+
+role="${1:-}"
+[ -n "$role" ] || { echo "usage: ryoku-app <role> [-- <program> [arg...]]" >&2; exit 2; }
+shift
+
+inner=()
+if [ "${1:-}" = "--" ]; then
+	shift
+	inner=("$@")
+	[ ${#inner[@]} -gt 0 ] || { echo "ryoku-app: -- needs a program to run" >&2; exit 2; }
+fi
+
+store="${XDG_CONFIG_HOME:-$HOME/.config}/ryoku/hypr.json"
+
+fallback() {
+	case "$1" in
+	browser)
+		if command -v zen >/dev/null 2>&1; then echo "zen"
+		elif command -v zen-browser >/dev/null 2>&1; then echo "zen-browser"
+		else echo "chromium"; fi ;;
+	terminal) echo "kitty" ;;
+	editor)   echo "kitty -e nvim" ;;
+	files)    echo "nautilus" ;;
+	*)        echo "" ;;
+	esac
+}
+
+cmd=""
+if [ -r "$store" ] && command -v jq >/dev/null 2>&1; then
+	cmd="$(jq -r --arg r "$role" '.apps[$r] // empty' "$store" 2>/dev/null || true)"
+fi
+[ -n "$cmd" ] || cmd="$(fallback "$role")"
+
+if [ -z "$cmd" ]; then
+	notify-send "Ryoku" "No app set for \"$role\". Pick one in Settings > Default Apps." 2>/dev/null || true
+	exit 1
+fi
+
+if [ ${#inner[@]} -eq 0 ]; then
+	exec sh -c "$cmd"
+fi
+
+# Handing a program over is per-emulator: kitty and foot take trailing argv.
+read -r -a argv <<<"$cmd"
+case "${argv[0]##*/}" in
+kitty | foot) ;;
+wezterm) argv+=(start --) ;;
+*) argv+=(-e) ;;
+esac
+exec "${argv[@]}" "${inner[@]}"

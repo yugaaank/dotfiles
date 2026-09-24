@@ -326,7 +326,7 @@ polkit_agent = true
 community_palette = "Shinonome"
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-monochrome"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "starship" ]

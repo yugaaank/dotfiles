@@ -1,0 +1,50 @@
+-- monitors_user.lua: hand-written manual monitor overrides.
+--
+-- Copy this file to ~/.config/hypr/monitors_user.lua and edit it. It is loaded
+-- after the auto-generated monitors.lua, so anything you set here wins, and
+-- ryoku-monitor's autoscale leaves any output you name here alone (it never
+-- fights your manual config). The file is yours: it is never shipped, and
+-- ryoku-monitor never overwrites it.
+--
+-- Use it when auto-detection is wrong: a monitor with a fake or generic EDID, a
+-- panel that needs a forced mode or a custom modeline, or a layout you want
+-- pinned. Note: a wrong aspect ratio (big black bars on the sides) is usually a
+-- setting in the monitor's own on-screen menu, not something Hyprland controls.
+--
+-- List your outputs and their modes with:  hyprctl monitors all
+--
+-- Examples (keep only the lines you need):
+
+-- Force a specific resolution, refresh, position, and scale:
+-- hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@180", position = "2560x0", scale = 1 })
+-- Hyprland only accepts a scale that divides the mode into whole logical pixels
+-- (2560x1080 takes 1, 1.25, 1.6, 2; it rounds 1.5 to the nearest valid one and
+-- warns). Ryoku Settings > Displays only offers a panel's valid scales, so prefer
+-- the GUI; a hand-set scale here that does not divide cleanly is snapped.
+
+-- Force a custom modeline when the EDID hides the panel's real native mode. Build
+-- the timing with:  cvt -r 3440 1440 60   (or `cvt` for standard blanking). Pass
+-- the dotclock, the four horizontal and four vertical values, then the sync flags.
+-- hl.monitor({ output = "HDMI-A-1", mode = "modeline 319.75 3440 3488 3520 3600 1440 1443 1453 1481 +hsync -vsync", position = "2560x0", scale = 1 })
+
+-- A TV or ultrawide that lists a resolution but will not switch to it -- the
+-- desktop snaps back to a smaller mode and the Hyprland log shows "REJECTED
+-- available mode" next to "atomic drm request: failed to commit: Invalid
+-- argument" -- has a DRM backend rejecting buffer-format modifiers for that sink.
+-- Turning them off fixes it. It is an environment variable, not a monitor rule,
+-- but it is read from here before the display server starts, so it sits with the
+-- panel quirk it cures; log out and back in for it to take. Ryoku sets this
+-- already on AMD and Intel; a single-GPU nvidia box driving a TV needs it by hand:
+-- hl.env("AQ_NO_MODIFIERS", "1")
+
+-- Rotate (transform 1 = 90 degrees), mirror another output, or disable:
+-- hl.monitor({ output = "DP-1", mode = "highrr", position = "0x0", scale = 1, transform = 1 })
+-- hl.monitor({ output = "DP-2", mode = "highrr", position = "0x0", scale = 1, mirror = "eDP-1" })
+-- hl.monitor({ output = "DP-3", disabled = true })
+
+-- Turn off a phantom output. Some machines expose a connector with no display
+-- on it -- a port routed through a discrete GPU on a hybrid laptop, or a KVM /
+-- dock that keeps a dead EDID line alive -- and Hyprland lights it as a blank
+-- second desktop that windows can get lost on. `ryoku doctor` names it (as a
+-- "phantom Wayland output"); disable it here, one line per output:
+-- hl.monitor({ output = "HDMI-A-1", disabled = true })
