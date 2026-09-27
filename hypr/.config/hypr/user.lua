@@ -1,20 +1,25 @@
 -- --- hypr/user.lua --------------------------------------------------------
--- Your Hyprland overrides, in Ryoku's `hl` Lua API. Loaded LAST, so anything
--- here wins over Ryoku's defaults and over Ryoku Settings. Updates never touch
--- it. Reach for it only for raw config the GUI does not expose.
+-- Your Hyprland overrides. Loaded LAST, so anything here wins over Ryoku's
+-- defaults, Ryoku Settings (settings.lua), and HyprMod (hyprland-gui.lua).
+-- Updates never touch it.
 --
 -- --- who owns what --------------------------------------------------------
 --   Ryoku defaults   the base modules           replaced by updates   don't edit
---   Ryoku Settings   settings.lua, rebinds.lua  the GUI writes these  edit in-app
---   you              this file (edit it here); whole-file forks in user_edits  yours
+--   Ryoku Settings   settings.lua               the GUI writes these  edit in-app
+--   HyprMod          hyprland-gui.lua           managed by HyprMod    don't edit
+--   you              this file                  yours                 edit here
 --
--- --- take over a whole module ---------------------------------------------
--- Copy it into the overlay at the same path and edit there, e.g.
---   ~/.config/ryoku/user_edits/hypr/modules/binds.lua
--- You then own that file: `ryoku doctor` warns when an update changes the
--- original, and `ryoku reset hypr/modules/binds.lua` hands it back.
---
--- --- examples -------------------------------------------------------------
--- hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("kitty"))
--- hl.window_rule({ name = "float-mpv", match = { class = "mpv" }, float = true })
--- hl.config({ general = { border_size = 3 } })
+-- --- personal overrides ----------------------------------------------------
+-- These ALWAYS win, even over the GUI. Change them here, not in the GUI.
+-- Everything else (gaps, borders, decoration, cursor, animations) is
+-- controlled by the GUI and lives in settings.lua.
+
+hl.config({
+  input = {
+    follow_mouse = 2,
+    touchpad = {
+      tap_to_click = true,
+      drag_lock = true,
+    },
+  },
+})
