@@ -186,9 +186,9 @@ hl.window_rule({
     float = true,
 })
 
---| Single window: no borders, no gaps (smart gaps)
---| hl.workspace_rule({ workspace = "w[tv1]", border_size = 0, gaps_out = 0, gaps_in = 0 })
---| hl.workspace_rule({ workspace = "f[1]",   border_size = 0, gaps_out = 0, gaps_in = 0 })
+-- Single window: no borders, no gaps (smart gaps)
+hl.workspace_rule({ workspace = "w[tv1]", border_size = 0, gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]",   border_size = 0, gaps_out = 0, gaps_in = 0 })
 
 -- Kitty keeps its border even on single-window workspaces
 hl.window_rule({

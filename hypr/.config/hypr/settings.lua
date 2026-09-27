@@ -18,6 +18,7 @@ hl.env("XCURSOR_SIZE", "14")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("HYPRCURSOR_SIZE", "14")
 
+hl.window_rule({ name = "ryoku-tame-maximize-on-open", match = { class = ".*" }, suppress_event = "maximize" })
 local function ryoku_plugin_loaded(name)
   for _, p in ipairs(hl.get_loaded_plugins()) do
     if p.name == name then return true end
