@@ -90,3 +90,9 @@ export VISUAL='nvim'
 # Local configuration
 # ------------------------------------------------------------#
 # Put personal aliases/functions below this line.
+
+batt() {
+    for f in status capacity power_now voltage_now current_now; do
+        echo "$f: $(cat /sys/class/power_supply/BAT1/$f 2>/dev/null)"
+    done
+}
