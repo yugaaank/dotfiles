@@ -15,11 +15,13 @@
 -- controlled by the GUI and lives in settings.lua.
 
 hl.config({
-  input = {
-    follow_mouse = 1,
-    touchpad = {
-      tap_to_click = true,
-      drag_lock = true,
-    },
-  },
+	input = {
+		follow_mouse = 1,
+		touchpad = {
+			tap_to_click = true,
+			drag_lock = true,
+		},
+	},
 })
+
+require("hyprland-gui")

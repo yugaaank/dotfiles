@@ -5,4 +5,4 @@
 [[ -r ~/.config/zsh/ryoku.zsh ]] && source ~/.config/zsh/ryoku.zsh
 
 alias fs="clear && fastfetch"
-fastfetch
+
