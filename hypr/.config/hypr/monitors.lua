@@ -3,7 +3,7 @@
 -- here are lost: put durable manual overrides in ~/.config/hypr/monitors_user.lua
 -- (see monitors_user.lua.example), which is loaded after this file and wins.
 
-hl.monitor({ output = "eDP-1", mode = "1920x1200@60.00", position = "0x0", scale = 1, cm = "wide", bitdepth = 10, sdrbrightness = 1 })
+hl.monitor({ output = "eDP-1", mode = "1920x1200@60.00", position = "0x0", scale = 1, cm = "srgb", bitdepth = 8, sdrbrightness = 1 })
 
 -- Keep GTK and XWayland apps crisp (nearest whole scale when every monitor
 -- agrees, else 1).

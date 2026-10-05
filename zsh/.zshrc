@@ -6,3 +6,5 @@
 
 alias fs="clear && fastfetch"
 
+
+export PATH=$PATH:/home/yugaaank/.spicetify

@@ -86,6 +86,9 @@ setopt EXTENDED_GLOB
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# Bun global bin (bun add --global installs binaries here)
+[[ -d "$HOME/.bun/bin" ]] && export PATH="$HOME/.bun/bin:$PATH"
+
 # ------------------------------------------------------------#
 # Local configuration
 # ------------------------------------------------------------#
